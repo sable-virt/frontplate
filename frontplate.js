@@ -51,7 +51,7 @@ module.exports = {
         },
         // JS Hint
         js: {
-            src: 'source/js/**/*.js',
+            src: ['source/js/**/*.js','!source/js/**/_*.js'],
             dest: 'assets/js'
         },
         // Image min
