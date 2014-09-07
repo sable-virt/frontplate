@@ -1,0 +1,19 @@
+/*
+#styleguide
+基本スタイル
+
+```
+<p>特に何も指定しないときの状態</p>
+```
+*/
+body {
+	-webkit-text-size-adjust: 100%;
+	text-size-adjust: 100%;
+	-webkit-font-smoothing: $font-smoothing;
+	font-smoothing: $font-smoothing;
+	text-rendering: $text-rendering;
+	font-size: $base-font-size;
+	font-family: $base-font-family;
+	color: $base-font-color;
+	background-color: $base-background-color;
+}

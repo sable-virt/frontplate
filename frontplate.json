@@ -1,0 +1,29 @@
+{
+    "BASE_PATH": "app",
+    "DEST_PATH": "dest",
+    "autoprefixer": {
+        "browser": ["last 3 version", "ie >= 8", "Android 4.0"]
+    },
+    "karma": {
+        "config": "karma.conf.js"
+    },
+    "sass": {
+        "errLogToConsole": true,
+        "sourceComments": "normal",
+        "sourceMap": true
+    },
+    "sprite": {
+        "extension": ".png",
+        "imgExtension": ".png",
+        "cssExtension": ".scss",
+        "options": {
+            "algorithm": "binary-tree",
+            "padding": 5
+        }
+    },
+    "styleguide": {
+        "out": "docs",
+        "overview": "styleguide.md"
+    }
+
+}

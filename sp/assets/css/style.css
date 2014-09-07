@@ -1,0 +1,513 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+/* line 6, /Users/HayashiYuichi/Documents/project/frontplate/sp/source/sass/base/reset */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+/* line 16, /Users/HayashiYuichi/Documents/project/frontplate/sp/source/sass/base/reset */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+/* line 19, /Users/HayashiYuichi/Documents/project/frontplate/sp/source/sass/base/reset */
+body {
+  line-height: 1; }
+
+/* line 22, /Users/HayashiYuichi/Documents/project/frontplate/sp/source/sass/base/reset */
+ol, ul {
+  list-style: none; }
+
+/* line 25, /Users/HayashiYuichi/Documents/project/frontplate/sp/source/sass/base/reset */
+blockquote, q {
+  quotes: none; }
+
+/* line 29, /Users/HayashiYuichi/Documents/project/frontplate/sp/source/sass/base/reset */
+blockquote:before, blockquote:after {
+  content: '';
+  content: none; }
+
+/* line 34, /Users/HayashiYuichi/Documents/project/frontplate/sp/source/sass/base/reset */
+q:before, q:after {
+  content: '';
+  content: none; }
+
+/* line 38, /Users/HayashiYuichi/Documents/project/frontplate/sp/source/sass/base/reset */
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* line 1, /Users/HayashiYuichi/Documents/project/frontplate/sp/source/sass/base/placeholders */
+.clearfix {
+  *zoom: 1; }
+  /* line 3, /Users/HayashiYuichi/Documents/project/frontplate/sp/source/sass/base/placeholders */
+  .clearfix:before, .clearfix:after {
+    content: " ";
+    display: table; }
+  /* line 7, /Users/HayashiYuichi/Documents/project/frontplate/sp/source/sass/base/placeholders */
+  .clearfix:after {
+    clear: both; }
+
+/*
+#styleguide
+基本スタイル
+
+```
+<p>特に何も指定しないときの状態</p>
+```
+*/
+/* line 9, /Users/HayashiYuichi/Documents/project/frontplate/sp/source/sass/base/base */
+body {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  text-rendering: auto;
+  font-size: 14px;
+  font-family: "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
+  color: #333;
+  background-color: #fff; }
+
+/*
+#styleguide
+button
+
+```
+<i class="button button-combo"></i>
+<i class="button button-mailmaga-active"></i>
+<i class="button button-mailmaga"></i>
+<i class="button button-members-cover"></i>
+<i class="button button-members-icon"></i>
+<i class="button button-members-text"></i>
+<i class="button button-members"></i>
+<i class="button button-more"></i>
+<i class="button button-pagetop-active"></i>
+<i class="button button-pagetop"></i>
+<i class="button button-slide-left"></i>
+<i class="button button-slide-right"></i>
+```
+*/
+/* line 33, /Users/HayashiYuichi/Documents/project/frontplate/sp/source/sass/sprites/button */
+.button {
+  display: inline-block; }
+  /* line 35, /Users/HayashiYuichi/Documents/project/frontplate/sp/source/sass/sprites/button */
+  .button.button-combo {
+    background-image: url(../images/sprites/button.png);
+    background-repeat: no-repeat;
+    background-position: -293px -79px;
+    width: 23px;
+    height: 30px;
+    background-size: 320px 255px; }
+  /* line 38, /Users/HayashiYuichi/Documents/project/frontplate/sp/source/sass/sprites/button */
+  .button.button-mailmaga-active {
+    background-image: url(../images/sprites/button.png);
+    background-repeat: no-repeat;
+    background-position: -118px -79px;
+    width: 113px;
+    height: 58px;
+    background-size: 320px 255px; }
+  /* line 41, /Users/HayashiYuichi/Documents/project/frontplate/sp/source/sass/sprites/button */
+  .button.button-mailmaga {
+    background-image: url(../images/sprites/button.png);
+    background-repeat: no-repeat;
+    background-position: 0px -79px;
+    width: 113px;
+    height: 58px;
+    background-size: 320px 255px; }
+  /* line 44, /Users/HayashiYuichi/Documents/project/frontplate/sp/source/sass/sprites/button */
+  .button.button-members-cover {
+    background-image: url(../images/sprites/button.png);
+    background-repeat: no-repeat;
+    background-position: 0px -142px;
+    width: 250px;
+    height: 56px;
+    background-size: 320px 255px; }
+  /* line 47, /Users/HayashiYuichi/Documents/project/frontplate/sp/source/sass/sprites/button */
+  .button.button-members-icon {
+    background-image: url(../images/sprites/button.png);
+    background-repeat: no-repeat;
+    background-position: -106px -203px;
+    width: 28px;
+    height: 29px;
+    background-size: 320px 255px; }
+  /* line 50, /Users/HayashiYuichi/Documents/project/frontplate/sp/source/sass/sprites/button */
+  .button.button-members-text {
+    background-image: url(../images/sprites/button.png);
+    background-repeat: no-repeat;
+    background-position: -106px -237px;
+    width: 203px;
+    height: 17px;
+    background-size: 320px 255px; }
+  /* line 53, /Users/HayashiYuichi/Documents/project/frontplate/sp/source/sass/sprites/button */
+  .button.button-members {
+    background-image: url(../images/sprites/button.png);
+    background-repeat: no-repeat;
+    background-position: -70px 0px;
+    width: 250px;
+    height: 58px;
+    background-size: 320px 255px; }
+  /* line 56, /Users/HayashiYuichi/Documents/project/frontplate/sp/source/sass/sprites/button */
+  .button.button-more {
+    background-image: url(../images/sprites/button.png);
+    background-repeat: no-repeat;
+    background-position: 0px 0px;
+    width: 65px;
+    height: 74px;
+    background-size: 320px 255px; }
+  /* line 59, /Users/HayashiYuichi/Documents/project/frontplate/sp/source/sass/sprites/button */
+  .button.button-pagetop-active {
+    background-image: url(../images/sprites/button.png);
+    background-repeat: no-repeat;
+    background-position: -255px -142px;
+    width: 52px;
+    height: 53px;
+    background-size: 320px 255px; }
+  /* line 62, /Users/HayashiYuichi/Documents/project/frontplate/sp/source/sass/sprites/button */
+  .button.button-pagetop {
+    background-image: url(../images/sprites/button.png);
+    background-repeat: no-repeat;
+    background-position: -236px -79px;
+    width: 52px;
+    height: 53px;
+    background-size: 320px 255px; }
+  /* line 65, /Users/HayashiYuichi/Documents/project/frontplate/sp/source/sass/sprites/button */
+  .button.button-slide-left {
+    background-image: url(../images/sprites/button.png);
+    background-repeat: no-repeat;
+    background-position: -53px -203px;
+    width: 48px;
+    height: 52px;
+    background-size: 320px 255px; }
+  /* line 68, /Users/HayashiYuichi/Documents/project/frontplate/sp/source/sass/sprites/button */
+  .button.button-slide-right {
+    background-image: url(../images/sprites/button.png);
+    background-repeat: no-repeat;
+    background-position: 0px -203px;
+    width: 48px;
+    height: 52px;
+    background-size: 320px 255px; }
+
+/*
+#styleguide
+heading
+
+```
+<i class="heading heading-checked"></i>
+<i class="heading heading-ranking"></i>
+<i class="heading heading-recommend"></i>
+```
+*/
+/* line 15, /Users/HayashiYuichi/Documents/project/frontplate/sp/source/sass/sprites/heading */
+.heading {
+  display: inline-block; }
+  /* line 17, /Users/HayashiYuichi/Documents/project/frontplate/sp/source/sass/sprites/heading */
+  .heading.heading-checked {
+    background-image: url(../images/sprites/heading.png);
+    background-repeat: no-repeat;
+    background-position: 0px 0px;
+    width: 330px;
+    height: 70px;
+    background-size: 330px 220px; }
+  /* line 20, /Users/HayashiYuichi/Documents/project/frontplate/sp/source/sass/sprites/heading */
+  .heading.heading-ranking {
+    background-image: url(../images/sprites/heading.png);
+    background-repeat: no-repeat;
+    background-position: 0px -75px;
+    width: 330px;
+    height: 70px;
+    background-size: 330px 220px; }
+  /* line 23, /Users/HayashiYuichi/Documents/project/frontplate/sp/source/sass/sprites/heading */
+  .heading.heading-recommend {
+    background-image: url(../images/sprites/heading.png);
+    background-repeat: no-repeat;
+    background-position: 0px -150px;
+    width: 330px;
+    height: 70px;
+    background-size: 330px 220px; }
+
+/*
+#styleguide
+icon
+
+```
+<i class="icon icon-arrow-bg"></i>
+<i class="icon icon-arrow-next-active"></i>
+<i class="icon icon-arrow-next"></i>
+<i class="icon icon-arrow-prev-active"></i>
+<i class="icon icon-arrow-prev"></i>
+<i class="icon icon-book"></i>
+<i class="icon icon-bronze-prize"></i>
+<i class="icon icon-button-arrow"></i>
+<i class="icon icon-cart-active"></i>
+<i class="icon icon-cart"></i>
+<i class="icon icon-combo-down"></i>
+<i class="icon icon-combo-up"></i>
+<i class="icon icon-count-arrow"></i>
+<i class="icon icon-drop-arrow-up"></i>
+<i class="icon icon-drop-arrow"></i>
+<i class="icon icon-external"></i>
+<i class="icon icon-gold-prize"></i>
+<i class="icon icon-goods"></i>
+<i class="icon icon-help-active"></i>
+<i class="icon icon-help"></i>
+<i class="icon icon-label-arrow"></i>
+<i class="icon icon-limited"></i>
+<i class="icon icon-link-arrow"></i>
+<i class="icon icon-mail"></i>
+<i class="icon icon-music"></i>
+<i class="icon icon-ponycan-active"></i>
+<i class="icon icon-ponycan"></i>
+<i class="icon icon-search"></i>
+<i class="icon icon-silver-prize"></i>
+<i class="icon icon-video"></i>
+```
+*/
+/* line 69, /Users/HayashiYuichi/Documents/project/frontplate/sp/source/sass/sprites/icon */
+.icon {
+  display: inline-block; }
+  /* line 71, /Users/HayashiYuichi/Documents/project/frontplate/sp/source/sass/sprites/icon */
+  .icon.icon-arrow-bg {
+    background-image: url(../images/sprites/icon.png);
+    background-repeat: no-repeat;
+    background-position: 0px 0px;
+    width: 64px;
+    height: 68px;
+    background-size: 362px 185px; }
+  /* line 74, /Users/HayashiYuichi/Documents/project/frontplate/sp/source/sass/sprites/icon */
+  .icon.icon-arrow-next-active {
+    background-image: url(../images/sprites/icon.png);
+    background-repeat: no-repeat;
+    background-position: -123px -41px;
+    width: 22px;
+    height: 20px;
+    background-size: 362px 185px; }
+  /* line 77, /Users/HayashiYuichi/Documents/project/frontplate/sp/source/sass/sprites/icon */
+  .icon.icon-arrow-next {
+    background-image: url(../images/sprites/icon.png);
+    background-repeat: no-repeat;
+    background-position: -150px -41px;
+    width: 22px;
+    height: 20px;
+    background-size: 362px 185px; }
+  /* line 80, /Users/HayashiYuichi/Documents/project/frontplate/sp/source/sass/sprites/icon */
+  .icon.icon-arrow-prev-active {
+    background-image: url(../images/sprites/icon.png);
+    background-repeat: no-repeat;
+    background-position: -69px -41px;
+    width: 22px;
+    height: 20px;
+    background-size: 362px 185px; }
+  /* line 83, /Users/HayashiYuichi/Documents/project/frontplate/sp/source/sass/sprites/icon */
+  .icon.icon-arrow-prev {
+    background-image: url(../images/sprites/icon.png);
+    background-repeat: no-repeat;
+    background-position: -96px -41px;
+    width: 22px;
+    height: 20px;
+    background-size: 362px 185px; }
+  /* line 86, /Users/HayashiYuichi/Documents/project/frontplate/sp/source/sass/sprites/icon */
+  .icon.icon-book {
+    background-image: url(../images/sprites/icon.png);
+    background-repeat: no-repeat;
+    background-position: -309px -21px;
+    width: 17px;
+    height: 14px;
+    background-size: 362px 185px; }
+  /* line 89, /Users/HayashiYuichi/Documents/project/frontplate/sp/source/sass/sprites/icon */
+  .icon.icon-bronze-prize {
+    background-image: url(../images/sprites/icon.png);
+    background-repeat: no-repeat;
+    background-position: 0px -114px;
+    width: 79px;
+    height: 33px;
+    background-size: 362px 185px; }
+  /* line 92, /Users/HayashiYuichi/Documents/project/frontplate/sp/source/sass/sprites/icon */
+  .icon.icon-button-arrow {
+    background-image: url(../images/sprites/icon.png);
+    background-repeat: no-repeat;
+    background-position: -263px -42px;
+    width: 5px;
+    height: 8px;
+    background-size: 362px 185px; }
+  /* line 95, /Users/HayashiYuichi/Documents/project/frontplate/sp/source/sass/sprites/icon */
+  .icon.icon-cart-active {
+    background-image: url(../images/sprites/icon.png);
+    background-repeat: no-repeat;
+    background-position: -221px -21px;
+    width: 22px;
+    height: 16px;
+    background-size: 362px 185px; }
+  /* line 98, /Users/HayashiYuichi/Documents/project/frontplate/sp/source/sass/sprites/icon */
+  .icon.icon-cart {
+    background-image: url(../images/sprites/icon.png);
+    background-repeat: no-repeat;
+    background-position: -194px -21px;
+    width: 22px;
+    height: 16px;
+    background-size: 362px 185px; }
+  /* line 101, /Users/HayashiYuichi/Documents/project/frontplate/sp/source/sass/sprites/icon */
+  .icon.icon-combo-down {
+    background-image: url(../images/sprites/icon.png);
+    background-repeat: no-repeat;
+    background-position: -321px -42px;
+    width: 8px;
+    height: 5px;
+    background-size: 362px 185px; }
+  /* line 104, /Users/HayashiYuichi/Documents/project/frontplate/sp/source/sass/sprites/icon */
+  .icon.icon-combo-up {
+    background-image: url(../images/sprites/icon.png);
+    background-repeat: no-repeat;
+    background-position: -308px -42px;
+    width: 8px;
+    height: 5px;
+    background-size: 362px 185px; }
+  /* line 107, /Users/HayashiYuichi/Documents/project/frontplate/sp/source/sass/sprites/icon */
+  .icon.icon-count-arrow {
+    background-image: url(../images/sprites/icon.png);
+    background-repeat: no-repeat;
+    background-position: -353px -21px;
+    width: 4px;
+    height: 8px;
+    background-size: 362px 185px; }
+  /* line 110, /Users/HayashiYuichi/Documents/project/frontplate/sp/source/sass/sprites/icon */
+  .icon.icon-drop-arrow-up {
+    background-image: url(../images/sprites/icon.png);
+    background-repeat: no-repeat;
+    background-position: -217px -42px;
+    width: 24px;
+    height: 12px;
+    background-size: 362px 185px; }
+  /* line 113, /Users/HayashiYuichi/Documents/project/frontplate/sp/source/sass/sprites/icon */
+  .icon.icon-drop-arrow {
+    background-image: url(../images/sprites/icon.png);
+    background-repeat: no-repeat;
+    background-position: -295px -42px;
+    width: 8px;
+    height: 5px;
+    background-size: 362px 185px; }
+  /* line 116, /Users/HayashiYuichi/Documents/project/frontplate/sp/source/sass/sprites/icon */
+  .icon.icon-external {
+    background-image: url(../images/sprites/icon.png);
+    background-repeat: no-repeat;
+    background-position: -246px -42px;
+    width: 12px;
+    height: 12px;
+    background-size: 362px 185px; }
+  /* line 119, /Users/HayashiYuichi/Documents/project/frontplate/sp/source/sass/sprites/icon */
+  .icon.icon-gold-prize {
+    background-image: url(../images/sprites/icon.png);
+    background-repeat: no-repeat;
+    background-position: 0px -152px;
+    width: 79px;
+    height: 33px;
+    background-size: 362px 185px; }
+  /* line 122, /Users/HayashiYuichi/Documents/project/frontplate/sp/source/sass/sprites/icon */
+  .icon.icon-goods {
+    background-image: url(../images/sprites/icon.png);
+    background-repeat: no-repeat;
+    background-position: -294px -21px;
+    width: 10px;
+    height: 14px;
+    background-size: 362px 185px; }
+  /* line 125, /Users/HayashiYuichi/Documents/project/frontplate/sp/source/sass/sprites/icon */
+  .icon.icon-help-active {
+    background-image: url(../images/sprites/icon.png);
+    background-repeat: no-repeat;
+    background-position: -248px -21px;
+    width: 9px;
+    height: 15px;
+    background-size: 362px 185px; }
+  /* line 128, /Users/HayashiYuichi/Documents/project/frontplate/sp/source/sass/sprites/icon */
+  .icon.icon-help {
+    background-image: url(../images/sprites/icon.png);
+    background-repeat: no-repeat;
+    background-position: -262px -21px;
+    width: 9px;
+    height: 15px;
+    background-size: 362px 185px; }
+  /* line 131, /Users/HayashiYuichi/Documents/project/frontplate/sp/source/sass/sprites/icon */
+  .icon.icon-label-arrow {
+    background-image: url(../images/sprites/icon.png);
+    background-repeat: no-repeat;
+    background-position: -282px -42px;
+    width: 8px;
+    height: 5px;
+    background-size: 362px 185px; }
+  /* line 134, /Users/HayashiYuichi/Documents/project/frontplate/sp/source/sass/sprites/icon */
+  .icon.icon-limited {
+    background-image: url(../images/sprites/icon.png);
+    background-repeat: no-repeat;
+    background-position: -194px 0px;
+    width: 168px;
+    height: 16px;
+    background-size: 362px 185px; }
+  /* line 137, /Users/HayashiYuichi/Documents/project/frontplate/sp/source/sass/sprites/icon */
+  .icon.icon-link-arrow {
+    background-image: url(../images/sprites/icon.png);
+    background-repeat: no-repeat;
+    background-position: -273px -42px;
+    width: 4px;
+    height: 6px;
+    background-size: 362px 185px; }
+  /* line 140, /Users/HayashiYuichi/Documents/project/frontplate/sp/source/sass/sprites/icon */
+  .icon.icon-mail {
+    background-image: url(../images/sprites/icon.png);
+    background-repeat: no-repeat;
+    background-position: -194px -42px;
+    width: 18px;
+    height: 12px;
+    background-size: 362px 185px; }
+  /* line 143, /Users/HayashiYuichi/Documents/project/frontplate/sp/source/sass/sprites/icon */
+  .icon.icon-music {
+    background-image: url(../images/sprites/icon.png);
+    background-repeat: no-repeat;
+    background-position: -276px -21px;
+    width: 13px;
+    height: 14px;
+    background-size: 362px 185px; }
+  /* line 146, /Users/HayashiYuichi/Documents/project/frontplate/sp/source/sass/sprites/icon */
+  .icon.icon-ponycan-active {
+    background-image: url(../images/sprites/icon.png);
+    background-repeat: no-repeat;
+    background-position: 0px -73px;
+    width: 120px;
+    height: 36px;
+    background-size: 362px 185px; }
+  /* line 149, /Users/HayashiYuichi/Documents/project/frontplate/sp/source/sass/sprites/icon */
+  .icon.icon-ponycan {
+    background-image: url(../images/sprites/icon.png);
+    background-repeat: no-repeat;
+    background-position: -69px 0px;
+    width: 120px;
+    height: 36px;
+    background-size: 362px 185px; }
+  /* line 152, /Users/HayashiYuichi/Documents/project/frontplate/sp/source/sass/sprites/icon */
+  .icon.icon-search {
+    background-image: url(../images/sprites/icon.png);
+    background-repeat: no-repeat;
+    background-position: -125px -73px;
+    width: 18px;
+    height: 18px;
+    background-size: 362px 185px; }
+  /* line 155, /Users/HayashiYuichi/Documents/project/frontplate/sp/source/sass/sprites/icon */
+  .icon.icon-silver-prize {
+    background-image: url(../images/sprites/icon.png);
+    background-repeat: no-repeat;
+    background-position: -84px -114px;
+    width: 79px;
+    height: 33px;
+    background-size: 362px 185px; }
+  /* line 158, /Users/HayashiYuichi/Documents/project/frontplate/sp/source/sass/sprites/icon */
+  .icon.icon-video {
+    background-image: url(../images/sprites/icon.png);
+    background-repeat: no-repeat;
+    background-position: -331px -21px;
+    width: 17px;
+    height: 14px;
+    background-size: 362px 185px; }

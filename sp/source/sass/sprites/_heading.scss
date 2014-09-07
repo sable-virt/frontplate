@@ -1,0 +1,26 @@
+/*
+#styleguide
+heading
+
+```
+<i class="heading heading-checked"></i>
+<i class="heading heading-ranking"></i>
+<i class="heading heading-recommend"></i>
+```
+*/
+$heading-checked: 0px 0px 0px 0px 330px 70px 330px 220px '../images/sprites/heading.png';
+$heading-ranking: 0px 75px 0px -75px 330px 70px 330px 220px '../images/sprites/heading.png';
+$heading-recommend: 0px 150px 0px -150px 330px 70px 330px 220px '../images/sprites/heading.png';
+
+.heading {
+    display: inline-block;
+    &.heading-checked {
+        @include sprite($heading-checked);
+    }
+    &.heading-ranking {
+        @include sprite($heading-ranking);
+    }
+    &.heading-recommend {
+        @include sprite($heading-recommend);
+    }
+}

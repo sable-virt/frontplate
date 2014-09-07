@@ -1,0 +1,61 @@
+/*
+#styleguide
+number
+
+```
+<i class="number number-1"></i>
+<i class="number number-10"></i>
+<i class="number number-2"></i>
+<i class="number number-3"></i>
+<i class="number number-4"></i>
+<i class="number number-5"></i>
+<i class="number number-6"></i>
+<i class="number number-7"></i>
+<i class="number number-8"></i>
+<i class="number number-9"></i>
+```
+*/
+$number-1: 41px 28px -41px -28px 11px 22px 95px 78px '../images/sprites/number.png';
+$number-10: 0px 0px 0px 0px 32px 23px 95px 78px '../images/sprites/number.png';
+$number-2: 79px 0px -79px 0px 16px 22px 95px 78px '../images/sprites/number.png';
+$number-3: 37px 0px -37px 0px 16px 23px 95px 78px '../images/sprites/number.png';
+$number-4: 0px 56px 0px -56px 17px 22px 95px 78px '../images/sprites/number.png';
+$number-5: 0px 28px 0px -28px 15px 23px 95px 78px '../images/sprites/number.png';
+$number-6: 20px 28px -20px -28px 16px 23px 95px 78px '../images/sprites/number.png';
+$number-7: 79px 27px -79px -27px 16px 22px 95px 78px '../images/sprites/number.png';
+$number-8: 58px 0px -58px 0px 16px 23px 95px 78px '../images/sprites/number.png';
+$number-9: 58px 28px -58px -28px 16px 23px 95px 78px '../images/sprites/number.png';
+
+.number {
+    display: inline-block;
+    &.number-1 {
+        @include sprite($number-1);
+    }
+    &.number-10 {
+        @include sprite($number-10);
+    }
+    &.number-2 {
+        @include sprite($number-2);
+    }
+    &.number-3 {
+        @include sprite($number-3);
+    }
+    &.number-4 {
+        @include sprite($number-4);
+    }
+    &.number-5 {
+        @include sprite($number-5);
+    }
+    &.number-6 {
+        @include sprite($number-6);
+    }
+    &.number-7 {
+        @include sprite($number-7);
+    }
+    &.number-8 {
+        @include sprite($number-8);
+    }
+    &.number-9 {
+        @include sprite($number-9);
+    }
+}

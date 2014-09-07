@@ -1,0 +1,71 @@
+/*
+#styleguide
+button
+
+```
+<i class="button button-combo"></i>
+<i class="button button-mailmaga-active"></i>
+<i class="button button-mailmaga"></i>
+<i class="button button-members-cover"></i>
+<i class="button button-members-icon"></i>
+<i class="button button-members-text"></i>
+<i class="button button-members"></i>
+<i class="button button-more"></i>
+<i class="button button-pagetop-active"></i>
+<i class="button button-pagetop"></i>
+<i class="button button-slide-left"></i>
+<i class="button button-slide-right"></i>
+```
+*/
+$button-combo: 293px 79px -293px -79px 23px 30px 320px 255px '../images/sprites/button.png';
+$button-mailmaga-active: 118px 79px -118px -79px 113px 58px 320px 255px '../images/sprites/button.png';
+$button-mailmaga: 0px 79px 0px -79px 113px 58px 320px 255px '../images/sprites/button.png';
+$button-members-cover: 0px 142px 0px -142px 250px 56px 320px 255px '../images/sprites/button.png';
+$button-members-icon: 106px 203px -106px -203px 28px 29px 320px 255px '../images/sprites/button.png';
+$button-members-text: 106px 237px -106px -237px 203px 17px 320px 255px '../images/sprites/button.png';
+$button-members: 70px 0px -70px 0px 250px 58px 320px 255px '../images/sprites/button.png';
+$button-more: 0px 0px 0px 0px 65px 74px 320px 255px '../images/sprites/button.png';
+$button-pagetop-active: 255px 142px -255px -142px 52px 53px 320px 255px '../images/sprites/button.png';
+$button-pagetop: 236px 79px -236px -79px 52px 53px 320px 255px '../images/sprites/button.png';
+$button-slide-left: 53px 203px -53px -203px 48px 52px 320px 255px '../images/sprites/button.png';
+$button-slide-right: 0px 203px 0px -203px 48px 52px 320px 255px '../images/sprites/button.png';
+
+.button {
+    display: inline-block;
+    &.button-combo {
+        @include sprite($button-combo);
+    }
+    &.button-mailmaga-active {
+        @include sprite($button-mailmaga-active);
+    }
+    &.button-mailmaga {
+        @include sprite($button-mailmaga);
+    }
+    &.button-members-cover {
+        @include sprite($button-members-cover);
+    }
+    &.button-members-icon {
+        @include sprite($button-members-icon);
+    }
+    &.button-members-text {
+        @include sprite($button-members-text);
+    }
+    &.button-members {
+        @include sprite($button-members);
+    }
+    &.button-more {
+        @include sprite($button-more);
+    }
+    &.button-pagetop-active {
+        @include sprite($button-pagetop-active);
+    }
+    &.button-pagetop {
+        @include sprite($button-pagetop);
+    }
+    &.button-slide-left {
+        @include sprite($button-slide-left);
+    }
+    &.button-slide-right {
+        @include sprite($button-slide-right);
+    }
+}
