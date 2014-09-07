@@ -1,0 +1,6 @@
+.idea
+.sass-cache
+.DS_Store
+node_modules
+pc/styleguide
+sp/styleguide
