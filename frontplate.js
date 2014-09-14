@@ -1,7 +1,10 @@
 /**
  * タスク設定ファイル
  */
+
+var fs = require("fs");
 module.exports = {
+    APP_PATH: 'app',
     // AutoPrefixer
     autoprefixer: {
         browser: ['last 3 version', 'ie >= 8', 'Android 4.0']
@@ -21,9 +24,18 @@ module.exports = {
     // FrontNote
     styleguide: {
         // 読み込むCSSのパス
-        css: '../assets/css/style.css',
+        css: '../assets/css/common.css',
         // 読み込むJSのパス
-        script: '../assets/js/main.js'
+        script: '../js/min/main.js'
+    },
+    // SVGスプライト
+    iconfont: {
+        template: './_iconfont-template.ejs',
+        fontName: 'iconfont',
+        fontPath: '../fonts/',
+        className: 'glyph',
+        classPrefix: 'glyph-',
+        baseName: '_glyph'
     },
     // パス設定
     path: {
@@ -44,10 +56,11 @@ module.exports = {
         },
         // SpriteSmith
         sprite: {
-            src: 'source/images/sprites/*',
-            watch: 'source/images/sprites/*/*',
+            src: 'source/sprites/*',
+            watch: 'source/sprites/*/*',
             imgDest: 'assets/images',
-            cssDest: 'source/sass/sprites'
+            cssDest: 'source/sass/sprites',
+            imgPath: '../images'
         },
         // JS Hint
         js: {
@@ -58,6 +71,11 @@ module.exports = {
         images: {
             src: 'assets/images/**/*',
             dest: 'assets/images'
+        },
+        iconfont: {
+            src: 'source/svg/**/*.svg',
+            css: 'source/sass/sprites',
+            dest: 'assets/fonts'
         }
     }
 };
