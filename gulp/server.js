@@ -7,7 +7,8 @@ module.exports = function (root, port) {
         server: {
             baseDir: root,
             port: port,
-            notify: false
+            notify: false,
+            directory: true
         }
     });
 };

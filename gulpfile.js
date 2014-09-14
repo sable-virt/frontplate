@@ -1,19 +1,20 @@
-var BASE_PATH = process.argv.indexOf('-sp') === -1 ? 'pc' : 'sp';
-var MINIFY = process.argv.indexOf('-min') === -1 ? false : true;
-
 var gulp = require('gulp'),
     config = require('./frontplate');
     $ = require('gulp-load-plugins')({
         pattern: ['gulp-*', 'gulp.*'],
         replaceString: /\bgulp[\-.]/
     });
-
 $.browser = require('browser-sync');
+
+var BASE_TYPE = process.argv.indexOf('-sp') === -1 ? 'pc' : 'sp';
+var BASE_PATH = config.APP_PATH + '/' + BASE_TYPE;
+var MINIFY = process.argv.indexOf('-min') === -1 ? false : true;
 
 // globalに共通変数書き出し
 global.frontplate = {
     plugins: $,
     config: config,
+    BASE_TYPE: BASE_TYPE,
     BASE_PATH: BASE_PATH,
     MINIFY: MINIFY
 };
@@ -92,9 +93,16 @@ gulp.task('browserify',function() {
         .pipe($.browser.reload({stream: true}));
 });
 
+// svg
+gulp.task('iconfont',function() {
+    return tasks.iconfont(getPath('iconfont'),getPath('iconfont','css'))
+        .pipe(gulp.dest(getPath('iconfont','dest')));
+});
+
 gulp.task('default',['serv'], function() {
     gulp.watch(getPath('js'), ['jshint','browserify']);
     gulp.watch(getPath('ejs','watch'), ['ejs']);
+    gulp.watch(getPath('iconfont'), ['iconfont','style']);
     gulp.watch(getPath('sass'), ['style']);
     gulp.watch(getPath('html'), ['htmllint']);
     gulp.watch(getPath('sprite','watch'), ['sprite']);

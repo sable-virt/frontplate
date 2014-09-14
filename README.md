@@ -62,23 +62,24 @@ gulp -sp -min
 
 * [browser-sync](https://github.com/shakyShane/browser-sync)
 * [gulp-autoprefixer](https://www.npmjs.org/package/gulp-autoprefixer)
+* [gulp-browserify](https://www.npmjs.org/package/gulp-browserify)
+* [gulp-csso](https://www.npmjs.org/package/gulp-csso)
+* [gulp-ejs](https://www.npmjs.org/package/gulp-ejs)
+* [gulp-foreach](https://www.npmjs.org/package/gulp-foreach)
+* [gulp-frontnote](https://www.npmjs.org/package/gulp-frontnote)
 * [gulp-htmlhint](https://www.npmjs.org/package/gulp-htmlhint)
+* [gulp-iconfont](https://www.npmjs.org/package/gulp-iconfont)
 * [gulp-imagemin](https://www.npmjs.org/package/gulp-imagemin)
 * [gulp-jshint](https://www.npmjs.org/package/gulp-jshint)
 * [gulp-load-plugins](https://www.npmjs.org/package/gulp-load-plugins)
-* [gulp-plumber](https://www.npmjs.org/package/gulp-plumber)
-* [gulp-sass](https://www.npmjs.org/package/gulp-sass)
-* [gulp.spritesmith](https://github.com/twolfson/gulp.spritesmith)
-* [gulp-foreach](https://www.npmjs.org/package/gulp-foreach)
-* [jshint-stylish](https://github.com/sindresorhus/jshint-stylish)
-* [gulp-browserify](https://www.npmjs.org/package/gulp-browserify)
-* [gulp-ejs](https://www.npmjs.org/package/gulp-ejs)
-* [gulp-frontnote](https://www.npmjs.org/package/gulp-frontnote)
 * [gulp-notify](https://www.npmjs.org/package/gulp-notify)
-* [gulp-csso](https://www.npmjs.org/package/gulp-csso)
+* [gulp-plumber](https://www.npmjs.org/package/gulp-plumber)
+* [gulp-rename](https://www.npmjs.org/package/gulp-rename)
+* [gulp-sass](https://www.npmjs.org/package/gulp-sass)
 * [gulp-uglify](https://www.npmjs.org/package/gulp-uglify)
 * [gulp-w3cjs](https://www.npmjs.org/package/gulp-w3cjs)
-
+* [gulp.spritesmith](https://github.com/twolfson/gulp.spritesmith)
+* [jshint-stylish](https://github.com/sindresorhus/jshint-stylish)
 
 ## Library
 * [jQuery](http://jquery.com/)
@@ -86,6 +87,7 @@ gulp -sp -min
 * [sass-mediaqueries](https://github.com/paranoida/sass-mediaqueries)
 
 ## history
+* 0.1.1 - SVGからWebフォントを生成するタスクを追加。frontnoteをバージョンアップ。制作ディレクトリをapp以下に再配置。
 * 0.1.0 - Full renewal.
 * 0.0.2 - Remove gulp-sprite-glue. Add gulp.spritesmith. And minor bug fix.
 * 0.0.1 - release

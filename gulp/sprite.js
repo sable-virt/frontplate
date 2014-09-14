@@ -14,7 +14,7 @@ module.exports = function (src, imgPath, cssPath) {
                 var options = _extend({
                     imgName: name + config.sprite.imgExtension,
                     cssName: '_' + name + config.sprite.cssExtension,
-                    imgPath: '../images/sprites/' + name + config.sprite.imgExtension,
+                    imgPath: config.path.sprite.imgPath + '/' + name + config.sprite.imgExtension,
                     cssOpts: {
                         prefix: name
                     }
