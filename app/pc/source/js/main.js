@@ -1,8 +1,5 @@
 (function () {
     "use strict";
-    require('./common.js');
-    
-    var a = require('./a.js');
-
-
+    var sub = require('./sub.js');
+    sub();
 })();
