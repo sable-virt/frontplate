@@ -1,0 +1,21 @@
+{
+  "name": "frontplate",
+  "main": "frontplate.js",
+  "version": "0.0.1",
+  "homepage": "https://github.com/frontainer/frontplate",
+  "authors": [
+    "frontainer <frontainer@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "1.11",
+    "angular": "~1.2.25"
+  }
+}
