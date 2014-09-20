@@ -2,5 +2,6 @@
 .sass-cache
 .DS_Store
 node_modules
-pc/styleguide
-sp/styleguide
+bower_components
+app/pc/styleguide
+app/sp/styleguide
