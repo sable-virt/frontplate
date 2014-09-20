@@ -4,29 +4,18 @@ var gulp = require('gulp'),
         pattern: ['gulp-*', 'gulp.*'],
         replaceString: /\bgulp[\-.]/
     });
+
 $.browser = require('browser-sync');
 
 var BASE_TYPE = process.argv.indexOf('-sp') === -1 ? 'pc' : 'sp';
 var BASE_PATH = config.APP_PATH + '/' + BASE_TYPE;
 var MINIFY = process.argv.indexOf('-min') === -1 ? false : true;
 
-// globalに共通変数書き出し
-global.frontplate = {
-    plugins: $,
-    config: config,
-    BASE_TYPE: BASE_TYPE,
-    BASE_PATH: BASE_PATH,
-    MINIFY: MINIFY
-};
-
-// gulpディレクトリのタスク読み込み
-var tasks = require('./gulp/load');
-
 /**
  * パス生成関数
  * @param name
  * @param prop
- * @returns {*}
+ * @returns {string}
  */
 function getPath(name,prop) {
     prop = prop || 'src';
@@ -44,63 +33,20 @@ function getPath(name,prop) {
     }
 }
 
-// style
-gulp.task('style',function() {
-    return tasks.sass(getPath('sass'))
-        .pipe(gulp.dest(getPath('sass','dest')))
-        .pipe($.browser.reload({stream: true}));
-});
+// globalに共通変数書き出し
+global.frontplate = {
+    plugins: $,
+    config: config,
+    getPath: getPath,
+    BASE_TYPE: BASE_TYPE,
+    BASE_PATH: BASE_PATH,
+    MINIFY: MINIFY
+};
 
-// html lint
-gulp.task('htmllint',function() {
-    return tasks.htmllint(getPath('html'));
-});
-
-// html lint
-gulp.task('ejs',function() {
-    return tasks.ejs(getPath('ejs'))
-        .pipe(gulp.dest(getPath('ejs','dest')))
-        .pipe($.browser.reload({stream: true}));
-});
-
-// server
-gulp.task('serv',['browserify','ejs','style'],function() {
-    return tasks.server(BASE_PATH);
-});
-
-// sprite
-gulp.task('sprite',function() {
-    return tasks.sprite(getPath('sprite'),getPath('sprite','imgDest'),getPath('sprite','cssDest'))
-        .pipe($.browser.reload({stream: true}));
-});
-
-// jshint
-gulp.task('jshint',function() {
-    return tasks.jshint(getPath('js'));
-});
-
-// imagemin
-gulp.task('imagemin',function() {
-    return tasks.imagemin(getPath('images'))
-        .pipe(gulp.dest(getPath('images','dest')))
-        .pipe($.browser.reload({stream: true}));
-});
-
-// js
-gulp.task('browserify',function() {
-    return tasks.browserify(getPath('js'))
-        .pipe(gulp.dest(getPath('js','dest')))
-        .pipe($.browser.reload({stream: true}));
-});
-
-// svg
-gulp.task('iconfont',function() {
-    return tasks.iconfont(getPath('iconfont'),getPath('iconfont','css'))
-        .pipe(gulp.dest(getPath('iconfont','dest')));
-});
-
-gulp.task('default',['serv'], function() {
-    gulp.watch(getPath('js'), ['jshint','browserify']);
+// gulpディレクトリのタスク読み込み
+var tasks = require('./gulp/load');
+gulp.task('default',['server','watchify'], function() {
+    gulp.watch(getPath('js'), ['jshint']);
     gulp.watch(getPath('ejs','watch'), ['ejs']);
     gulp.watch(getPath('iconfont'), ['iconfont','style']);
     gulp.watch(getPath('sass'), ['style']);
