@@ -1,7 +1,7 @@
 var fs = require('fs'),
     path = require('path');
 
-module.exports = function(dir) {
+module.exports = function() {
     // gulpディレクトリにあるタスクをロード
     var files = fs.readdirSync(__dirname),
         result = [];
