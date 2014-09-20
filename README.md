@@ -80,13 +80,20 @@ gulp -sp -min
 * [gulp-w3cjs](https://www.npmjs.org/package/gulp-w3cjs)
 * [gulp.spritesmith](https://github.com/twolfson/gulp.spritesmith)
 * [jshint-stylish](https://github.com/sindresorhus/jshint-stylish)
+* [through2](https://github.com/sindresorhus/through2)
+* [vinyl-buffer](https://github.com/sindresorhus/vinyl-buffer)
+* [vinyl-source-stream](https://github.com/sindresorhus/vinyl-source-stream)
+* [watchify](https://github.com/sindresorhus/watchify)
+
 
 ## Library
 * [jQuery](http://jquery.com/)
 * [modernizr](http://modernizr.com/)
 * [sass-mediaqueries](https://github.com/paranoida/sass-mediaqueries)
 
-## history
+## History
+* 0.1.3 - Browserifyの処理を最適化
+* 0.1.2 - AngulerJS用タスクにgulp-ng-annotateを追加。処理分岐のためgulp-ifを追加。
 * 0.1.1 - SVGからWebフォントを生成するタスクを追加。frontnoteをバージョンアップ。制作ディレクトリをapp以下に再配置。
 * 0.1.0 - Full renewal.
 * 0.0.2 - Remove gulp-sprite-glue. Add gulp.spritesmith. And minor bug fix.
