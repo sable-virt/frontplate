@@ -2,14 +2,15 @@ var gulp = require('gulp'),
     config = frontplate.config,
     $ = frontplate.plugins;
 
-module.exports = function (root, port) {
-    return $.browser.init(null, {
-        server: {
-            baseDir: root,
-            port: port,
-            notify: false,
-            directory: true
-        }
+module.exports = function () {
+    gulp.task('server',['script','ejs','style'],function() {
+        return $.browser.init(frontplate.BASE_PATH, {
+            server: {
+                baseDir: frontplate.BASE_PATH,
+                notify: false,
+                directory: true
+            }
+        });
     });
-};
+}();
 
