@@ -4,7 +4,6 @@ var gulp = require('gulp'),
 
 var browserify = require('browserify'),
     html2js = require('html2js-browserify'),
-    debowerify = require('debowerify'),wsa
     watchify = require('watchify'),
     source = require('vinyl-source-stream'),
     through = require('through2'),
@@ -12,7 +11,7 @@ var browserify = require('browserify'),
     path = require('path');
 
 // Transformはここに登録
-var TRANSFORMS = [debowerify,html2js];
+var TRANSFORMS = [html2js];
 
 module.exports = function () {
     /**
@@ -32,11 +31,14 @@ module.exports = function () {
                 var filepath = file.path,
                     bundler,
                     filename = path.basename(filepath);
-                var br = browserify(watchify.args);
+                var br = browserify({
+                    cache: {},
+                    packageCache: {},
+                    fullPaths: false
+                });
                 if (watch) {
                     bundler = watchify(br);
                     bundler.on('update', function (ids) {
-                        console.log('\u001b[32m[UPDATE] \u001b[30m' + filename);
                         var stream = bundler.bundle()
                             .pipe(source(filename))
                             .pipe(buffer());
@@ -50,7 +52,7 @@ module.exports = function () {
                 });
                 bundler.add(filepath);
                 file.contents = bundler.bundle();
-                //this.push(file);
+                this.push(file);
                 callback();
             });
         };
