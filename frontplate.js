@@ -17,7 +17,7 @@ module.exports = {
         cssExtension: '.scss',
         // SpriteSmithの設定
         options: {
-            cssTemplate: 'sprite-template.mustache',
+            cssTemplate: './templates/sprite-template.mustache',
             algorithm: 'binary-tree',
             padding: 5
         }
@@ -31,7 +31,7 @@ module.exports = {
     },
     // SVGスプライト
     iconfont: {
-        template: './_iconfont-template.ejs',
+        template: './templates/iconfont-template.ejs',
         fontName: 'iconfont',
         fontPath: '../fonts/',
         className: 'glyph',
