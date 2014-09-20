@@ -5,6 +5,7 @@
 var fs = require("fs");
 module.exports = {
     APP_PATH: 'app',
+    useAngular: false,
     // AutoPrefixer
     autoprefixer: {
         browser: ['last 3 version', 'ie >= 8', 'Android 4.0']
@@ -57,7 +58,7 @@ module.exports = {
         // SpriteSmith
         sprite: {
             src: 'source/sprites/*',
-            watch: 'source/sprites/*/*',
+            watch: 'source/sprites/**/*',
             imgDest: 'assets/images',
             cssDest: 'source/sass/sprites',
             imgPath: '../images'
