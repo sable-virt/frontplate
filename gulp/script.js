@@ -2,16 +2,12 @@ var gulp = require('gulp'),
     config = frontplate.config,
     $ = frontplate.plugins;
 
-var browserify = require('browserify'),
-    html2js = require('html2js-browserify'),
+var browserify = require('browserify');
     watchify = require('watchify'),
     source = require('vinyl-source-stream'),
     through = require('through2'),
     buffer = require('vinyl-buffer'),
     path = require('path');
-
-// Transformはここに登録
-var TRANSFORMS = [html2js];
 
 module.exports = function () {
     /**
@@ -47,9 +43,6 @@ module.exports = function () {
                 } else {
                     bundler = br;
                 }
-                TRANSFORMS.forEach(function(transform) {
-                    bundler.transform(transform);
-                });
                 bundler.add(filepath);
                 file.contents = bundler.bundle();
                 this.push(file);
