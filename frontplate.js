@@ -6,6 +6,7 @@ var fs = require("fs");
 module.exports = {
     APP_PATH: 'app',
     useAngular: false,
+    flatten: false,
     // AutoPrefixer
     autoprefixer: {
         browser: ['last 3 version', 'ie >= 8', 'Android 4.0']
@@ -25,7 +26,7 @@ module.exports = {
     // FrontNote
     styleguide: {
         // 読み込むCSSのパス
-        css: '../assets/css/common.css',
+        css: '../assets/css/style.css',
         // 読み込むJSのパス
         script: '../js/min/main.js'
     },
