@@ -6,12 +6,14 @@
 
 * [Gulp](http://gulpjs.com/)
 * [Browserify](http://browserify.org/)
+* [Bower](http://bower.io/)
 
 ## Tasks
 
 最初に必要なモジュールをインストール
 
     npm install
+    bower install
 
 ### ファイル監視の実行 & サーバー起動
 
