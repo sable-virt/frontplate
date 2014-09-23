@@ -7,8 +7,16 @@ var gulp = require('gulp'),
 
 $.browser = require('browser-sync');
 
-var BASE_TYPE = process.argv.indexOf('-sp') === -1 ? 'pc' : 'sp';
-var BASE_PATH = config.APP_PATH + '/' + BASE_TYPE;
+var BASE_TYPE;
+var BASE_PATH;
+
+if (config.flatten) {
+    BASE_TYPE = '';
+    BASE_PATH = config.APP_PATH;
+} else {
+    BASE_TYPE = process.argv.indexOf('-sp') === -1 ? 'pc' : 'sp';
+    BASE_PATH = config.APP_PATH + '/' + BASE_TYPE;
+}
 var MINIFY = process.argv.indexOf('-min') === -1 ? false : true;
 
 /**
