@@ -21,9 +21,9 @@ module.exports = function () {
                     .pipe($.rename({
                         basename: config.iconfont.baseName
                     }))
-                    .pipe(gulp.dest(getPath('iconfont','css')));
+                    .pipe(gulp.dest(frontplate.getPath('iconfont','css')));
             })
-            .pipe(gulp.dest(getPath('iconfont','dest')));
+            .pipe(gulp.dest(frontplate.getPath('iconfont','dest')));
     });
 }();
 
