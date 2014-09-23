@@ -3,7 +3,7 @@ var gulp = require('gulp'),
     $ = frontplate.plugins;
 
 var browserify = require('browserify');
-    watchify = require('watchify'),
+watchify = require('watchify'),
     source = require('vinyl-source-stream'),
     through = require('through2'),
     buffer = require('vinyl-buffer'),
@@ -16,7 +16,7 @@ module.exports = function () {
      * @returns {*}
      */
     function destFile(stream) {
-        return stream.pipe($.if(config.useAngular, $.ngAnnotate()))
+        return stream.pipe($.if(frontplate.MINIFY, $.unpathify()))
             .pipe($.if(frontplate.MINIFY, $.uglify()))
             .pipe(gulp.dest(frontplate.getPath('js', 'dest')))
             .pipe($.browser.reload({stream: true}));
@@ -30,12 +30,15 @@ module.exports = function () {
                 var br = browserify({
                     cache: {},
                     packageCache: {},
-                    fullPaths: false
+                    fullPaths: false,
+                    debug: config.debug,
+                    paths: ['./node_modules','bower_components']
                 });
                 if (watch) {
                     bundler = watchify(br);
                     bundler.on('update', function (ids) {
                         var stream = bundler.bundle()
+                            .pipe($.plumber({errorHandler: $.notify.onError('<%= error.message %>')}))
                             .pipe(source(filename))
                             .pipe(buffer());
                         return destFile(stream);
@@ -44,9 +47,13 @@ module.exports = function () {
                     bundler = br;
                 }
                 bundler.add(filepath);
-                file.contents = bundler.bundle();
-                this.push(file);
-                callback();
+
+                var self = this;
+                bundler.bundle(function(err,buf) {
+                    file.contents = buf;
+                    self.push(file);
+                    callback();
+                });
             });
         };
         var stream = gulp.src(frontplate.getPath('js'))
@@ -63,5 +70,3 @@ module.exports = function () {
         return browserified(true);
     });
 }();
-
-
