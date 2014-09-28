@@ -3,7 +3,7 @@ var gulp = require('gulp'),
     $ = frontplate.plugins;
 
 module.exports = function () {
-    gulp.task('server',['script','ejs','style'],function() {
+    gulp.task('server',function() {
         return $.browser.init(frontplate.BASE_PATH, {
             server: {
                 baseDir: frontplate.BASE_PATH,
