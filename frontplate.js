@@ -5,7 +5,8 @@
 var fs = require("fs");
 module.exports = {
     APP_PATH: 'app',
-    useAngular: false,
+    debug: true,
+    useAngular: true,
     flatten: false,
     // AutoPrefixer
     autoprefixer: {
