@@ -1,7 +1,7 @@
 var gulp = require('gulp'),
     config = frontplate.config,
     $ = frontplate.plugins,
-    _extend = require('util')._extend;
+    _extend = require('extend');
 
 module.exports = function () {
     gulp.task('sprite',function() {
