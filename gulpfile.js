@@ -9,6 +9,7 @@ $.browser = require('browser-sync');
 
 var BASE_TYPE;
 var BASE_PATH;
+var MINIFY;
 
 if (config.flatten) {
     BASE_TYPE = '';
@@ -17,7 +18,11 @@ if (config.flatten) {
     BASE_TYPE = process.argv.indexOf('-sp') === -1 ? 'pc' : 'sp';
     BASE_PATH = config.APP_PATH + '/' + BASE_TYPE;
 }
-var MINIFY = process.argv.indexOf('-min') === -1 ? false : true;
+if (config.debug) {
+    MINIFY = process.argv.indexOf('-min') === -1 ? false : true;
+} else {
+    MINIFY = true;
+}
 
 /**
  * パス生成関数
@@ -51,9 +56,7 @@ global.frontplate = {
     MINIFY: MINIFY
 };
 
-// gulpディレクトリのタスク読み込み
-var tasks = require('./gulp/load');
-gulp.task('default',['server','watchify'], function() {
+gulp.task('watch', function() {
     gulp.watch(getPath('js'), ['jshint']);
     gulp.watch(getPath('ejs','watch'), ['ejs']);
     gulp.watch(getPath('iconfont'), ['iconfont','style']);
@@ -61,3 +64,7 @@ gulp.task('default',['server','watchify'], function() {
     gulp.watch(getPath('html'), ['htmllint']);
     gulp.watch(getPath('sprite','watch'), ['sprite']);
 });
+
+// gulpディレクトリのタスク読み込み
+var tasks = require('./gulp/load');
+gulp.task('default',['script','style','server','watch','watchScript'], function() {});
