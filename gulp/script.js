@@ -1,72 +1,35 @@
 var gulp = require('gulp'),
     config = frontplate.config,
-    $ = frontplate.plugins;
-
-var browserify = require('browserify');
-watchify = require('watchify'),
-    source = require('vinyl-source-stream'),
+    $ = frontplate.plugins,
+    conf = require('../webpack.config.js'),
     through = require('through2'),
-    buffer = require('vinyl-buffer'),
     path = require('path');
 
-module.exports = function () {
-    /**
-     * 出力時に行う共通処理
-     * @param stream
-     * @returns {*}
-     */
-    function destFile(stream) {
-        return stream.pipe($.if(frontplate.MINIFY, $.unpathify()))
-            .pipe($.if(frontplate.MINIFY, $.uglify()))
-            .pipe(gulp.dest(frontplate.getPath('js', 'dest')))
-            .pipe($.browser.reload({stream: true}));
+function exeWebPack(conf,watch) {
+    if(watch === true) {
+        conf.watch = true;
+    } else {
+        conf.watch = false;
     }
-    function browserified(watch) {
-        var browserifer = function () {
-            return through.obj(function(file,enc,callback) {
-                var filepath = file.path,
-                    bundler,
-                    filename = path.basename(filepath);
-                var br = browserify({
-                    cache: {},
-                    packageCache: {},
-                    fullPaths: false,
-                    debug: config.debug,
-                    paths: ['./node_modules','bower_components']
-                });
-                if (watch) {
-                    bundler = watchify(br);
-                    bundler.on('update', function (ids) {
-                        var stream = bundler.bundle()
-                            .pipe($.plumber({errorHandler: $.notify.onError('<%= error.message %>')}))
-                            .pipe(source(filename))
-                            .pipe(buffer());
-                        return destFile(stream);
-                    });
-                } else {
-                    bundler = br;
-                }
-                bundler.add(filepath);
-
-                var self = this;
-                bundler.bundle(function(err,buf) {
-                    file.contents = buf;
-                    self.push(file);
-                    callback();
-                });
-            });
-        };
-        var stream = gulp.src(frontplate.getPath('js'))
-            .pipe($.plumber({errorHandler: $.notify.onError('<%= error.message %>')}))
-            .pipe(browserifer());
-        return destFile(stream);
-    }
-
-    gulp.task('script', function () {
-        return browserified(false);
-    });
-
-    gulp.task('watchify', function () {
-        return browserified(true);
-    });
-}();
+    var filter = $.filter('**/*.js');
+    return gulp.src(frontplate.getPath('js'))
+        .pipe(through.obj(function(file,charset,callback) {
+            conf.entry = conf.entry || {};
+            conf.entry[path.basename(file.path,path.extname(file.path))] = file.path;
+            this.push(file);
+            callback();
+        }))
+        .pipe($.webpack(conf))
+        .pipe(filter)
+        .pipe($.if(frontplate.MINIFY && config.useAngular, $.ngAnnotate()))
+        .pipe($.if(frontplate.MINIFY, $.uglify()))
+        .pipe(filter.restore())
+        .pipe(gulp.dest(frontplate.getPath('js','dest')))
+        .pipe($.browser.reload({stream: true}));
+}
+gulp.task('script', function() {
+    return exeWebPack(conf);
+});
+gulp.task('watchScript', function() {
+    return exeWebPack(conf,true);
+});
