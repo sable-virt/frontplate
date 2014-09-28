@@ -7,9 +7,12 @@ module.exports = function() {
         result = [];
 
     files.forEach(function(file) {
-        var name = path.basename(file,'.js');
-        if (name === 'init') return;
-        result[name] = require(__dirname + '/'+name);
+        var stats = fs.statSync(path.join(__dirname,file));
+        if (stats.isFile()) {
+            var name = path.basename(file,'.js');
+            if (name === 'init') return;
+            result[name] = require(__dirname + '/'+name);
+        }
     });
     return result;
 }();
