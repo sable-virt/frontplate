@@ -1,6 +1,7 @@
 var webpack = require("webpack");
 var config = require('./frontplate');
 module.exports = {
+    watchDelay: 500,
     output: {
         filename: "[name].js",
         sourceMapFilename: 'map/[file].map'
