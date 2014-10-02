@@ -1,16 +1,8 @@
 {
   "name": "Frontplate",
-  "version": "0.1.3",
+  "version": "0.2.0",
   "description": "個人的に利用しているWeb制作テンプレート",
   "main": "gulpfile.js",
-  "browserify": {
-    "transform": [
-      "debowerify",
-      "html2js-browserify"
-    ]
-  },
-  "browser": {},
-  "browserify-shim": {},
   "dependencies": {},
   "devDependencies": {
     "autoprefixer-loader": "^1.0.0",
