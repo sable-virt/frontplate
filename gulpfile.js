@@ -1,5 +1,5 @@
 var gulp = require('gulp'),
-    config = require('./frontplate');
+    config = require('./config');
     $ = require('gulp-load-plugins')({
         pattern: ['gulp-*', 'gulp.*'],
         replaceString: /\bgulp[\-.]/
@@ -7,21 +7,33 @@ var gulp = require('gulp'),
 
 $.browser = require('browser-sync');
 
-var BASE_TYPE;
-var BASE_PATH;
-var MINIFY;
+var DIRECTORIES = ['pc','sp','admin'];
+var BASE_TYPE = getBaseType();
+var BASE_PATH = getBasePath();
+var MINIFY = process.argv.indexOf('-min') === -1 ? false : true;
 
-if (config.flatten) {
-    BASE_TYPE = '';
-    BASE_PATH = config.APP_PATH;
-} else {
-    BASE_TYPE = process.argv.indexOf('-sp') === -1 ? 'pc' : 'sp';
-    BASE_PATH = config.APP_PATH + '/' + BASE_TYPE;
+function getBasePath() {
+    var path = config.APP_PATH;
+    if (!config.flatten) {
+        path += '/' + BASE_TYPE;
+    }
+    return path;
 }
-if (config.debug) {
-    MINIFY = process.argv.indexOf('-min') === -1 ? false : true;
-} else {
-    MINIFY = true;
+
+function getBaseType() {
+    var type = '';
+    if (!config.flatten) {
+        for (var i = 0, len = DIRECTORIES.length; i < len; i++) {
+            if (process.argv.indexOf('-' + DIRECTORIES[i]) !== -1) {
+                type = DIRECTORIES[i];
+                break;
+            }
+        }
+        if (!type) {
+            type = DIRECTORIES[0];
+        }
+    }
+    return type;
 }
 
 /**
