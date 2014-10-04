@@ -67,7 +67,7 @@ module.exports = {
         },
         // JS Hint
         js: {
-            src: ['source/js/**/*.js','!source/js/**/_*.js'],
+            src: ['source/js/*.js','!source/js/_*.js'],
             dest: 'assets/js'
         },
         // Image min
