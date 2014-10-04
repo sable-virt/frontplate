@@ -75,8 +75,10 @@ gulp.task('watch', function() {
     gulp.watch(getPath('sass'), ['style']);
     gulp.watch(getPath('html'), ['htmllint']);
     gulp.watch(getPath('sprite','watch'), ['sprite']);
+    gulp.watch(getPath('images'), ['imagemin']);
 });
 
 // gulpディレクトリのタスク読み込み
 var tasks = require('./gulp/load');
-gulp.task('default',['script','style','server','watch','watchScript'], function() {});
+gulp.task('build',['ejs','iconfont','style','sprite','imagemin'], function() {});
+gulp.task('default',['server','watch','watchScript'], function() {});
