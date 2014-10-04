@@ -72,7 +72,7 @@ module.exports = {
         },
         // Image min
         images: {
-            src: 'assets/images/**/*',
+            src: 'source/images/**/*',
             dest: 'assets/images'
         },
         iconfont: {
