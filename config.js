@@ -4,10 +4,8 @@
 
 var fs = require("fs");
 module.exports = {
-    APP_PATH: 'app',
-    debug: true,
-    useAngular: true,
-    flatten: false,
+    appPath: 'app',
+    defaultDir: 'pc',
     // AutoPrefixer
     autoprefixer: {
         browser: ['last 3 version', 'ie >= 8', 'Android 4.0']
@@ -31,54 +29,36 @@ module.exports = {
         // 読み込むJSのパス
         script: '../js/min/main.js'
     },
-    // SVGスプライト
-    iconfont: {
-        template: './templates/iconfont-template.ejs',
-        fontName: 'iconfont',
-        fontPath: '../fonts/',
-        className: 'glyph',
-        classPrefix: 'glyph-',
-        baseName: '_glyph'
-    },
     // パス設定
     path: {
         // SASS
         sass: {
-            src: 'source/sass/**/*.scss',
-            dest: 'assets/css'
-        },
-        // HTML Lint
-        html: {
-            src: ['**/*.html','!styleguide/**/*.html']
+            src: 'source/%type%/sass/**/*.scss',
+            dest: 'publish/%type%/css'
         },
         // EJS
         ejs: {
-            src: ['source/**/*.ejs','!source/**/_*.ejs'],
-            watch: ['source/**/*.ejs'],
-            dest: './'
+            src: ['source/%type%/**/*.ejs','!source/%type%/**/_*.ejs'],
+            watch: ['source/%type%/**/*.ejs'],
+            dest: 'publish/%type%/'
         },
         // SpriteSmith
         sprite: {
-            src: 'source/sprites/*',
-            watch: 'source/sprites/**/*',
-            imgDest: 'assets/images',
-            cssDest: 'source/sass/sprites',
-            imgPath: '../images'
+            src: 'source/%type%/sprites/*',
+            watch: 'source/%type%/sprites/**/*',
+            imgDest: 'source/%type%/images',
+            cssDest: 'source/%type%/sass/sprites',
+            imgPath: './images'
         },
         // JS Hint
         js: {
-            src: ['source/js/*.js','!source/js/_*.js'],
-            dest: 'assets/js'
+            src: ['source/%type%/js/*.js','!source/%type%/js/_*.js'],
+            dest: 'publish/%type%/js'
         },
         // Image min
         images: {
-            src: 'source/images/**/*',
-            dest: 'assets/images'
-        },
-        iconfont: {
-            src: 'source/svg/**/*.svg',
-            css: 'source/sass/sprites',
-            dest: 'assets/fonts'
+            src: 'source/%type%/images/**/*',
+            dest: 'publish/%type%/images'
         }
     }
 };
