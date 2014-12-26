@@ -13,17 +13,12 @@ module.exports = {
         }
     },
     module: {
-        preLoaders: [
-            {
-                loader: "source-map-loader"
-            }
-        ],
         loaders: [
             { test: /\.html$/, loader: 'html-loader' }
         ]
     },
     plugins: [
-        new webpack.optimize.CommonsChunkPlugin('common','common.js'),
+        //new webpack.optimize.CommonsChunkPlugin('common','common.js'),
         new webpack.ResolverPlugin(
             new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin("bower.json", ["main"])
         ),
