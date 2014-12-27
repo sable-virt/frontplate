@@ -40,17 +40,20 @@ function getPath(name, prop) {
     if (!config.path[name] || !config.path[name][prop]) {
         return console.log('[ERROR] not found path - ' + name + '.' + prop);
     }
-    var path = config.path[name][prop];
+    return generatePath(config.path[name][prop]);
+}
+function generatePath(path,relative) {
+    var appPath = relative ? '.' : APP_PATH;
     if (typeof path === 'object') {
         return path.map(function (val) {
             if (val.charAt(0) === '!') {
-                return '!' + APP_PATH + '/' + replaceTypeTag(val.substring(1));
+                return '!' + appPath + '/' + replaceTypeTag(val.substring(1));
             }
-            return APP_PATH + '/' + replaceTypeTag(val);
+            return appPath + '/' + replaceTypeTag(val);
         });
     } else {
         path = path || '';
-        return APP_PATH + '/' + replaceTypeTag(path);
+        return appPath + '/' + replaceTypeTag(path);
     }
 }
 function replaceTypeTag(val) {
@@ -65,6 +68,7 @@ global.frontplate = {
     plugins: $,
     config: config,
     getPath: getPath,
+    path: generatePath,
     option: OPTIONS
 };
 

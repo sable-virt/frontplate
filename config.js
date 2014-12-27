@@ -25,9 +25,9 @@ module.exports = {
     // FrontNote
     styleguide: {
         // 読み込むCSSのパス
-        css: '../assets/css/style.css',
+        css: '../../publish/%type%/css/style.css',
         // 読み込むJSのパス
-        script: '../js/min/main.js'
+        script: '../../publish/%type%/js/app.js'
     },
     // パス設定
     path: {
