@@ -82,6 +82,6 @@ gulp.task('watch', function() {
 // gulpディレクトリのタスク読み込み
 var tasks = require('./gulp/load');
 gulp.task('build',['clean'], function(callback) {
-    return runSequence(['ejs', 'style', 'imagemin', 'script'], callback);
+    return runSequence(['copy','ejs', 'style', 'imagemin', 'script'], callback);
 });
 gulp.task('default',['server','watch','watchScript'], function() {});
