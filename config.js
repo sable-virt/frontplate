@@ -59,6 +59,12 @@ module.exports = {
         images: {
             src: 'source/%type%/images/**/*',
             dest: 'public/%type%/images'
-        }
+        },
+        copy: [
+            {
+                from: 'source/%type%/lib/**/*',
+                to: 'public/%type%/lib'
+            }
+        ]
     }
 };
