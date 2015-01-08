@@ -25,22 +25,22 @@ module.exports = {
     // FrontNote
     styleguide: {
         // 読み込むCSSのパス
-        css: '../../publish/%type%/css/style.css',
+        css: '../../public/%type%/css/style.css',
         // 読み込むJSのパス
-        script: '../../publish/%type%/js/app.js'
+        script: '../../public/%type%/js/app.js'
     },
     // パス設定
     path: {
         // SASS
         sass: {
             src: 'source/%type%/sass/**/*.scss',
-            dest: 'publish/%type%/css'
+            dest: 'public/%type%/css'
         },
         // EJS
         ejs: {
             src: ['source/%type%/**/*.ejs','!source/%type%/**/_*.ejs'],
             watch: ['source/%type%/**/*.ejs'],
-            dest: 'publish/%type%/'
+            dest: 'public/%type%/'
         },
         // SpriteSmith
         sprite: {
@@ -53,12 +53,12 @@ module.exports = {
         // JS Hint
         js: {
             src: ['source/%type%/js/*.js','!source/%type%/js/_*.js'],
-            dest: 'publish/%type%/js'
+            dest: 'public/%type%/js'
         },
         // Image min
         images: {
             src: 'source/%type%/images/**/*',
-            dest: 'publish/%type%/images'
+            dest: 'public/%type%/images'
         }
     }
 };
