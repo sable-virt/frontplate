@@ -1,7 +1,7 @@
 {
   "name": "frontplate",
   "main": "config.js",
-  "version": "0.0.1",
+  "version": "0.3.0",
   "homepage": "https://github.com/frontainer/frontplate",
   "authors": [
     "frontainer"
@@ -16,7 +16,6 @@
   ],
   "dependencies": {
     "lodash": "~2.4.1",
-    "jquery": "1",
-    "modernizr": "~2.8.3"
+    "jquery": "1"
   }
 }
