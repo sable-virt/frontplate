@@ -18,7 +18,7 @@ module.exports = {
         ]
     },
     plugins: [
-        //new webpack.optimize.CommonsChunkPlugin('common','common.js'),
+        new webpack.optimize.CommonsChunkPlugin('main','main.js'),
         new webpack.ResolverPlugin(
             new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin("bower.json", ["main"])
         ),
