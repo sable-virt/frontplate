@@ -1,6 +1,6 @@
 {
   "name": "Frontplate",
-  "version": "0.3.0",
+  "version": "0.2.0",
   "description": "個人的に利用しているWeb制作テンプレート",
   "main": "gulpfile.js",
   "dependencies": {},
