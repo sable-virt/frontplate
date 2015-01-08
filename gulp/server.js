@@ -8,7 +8,7 @@ module.exports = function () {
     gulp.task('server',function() {
         return $.browser.init(frontplate.BASE_PATH, {
             server: {
-                baseDir: frontplate.APP_PATH + '/public/' + frontplate.option.d,
+                baseDir: config.appPath + '/public/' + frontplate.option.d,
                 directory: false,
                 middleware: [
                     rewrite([
