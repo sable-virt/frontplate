@@ -1,0 +1,41 @@
+/*
+#styleguide
+sample
+
+```
+<i class="sample frontainer01"></i>
+<i class="sample frontainer02"></i>
+<i class="sample frontainer03"></i>
+<i class="sample frontainer04"></i>
+<i class="sample frontainer05"></i>
+<i class="sample frontainer06"></i>
+```
+*/
+$frontainer01: 0px 0px 0px 0px 300px 300px 910px 605px './images/sample.png';
+$frontainer02: 305px 0px -305px 0px 300px 300px 910px 605px './images/sample.png';
+$frontainer03: 0px 305px 0px -305px 300px 300px 910px 605px './images/sample.png';
+$frontainer04: 305px 305px -305px -305px 300px 300px 910px 605px './images/sample.png';
+$frontainer05: 610px 0px -610px 0px 300px 300px 910px 605px './images/sample.png';
+$frontainer06: 610px 305px -610px -305px 300px 300px 910px 605px './images/sample.png';
+
+.sample {
+    display: inline-block;
+    &.frontainer01 {
+        @include sprite($frontainer01);
+    }
+    &.frontainer02 {
+        @include sprite($frontainer02);
+    }
+    &.frontainer03 {
+        @include sprite($frontainer03);
+    }
+    &.frontainer04 {
+        @include sprite($frontainer04);
+    }
+    &.frontainer05 {
+        @include sprite($frontainer05);
+    }
+    &.frontainer06 {
+        @include sprite($frontainer06);
+    }
+}

@@ -1,6 +1,7 @@
 var gulp = require('gulp'),
     config = frontplate.config,
     $ = frontplate.plugins,
+    path = require('path'),
     _extend = require('extend');
 
 module.exports = function () {
@@ -9,7 +10,8 @@ module.exports = function () {
             .pipe($.plumber({errorHandler: $.notify.onError('<%= error.message %>')}))
             .pipe($.foreach(function(stream, file){
                 if(file.isDirectory()) {
-                    var name = file.path.substring(file.path.lastIndexOf('/')+1);
+                    var paths = file.path.split(path.sep);
+                    var name = paths.pop();
                     if (!name) return stream;
 
                     var options = _extend({

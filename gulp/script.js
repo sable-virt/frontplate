@@ -21,8 +21,7 @@ function exeWebPack(conf,watch) {
         }))
         .pipe($.webpack(conf))
         .pipe(filter)
-        .pipe($.if(frontplate.MINIFY && config.useAngular, $.ngAnnotate()))
-        .pipe($.if(frontplate.MINIFY, $.uglify()))
+        .pipe($.if(frontplate.option.min, $.uglify()))
         .pipe(filter.restore())
         .pipe(gulp.dest(frontplate.getPath('js','dest')))
         .pipe($.browser.reload({stream: true}));

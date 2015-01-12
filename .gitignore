@@ -3,7 +3,5 @@
 .DS_Store
 node_modules
 bower_components
-app/pc/styleguide
-app/sp/styleguide
-app/pc/assets
-app/sp/assets
+app/public
+app/guide
