@@ -13,19 +13,24 @@ module.exports = {
         }
     },
     module: {
+        preLoaders: [
+        ],
         loaders: [
-            { test: /\.html$/, loader: 'html-loader' }
+            { test: /\.html$/, loader: 'html-loader' },
+            //{ test: /angular\.js$/, loader: 'exports?angular' },
         ]
     },
     plugins: [
-        new webpack.optimize.CommonsChunkPlugin('main','main.js'),
+        new webpack.optimize.CommonsChunkPlugin('common','common.js'),
         new webpack.ResolverPlugin(
             new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin("bower.json", ["main"])
         ),
+        new webpack.optimize.AggressiveMergingPlugin(),
         new webpack.optimize.DedupePlugin(),
         new webpack.ProvidePlugin({
             $: 'jquery',
-            jQuery: 'jquery'
+            jQuery: 'jquery',
+            _: 'lodash'
         })
     ]
 };
