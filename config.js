@@ -64,6 +64,14 @@ module.exports = {
             src: 'source/%type%/images/**/*',
             dest: 'public/%type%/images'
         },
+        test: {
+            src: [
+                'public/%dest%/js/common.js',
+                //'../bower_components/angular-mocks/angular-mocks.js',
+                'public/%dest%/js/app.js',
+                'source/%type%/**/*Spec.js'
+            ]
+        },
         copy: [
             {
                 from: 'source/%type%/lib/**/*',
