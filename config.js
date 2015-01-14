@@ -31,6 +31,10 @@ module.exports = {
     },
     // パス設定
     path: {
+        // html
+        html: {
+            src: 'public/%type%/**/*.html'
+        },
         // SASS
         sass: {
             src: 'source/%type%/sass/**/*.scss',
