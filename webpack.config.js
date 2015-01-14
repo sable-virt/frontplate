@@ -14,6 +14,11 @@ module.exports = {
     },
     module: {
         preLoaders: [
+            {
+                test: /\.js$/,
+                exclude: /^(node_modules|bower_component)/,
+                loader: "jshint-loader"
+            }
         ],
         loaders: [
             { test: /\.html$/, loader: 'html-loader' },
