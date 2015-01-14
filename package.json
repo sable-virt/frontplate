@@ -17,6 +17,7 @@
     "gulp-filter": "^1.0.2",
     "gulp-foreach": "0.0.1",
     "gulp-frontnote": "^0.1.0",
+    "gulp-htmlhint": "0.0.9",
     "gulp-if": "^1.2.4",
     "gulp-imagemin": "^2.0.0",
     "gulp-karma": "0.0.4",
