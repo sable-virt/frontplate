@@ -3,11 +3,11 @@ var gulp = require('gulp'),
     $ = frontplate.plugins;
 
 module.exports = function () {
-    gulp.task('ejs', function () {
-        return gulp.src(frontplate.getPath('ejs'))
+    gulp.task('html', function () {
+        return gulp.src(frontplate.getPath('html'))
             .pipe($.plumber({errorHandler: $.notify.onError('<%= error.message %>')}))
-            .pipe($.ejs(frontplate.config.ejs))
-            .pipe(gulp.dest(frontplate.getPath('ejs','dest')))
-            .pipe($.browser.reload({stream: true}));
+            .pipe($.htmlhint(frontplate.config.htmlhint))
+            .pipe($.htmlhint.reporter())
+            .pipe($.htmlhint.failReporter());
     });
 }();
