@@ -16,7 +16,7 @@ module.exports = {
         preLoaders: [
             {
                 test: /\.js$/,
-                exclude: /^(node_modules|bower_component)/,
+                exclude: /(node_modules|bower_component)/,
                 loader: "jshint-loader"
             }
         ],
