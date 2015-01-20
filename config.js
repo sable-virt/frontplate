@@ -66,9 +66,9 @@ module.exports = {
         },
         test: {
             src: [
-                'public/%dest%/js/common.js',
+                'public/%type%/js/common.js',
                 //'../bower_components/angular-mocks/angular-mocks.js',
-                'public/%dest%/js/app.js',
+                'public/%type%/js/app.js',
                 'source/%type%/**/*Spec.js'
             ]
         },
