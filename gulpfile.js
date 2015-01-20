@@ -85,4 +85,4 @@ var tasks = require('./gulp/load');
 gulp.task('build',['clean'], function(callback) {
     return runSequence(['copy','ejs','sprite','style', 'script'], 'imagemin', callback);
 });
-gulp.task('default',['server','watch','watchScript'], function() {});
+gulp.task('default',['server','watch','watchScript','testWatch'], function() {});
