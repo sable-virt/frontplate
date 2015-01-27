@@ -3,7 +3,8 @@ module.exports = {
     watchDelay: 500,
     output: {
         filename: "[name].js",
-        sourceMapFilename: 'map/[file].map'
+        sourceMapFilename: 'map/[file].map',
+        publicPath: "/js/"
     },
     devtool: '#source-map',
     resolve: {
