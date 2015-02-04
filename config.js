@@ -52,7 +52,7 @@ module.exports = {
             watch: 'source/%type%/sprites/**/*',
             imgDest: 'source/%type%/images',
             cssDest: 'source/%type%/sass/sprites',
-            imgPath: './images'
+            imgPath: '../images'
         },
         // JS Hint
         js: {
