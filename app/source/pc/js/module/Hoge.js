@@ -6,4 +6,4 @@ Hoge.prototype = {
         console.log(this.name);
     }
 };
-module.exports = Hoge;
+export default Hoge;
