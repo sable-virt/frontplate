@@ -14,16 +14,9 @@ module.exports = {
         }
     },
     module: {
-        preLoaders: [
-            {
-                test: /\.js$/,
-                exclude: /(node_modules|bower_component)/,
-                loader: "jshint-loader"
-            }
-        ],
         loaders: [
             { test: /\.html$/, loader: 'html-loader' },
-            //{ test: /angular\.js$/, loader: 'exports?angular' },
+            { test: /\.js$/, exclude: /(node_modules|bower_components)/, loader: 'babel-loader'}
         ]
     },
     plugins: [
@@ -31,12 +24,6 @@ module.exports = {
         new webpack.ResolverPlugin(
             new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin("bower.json", ["main"])
         ),
-        new webpack.optimize.AggressiveMergingPlugin(),
-        new webpack.optimize.DedupePlugin(),
-        new webpack.ProvidePlugin({
-            $: 'jquery',
-            jQuery: 'jquery',
-            _: 'lodash'
-        })
+        new webpack.optimize.AggressiveMergingPlugin()
     ]
 };
