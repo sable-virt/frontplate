@@ -76,7 +76,7 @@ gulp.task('watch', function() {
     gulp.watch(getPath('ejs','watch'), ['ejs']);
     gulp.watch(getPath('html'), ['html']);
     gulp.watch(getPath('sass'), ['style']);
-    gulp.watch(getPath('sprite','watch'), ['sprite']);
+    gulp.watch(getPath('sprite','watch'), ['sprite','style','imagemin']);
     gulp.watch(getPath('images'), ['imagemin']);
 });
 
