@@ -15,8 +15,7 @@ module.exports = {
     },
     module: {
         loaders: [
-            { test: /\.html$/, loader: 'html-loader' },
-            { test: /\.js$/, exclude: /(node_modules|bower_components)/, loader: 'babel-loader'}
+            { test: /\.html$/, loader: 'html-loader' }
         ]
     },
     plugins: [
