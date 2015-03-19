@@ -6,7 +6,7 @@ var rewrite = require('connect-modrewrite');
 
 module.exports = function () {
     gulp.task('server',function() {
-        return $.browser.init(frontplate.BASE_PATH, {
+        return $.browser({
             server: {
                 baseDir: config.appPath + '/public/' + frontplate.option.d,
                 directory: false,
