@@ -6,7 +6,7 @@ module.exports = function () {
     gulp.task('imagemin',function() {
         return gulp.src(frontplate.getPath('images'))
             .pipe($.plumber({errorHandler: $.notify.onError('<%= error.message %>')}))
-            .pipe($.imagemin())
+            //.pipe($.imagemin())
             .pipe(gulp.dest(frontplate.getPath('images','dest')))
             .pipe($.browser.reload({stream: true}));
     });
