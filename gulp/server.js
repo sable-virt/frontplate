@@ -1,19 +1,14 @@
-var gulp = require('gulp'),
-    config = frontplate.config,
-    $ = frontplate.plugins;
-
+var gulp = require('gulp');
 var rewrite = require('connect-modrewrite');
 
 module.exports = function () {
     gulp.task('server',function() {
         return $.browser({
             server: {
-                baseDir: config.appPath + '/public/' + frontplate.option.d,
+                baseDir: config.public,
                 directory: false,
                 middleware: [
-                    rewrite([
-                        '^[^\\.]*$ /index.html [L]'
-                    ])
+                    rewrite(config.rewrite)
                 ]
             },
             notify: false,
@@ -29,4 +24,3 @@ module.exports = function () {
         $.browser.reload();
     });
 }();
-

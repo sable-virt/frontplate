@@ -1,18 +1,15 @@
 var gulp = require('gulp'),
-    config = frontplate.config,
-    $ = frontplate.plugins,
-    conf = require('../webpack.config.js'),
     through = require('through2'),
     path = require('path');
 
-function exeWebPack(conf,watch) {
+function exeWebPack(watch) {
+    var conf = require('../webpack.config.js');
     if(watch === true) {
         conf.watch = true;
     } else {
         conf.watch = false;
     }
-    var filter = $.filter('**/*.js');
-    return gulp.src(frontplate.getPath('js'))
+    return gulp.src(config.path.js.src)
         .pipe(through.obj(function(file,charset,callback) {
             conf.entry = conf.entry || {};
             conf.entry[path.basename(file.path,path.extname(file.path))] = file.path;
@@ -20,15 +17,12 @@ function exeWebPack(conf,watch) {
             callback();
         }))
         .pipe($.webpack(conf))
-        .pipe(filter)
-        .pipe($.if(frontplate.option.min, $.uglify()))
-        .pipe(filter.restore())
-        .pipe(gulp.dest(frontplate.getPath('js','dest')))
+        .pipe(gulp.dest(config.path.js.dest))
         .pipe($.browser.reload({stream: true}));
 }
 gulp.task('script', function() {
-    return exeWebPack(conf);
+    return exeWebPack();
 });
 gulp.task('watchScript', function() {
-    return exeWebPack(conf,true);
+    return exeWebPack(true);
 });

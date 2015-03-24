@@ -1,9 +1,7 @@
-var gulp = require('gulp'),
-    config = frontplate.config,
-    $ = frontplate.plugins;
+var gulp = require('gulp');
 
 function karmaTest(watch) {
-    return gulp.src(frontplate.getPath('test'))
+    return gulp.src(config.path.test.src)
         .pipe($.karma({
             configFile: 'karma.conf.js',
             action: watch ? 'watch' : 'run'

@@ -3,5 +3,5 @@
 .DS_Store
 node_modules
 bower_components
-app/public
-app/guide
+public
+guide

@@ -4,25 +4,19 @@ module.exports = {
     output: {
         filename: "[name].js",
         sourceMapFilename: 'map/[file].map',
-        publicPath: "/js/"
     },
     devtool: '#source-map',
     resolve: {
-        modulesDirectories: ["bower_components","node_modules"],
-        alias: {
-            bower: 'bower_components'
-        }
+        extensions: ['.ts', '.js', '']
     },
     module: {
         loaders: [
-            { test: /\.html$/, loader: 'html-loader' }
+            { test: /\.html$/, loader: 'html-loader' },
+            { test: /\.ts$/, loader: 'ts-loader?noImplicitAny=true' }
         ]
     },
     plugins: [
-        new webpack.optimize.CommonsChunkPlugin('common','common.js'),
-        new webpack.ResolverPlugin(
-            new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin("bower.json", ["main"])
-        ),
+        new webpack.optimize.CommonsChunkPlugin('app','app.js'),
         new webpack.optimize.AggressiveMergingPlugin()
     ]
 };

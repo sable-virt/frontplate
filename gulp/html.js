@@ -1,12 +1,10 @@
-var gulp = require('gulp'),
-    config = frontplate.config,
-    $ = frontplate.plugins;
+var gulp = require('gulp');
 
 module.exports = function () {
     gulp.task('html', function () {
-        return gulp.src(frontplate.getPath('html'))
+        return gulp.src(config.path.html.src)
             .pipe($.plumber({errorHandler: $.notify.onError('<%= error.message %>')}))
-            .pipe($.htmlhint(frontplate.config.htmlhint))
+            .pipe($.htmlhint(config.htmlhint))
             .pipe($.htmlhint.reporter())
             .pipe($.htmlhint.failReporter());
     });

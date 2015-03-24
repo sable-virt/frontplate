@@ -4,11 +4,10 @@
 
 var fs = require("fs");
 module.exports = {
-    appPath: 'app',
-    defaultDir: 'pc',
+    public: 'public',
     // AutoPrefixer
     autoprefixer: {
-        browser: ['last 3 version', 'ie >= 8', 'Android 4.0']
+        browser: ['last 3 version', 'ie >= 9', 'Android 4.0']
     },
     // SpriteSmith
     sprite: {
@@ -22,60 +21,66 @@ module.exports = {
             padding: 5
         }
     },
+    rewrite: [
+        '^[^\\.]*$ /index.html [L]'
+    ],
     // FrontNote
     styleguide: {
         // 読み込むCSSのパス
-        css: '../../public/%type%/css/style.css',
+        css: '../../public/css/style.css',
         // 読み込むJSのパス
-        script: '../../public/%type%/js/app.js'
+        script: '../../public/js/app.js'
     },
     // パス設定
     path: {
         // html
         html: {
-            src: 'public/%type%/**/*.html'
+            src: 'public/**/*.html'
         },
-        // SASS
-        sass: {
-            src: 'source/%type%/sass/**/*.scss',
-            dest: 'public/%type%/css'
+        style: {
+            src: 'src/sass/**/*.scss',
+            dest: 'public/css'
         },
         // EJS
         ejs: {
-            src: ['source/%type%/**/*.ejs','!source/%type%/**/_*.ejs'],
-            watch: ['source/%type%/**/*.ejs'],
-            dest: 'public/%type%/'
+            src: ['src/**/*.ejs','!src/**/_*.ejs'],
+            watch: ['src/**/*.ejs'],
+            dest: 'public/'
         },
         // SpriteSmith
         sprite: {
-            src: 'source/%type%/sprites/*',
-            watch: 'source/%type%/sprites/**/*',
-            imgDest: 'source/%type%/images',
-            cssDest: 'source/%type%/sass/sprites',
-            imgPath: '../images'
+            src: 'src/sprites/*',
+            watch: 'src/sprites/**/*',
+            imgPath: '../images',
+            image: 'src/images',
+            css: 'src/sass/sprites',
         },
         // JS Hint
         js: {
-            src: ['source/%type%/js/*.js','!source/%type%/js/_*.js'],
-            dest: 'public/%type%/js'
+            src: ['src/js/*.ts','!src/js/_*.ts'],
+            dest: 'public/js'
         },
         // Image min
         images: {
-            src: 'source/%type%/images/**/*',
-            dest: 'public/%type%/images'
+            src: 'src/images/**/*',
+            dest: 'public/images'
         },
         test: {
             src: [
-                'public/%type%/js/common.js',
+                'public/js/common.js',
                 //'../bower_components/angular-mocks/angular-mocks.js',
-                'public/%type%/js/app.js',
-                'source/%type%/**/*Spec.js'
+                'public/js/app.js',
+                'test/**/*.js'
             ]
         },
         copy: [
             {
-                from: 'source/%type%/lib/**/*',
-                to: 'public/%type%/lib'
+                from: 'src/lib/**/*',
+                to: 'public/lib'
+            },
+            {
+                from: 'src/images/**/*',
+                to: 'public/images'
             }
         ]
     }
