@@ -2,13 +2,10 @@ var gulp = require('gulp'),
     through = require('through2'),
     path = require('path');
 
+var webpack = require('webpack');
 function exeWebPack(watch) {
-    var conf = Object.create(require('../webpack.config.js'));
-    if(watch === true) {
-        conf.watch = true;
-    } else {
-        conf.watch = false;
-    }
+    var conf = require('../webpack.config.js');
+    conf.watch = watch;
     return gulp.src(config.path.js.src)
         .pipe(through.obj(function(file,charset,callback) {
             conf.entry = conf.entry || {};
@@ -21,7 +18,7 @@ function exeWebPack(watch) {
         .pipe($.browser.reload({stream: true}));
 }
 gulp.task('script', function() {
-    return exeWebPack();
+    return exeWebPack(false);
 });
 gulp.task('watchScript', function() {
     return exeWebPack(true);

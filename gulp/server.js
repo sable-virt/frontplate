@@ -5,7 +5,7 @@ module.exports = function () {
     gulp.task('server',function() {
         return $.browser({
             server: {
-                baseDir: config.public,
+                baseDir: config.dist,
                 directory: false,
                 middleware: [
                     rewrite(config.rewrite)

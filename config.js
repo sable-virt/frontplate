@@ -2,9 +2,8 @@
  * タスク設定ファイル
  */
 
-var fs = require("fs");
 module.exports = {
-    public: 'public',
+    dist: 'public/%type%',
     defaultPath: 'pc',
     // AutoPrefixer
     autoprefixer: {
@@ -59,7 +58,7 @@ module.exports = {
             watch: 'src/%type%/**/sprites/**/*',
             imgPath: '../images',
             image: '../../images',
-            css: '../../sass/sprites',
+            css: '../../sass/sprites'
         },
         // JS Hint
         js: {
