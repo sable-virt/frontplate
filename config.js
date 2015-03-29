@@ -5,6 +5,7 @@
 var fs = require("fs");
 module.exports = {
     public: 'public',
+    defaultPath: 'pc',
     // AutoPrefixer
     autoprefixer: {
         browser: ['last 3 version', 'ie >= 9', 'Android 4.0']
@@ -31,56 +32,55 @@ module.exports = {
         // 読み込むJSのパス
         script: '../../public/js/app.js'
     },
+    test: {
+        preprocessors: {
+            'src/%type%/test/*.js': ['webpack']
+        }
+    },
     // パス設定
     path: {
         // html
         html: {
-            src: 'public/**/*.html'
+            src: 'public/%type%/**/*.html'
         },
         style: {
-            src: 'src/sass/**/*.scss',
-            dest: 'public/css'
+            src: 'src/%type%/sass/*.scss',
+            dest: 'public/%type%/css'
         },
         // EJS
         ejs: {
-            src: ['src/**/*.ejs','!src/**/_*.ejs'],
-            watch: ['src/**/*.ejs'],
-            dest: 'public/'
+            src: ['src/%type%/**/*.ejs','!src/%type%/**/_*.ejs'],
+            watch: ['src/%type%/**/*.ejs'],
+            dest: 'public/%type%'
         },
         // SpriteSmith
         sprite: {
-            src: 'src/sprites/*',
-            watch: 'src/sprites/**/*',
+            src: 'src/%type%/**/sprites/*',
+            watch: 'src/%type%/**/sprites/**/*',
             imgPath: '../images',
-            image: 'src/images',
-            css: 'src/sass/sprites',
+            image: '../../images',
+            css: '../../sass/sprites',
         },
         // JS Hint
         js: {
-            src: ['src/js/*.ts','!src/js/_*.ts'],
-            dest: 'public/js'
-        },
-        // Image min
-        images: {
-            src: 'src/images/**/*',
-            dest: 'public/images'
+            src: ['src/%type%/js/*.ts','!src/js/_*.ts'],
+            dest: 'public/%type%/js'
         },
         test: {
             src: [
-                'public/js/common.js',
-                //'../bower_components/angular-mocks/angular-mocks.js',
-                'public/js/app.js',
-                'test/**/*.js'
+                'public/%type%/js/*.js',
+                'node_modules/power-assert/build/power-assert.js',
+                'src/%type%/test/**/*.js'
             ]
         },
         copy: [
             {
-                from: 'src/lib/**/*',
-                to: 'public/lib'
+                from: 'src/%type%/**/lib/**/*',
+                to: 'public/%type%'
             },
             {
-                from: 'src/images/**/*',
-                to: 'public/images'
+                from: 'src/%type%/**/images/**/*',
+                to: 'public/%type%'
             }
         ]
     }
