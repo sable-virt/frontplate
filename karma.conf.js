@@ -26,6 +26,11 @@ module.exports = function(config) {
             type: 'html',
             dir: 'coverage/'
         },
+        client: {
+            mocha: {
+                reporter: 'html'
+            }
+        },
 
         // web server port
         port: 9001,
