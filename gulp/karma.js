@@ -4,7 +4,8 @@ function karmaTest(watch) {
     return gulp.src(config.path.test.src)
         .pipe($.karma({
             configFile: 'karma.conf.js',
-            action: watch ? 'watch' : 'run'
+            action: watch ? 'watch' : 'run',
+            preprocessor: config.test.preprocessor
         }));
 }
 
