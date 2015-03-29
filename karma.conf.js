@@ -1,33 +1,31 @@
 // Karma configuration
 // Generated on Thu Jun 05 2014 00:09:58 GMT+0900 (JST)
 
-module.exports = function (config) {
+module.exports = function(config) {
     config.set({
 
         // base path that will be used to resolve all patterns (eg. files, exclude)
         basePath: '',
         // frameworks to use
         // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-        frameworks: ['jasmine'],
+        frameworks: ['mocha'],
 
         // list of files / patterns to load in the browser
-        files: [
-        ],
-        exclude: [
-        ],
-        preprocessors: {
-            //'app/system/**/*.js': ['coverage']
+        files: [],
+        exclude: [],
+        webpack: require('./webpack.config'),
+        webpackMiddleware: {
+            noInfo: true
         },
 
         // test results reporter to use
         // possible values: 'dots', 'progress'
         // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-        //reporters: ['progress','coverage'],
-        reporters: ['progress'],
-        //coverageReporter: {
-        //    type : 'html',
-        //    dir : 'coverage/'
-        //},
+        reporters: ['nyan'],
+        coverageReporter: {
+            type: 'html',
+            dir: 'coverage/'
+        },
 
         // web server port
         port: 9001,
@@ -45,10 +43,9 @@ module.exports = function (config) {
         // enable / disable watching file and executing tests whenever any file changes
         autoWatch: false,
 
-
         // start these browsers
         // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-        browsers: ['PhantomJS'/*,'Chrome'*/],
+        browsers: ['PhantomJS'],
 
         // Continuous Integration mode
         // if true, Karma captures browsers, runs the tests and exits
