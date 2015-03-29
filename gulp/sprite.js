@@ -19,11 +19,13 @@ module.exports = function () {
                             prefix: name
                         }
                     },config.sprite.options);
+                    var cssPath = path.resolve(file.path,config.path.sprite.css);
+                    var imagePath = path.resolve(file.path,config.path.sprite.image);
                     var strm = gulp.src(file.path + '/*' + config.sprite.extension)
                         .pipe($.plumber())
                         .pipe($.spritesmith(options));
-                    strm.img.pipe(gulp.dest(config.path.sprite.image));
-                    strm.css.pipe(gulp.dest(config.path.sprite.css));
+                    strm.img.pipe(gulp.dest(imagePath));
+                    strm.css.pipe(gulp.dest(cssPath));
                     return strm;
                 }
                 return stream;
