@@ -3,7 +3,7 @@ var gulp = require('gulp'),
     path = require('path');
 
 function exeWebPack(watch) {
-    var conf = require('../webpack.config.js');
+    var conf = Object.create(require('../webpack.config.js'));
     if(watch === true) {
         conf.watch = true;
     } else {
@@ -12,7 +12,7 @@ function exeWebPack(watch) {
     return gulp.src(config.path.js.src)
         .pipe(through.obj(function(file,charset,callback) {
             conf.entry = conf.entry || {};
-            conf.entry[path.basename(file.path,path.extname(file.path))] = file.path;
+            conf.entry[path.basename(file.path,'.ts')] = file.path;
             this.push(file);
             callback();
         }))
