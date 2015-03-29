@@ -3,7 +3,7 @@ module.exports = {
     watchDelay: 500,
     output: {
         filename: "[name].js",
-        sourceMapFilename: 'map/[file].map',
+        sourceMapFilename: 'map/[file].map'
     },
     devtool: '#source-map',
     resolve: {
@@ -12,7 +12,7 @@ module.exports = {
     module: {
         loaders: [
             { test: /\.html$/, loader: 'html-loader' },
-            { test: /\.ts$/, loader: 'ts-loader?noImplicitAny=true' }
+            { test: /\.ts$/, loader: 'typescript-loader?noImplicitAny=true' }
         ]
     },
     plugins: [
