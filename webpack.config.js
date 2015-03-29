@@ -1,9 +1,11 @@
 var webpack = require("webpack");
+
 module.exports = {
     watchDelay: 500,
     output: {
         filename: "[name].js",
-        sourceMapFilename: 'map/[file].map'
+        sourceMapFilename: 'map/[file].map',
+        jsonpFunction: 'wpj'
     },
     devtool: '#source-map',
     resolve: {
