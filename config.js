@@ -21,9 +21,6 @@ module.exports = {
             padding: 5
         }
     },
-    rewrite: [
-        '^[^\\.]*$ /index.html [L]'
-    ],
     // FrontNote
     styleguide: {
         // 読み込むCSSのパス
