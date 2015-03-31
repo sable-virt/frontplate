@@ -1,11 +1,7 @@
 var changelog = require("conventional-changelog");
-var pack = require('./package.json');
-var fs = require("fs");
-
-if (!pack.repository.url || !pack.version) throw new Error('Not found repository.url or version on package.json');
+var fs = require('fs');
 changelog({
-    repository: pack.repository.url,
-    version: pack.version
+    pkg: './package.json'
 }, function(err, log) {
     fs.writeFileSync("./CHANGELOG.md", log);
 });
