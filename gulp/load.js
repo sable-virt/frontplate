@@ -10,7 +10,7 @@ module.exports = function() {
         var stats = fs.statSync(path.join(__dirname,file));
         if (stats.isFile() && path.extname(file) === '.js') {
             var name = path.basename(file,'.js');
-            if (name === 'init') return;
+            if (name === 'load') return;
             result[name] = require(__dirname + '/'+name);
         }
     });
