@@ -4,7 +4,7 @@ var gulp = require('gulp'),
 
 var webpack = require('webpack');
 function exeWebPack(watch) {
-    var conf = require('../webpack.config.js');
+    var conf = Object.create(require('../webpack.config.js'));
     conf.watch = watch;
     return gulp.src(config.path.js.src)
         .pipe(through.obj(function(file,charset,callback) {
