@@ -12,10 +12,10 @@ module.exports = function () {
             .pipe($.sass({
                 errLogToConsole: true,
                 sourceComments: 'normal',
-                sourceMap: true
+                sourceMap: isProduction ? false : true
             }))
             .pipe($.autoprefixer(config.autoprefixer.browser))
-            //.pipe($.if(frontplate.option.min,$.csso()))
+            .pipe($.if(isProduction,$.csso()))
             .pipe(gulp.dest(config.path.style.dest))
             .pipe($.browser.reload({stream: true}));
     });
