@@ -1,6 +1,7 @@
 var gulp = require('gulp'),
     extend = require('extend'),
-    path = require('path');
+    path = require('path'),
+    ms = require('merge-stream');
 
 module.exports = function () {
     gulp.task('sprite',function() {
@@ -26,7 +27,7 @@ module.exports = function () {
                         .pipe($.spritesmith(options));
                     strm.img.pipe(gulp.dest(imagePath));
                     strm.css.pipe(gulp.dest(cssPath));
-                    return strm;
+                    return ms(stream,strm);
                 }
                 return stream;
             }))
