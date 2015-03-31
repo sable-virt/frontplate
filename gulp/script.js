@@ -6,6 +6,9 @@ var webpack = require('webpack');
 function exeWebPack(watch) {
     var conf = Object.create(require('../webpack.config.js'));
     conf.watch = watch;
+    if(global.isProduction) {
+        delete conf.devtool;
+    }
     return gulp.src(config.path.js.src)
         .pipe(through.obj(function(file,charset,callback) {
             conf.entry = conf.entry || {};
