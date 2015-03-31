@@ -8,7 +8,9 @@ module.exports = function () {
                 baseDir: config.dist,
                 directory: false,
                 middleware: [
-                    rewrite(config.rewrite)
+                    rewrite([
+                        '^[^\\.]*$ /index.html [L]'
+                    ])
                 ]
             },
             notify: false,
