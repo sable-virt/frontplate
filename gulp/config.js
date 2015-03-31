@@ -1,4 +1,4 @@
-var config = require('../config');
+var config = Object.create(require('../config'));
 var DIR = getType(process.argv);
 var TYPE_REG = /%type%/g;
 
