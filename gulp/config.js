@@ -1,5 +1,5 @@
 var config = Object.create(require('../config'));
-var DIR = getType(process.argv);
+var TYPE = getType(process.argv);
 var TYPE_REG = /%type%/g;
 
 function getType(args) {
@@ -11,15 +11,12 @@ function getType(args) {
     return config.defaultPath;
 }
 function buildPath(data) {
+    if (typeof data === 'string') return data.replace(TYPE_REG, TYPE);
     for (var key in data) {
-        var val = data[key];
-        if (typeof val === 'string') {
-            data[key] = val.replace(TYPE_REG, DIR);
-        } else {
-            data[key] = buildPath(val);
-        }
+        data[key] = buildPath(data[key]);
     }
     return data;
 }
 buildPath(config);
+config.TYPE = TYPE;
 module.exports = config;
