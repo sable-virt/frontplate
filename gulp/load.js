@@ -8,7 +8,7 @@ module.exports = function() {
 
     files.forEach(function(file) {
         var stats = fs.statSync(path.join(__dirname,file));
-        if (stats.isFile()) {
+        if (stats.isFile() && path.extname(file) === '.js') {
             var name = path.basename(file,'.js');
             if (name === 'init') return;
             result[name] = require(__dirname + '/'+name);
