@@ -17,7 +17,7 @@ gulp.task('watch', function () {
 gulp.task('build', ['clean'], function (callback) {
     return runSequence('sprite', ['ejs', 'script', 'style', 'copy'], callback);
 });
-gulp.task('production',function () {
+gulp.task('production',function (callback) {
     global.isProduction = true;
     return runSequence('build', callback);
 });
