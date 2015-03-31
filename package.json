@@ -30,6 +30,7 @@
     "karma-mocha-reporter": "^1.0.2",
     "karma-phantomjs-launcher": "^0.1.4",
     "karma-webpack": "^1.5.0",
+    "merge-stream": "^0.1.7",
     "mocha": "^2.2.1",
     "npm-check-updates": "^1.5.1",
     "power-assert": "^0.10.2",
