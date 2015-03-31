@@ -5,7 +5,7 @@ module.exports = {
     output: {
         filename: "[name].js",
         sourceMapFilename: 'map/[file].map',
-        jsonpFunction: 'wpj'
+        jsonpFunction: 'fr'
     },
     devtool: '#source-map',
     resolve: {
