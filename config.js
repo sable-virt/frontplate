@@ -71,11 +71,11 @@ module.exports = {
         },
         copy: [
             {
-                from: 'src/%type%/**/lib/**/*',
+                from: 'src/%type%/lib/**/*',
                 to: 'public/%type%'
             },
             {
-                from: 'src/%type%/**/images/**/*',
+                from: 'src/%type%/images/**/*',
                 to: 'public/%type%'
             }
         ]
