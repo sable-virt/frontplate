@@ -12,7 +12,14 @@ gulp.task('watch', function () {
     gulp.watch(config.path.html.src, ['html']);
     gulp.watch(config.path.style.src, ['style']);
     gulp.watch(config.path.sprite.watch, ['sprite', 'style', 'copy']);
-    gulp.watch(config.path.images, ['copy']);
+
+    var copyWatches = [];
+    if (config.path.copy) {
+        config.path.copy.forEach(function(src) {
+            copyWatches.push(src.from);
+        });
+        gulp.watch(copyWatches, ['copy']);
+    }
 });
 gulp.task('build', ['clean'], function (callback) {
     return runSequence('sprite', ['ejs', 'script', 'style', 'copy'], callback);
