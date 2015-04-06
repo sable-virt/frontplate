@@ -5,7 +5,8 @@ function karmaTest(watch) {
         .pipe($.karma({
             configFile: 'karma.conf.js',
             action: watch ? 'watch' : 'run',
-            preprocessor: config.test.preprocessor
+            preprocessor: config.test.preprocessor,
+            webpack: require('../webpack.config')
         }));
 }
 
