@@ -26,6 +26,7 @@
     "gulp.spritesmith": "^3.5.1",
     "html-loader": "^0.2.3",
     "karma": "^0.12.31",
+    "karma-espower-preprocessor": "0.0.3",
     "karma-mocha": "^0.1.10",
     "karma-phantomjs-launcher": "^0.1.4",
     "karma-webpack": "^1.5.0",

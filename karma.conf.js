@@ -13,10 +13,9 @@ module.exports = function(config) {
         // list of files / patterns to load in the browser
         files: [],
         exclude: [],
-        webpackMiddleware: {
-            noInfo: true
+        preprocessors: {
+            'src/**/test/**/*.js': ['espower']
         },
-
         // test results reporter to use
         // possible values: 'dots', 'progress'
         // available reporters: https://npmjs.org/browse/keyword/karma-reporter
@@ -34,15 +33,12 @@ module.exports = function(config) {
         // web server port
         port: 9001,
 
-
         // enable / disable colors in the output (reporters and logs)
         colors: true,
-
 
         // level of logging
         // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
         logLevel: config.LOG_INFO,
-
 
         // enable / disable watching file and executing tests whenever any file changes
         autoWatch: false,
