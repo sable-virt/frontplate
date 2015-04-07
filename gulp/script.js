@@ -6,10 +6,10 @@ var webpack = require('webpack');
 function exeWebPack(watch) {
     var conf = Object.create(require('../webpack.config.js'));
     conf.watch = watch;
-    if(global.isProduction) {
+    if(global.__IS_PRODUCTION) {
         delete conf.devtool;
     }
-    return gulp.src(config.path.js.src)
+    return gulp.src(__CONFIG.path.js.src)
         .pipe(through.obj(function(file,charset,callback) {
             conf.entry = conf.entry || {};
             conf.entry[path.basename(file.path,'.ts')] = file.path;
@@ -17,7 +17,7 @@ function exeWebPack(watch) {
             callback();
         }))
         .pipe($.webpack(conf))
-        .pipe(gulp.dest(config.path.js.dest))
+        .pipe(gulp.dest(__CONFIG.path.js.dest))
         .pipe($.browser.reload({stream: true}));
 }
 gulp.task('script', function() {

@@ -5,7 +5,7 @@ var gulp = require('gulp'),
 
 module.exports = function () {
     gulp.task('sprite',function() {
-        return gulp.src(config.path.sprite.src)
+        return gulp.src(__CONFIG.path.sprite.src)
             .pipe($.plumber({errorHandler: $.notify.onError('<%= error.message %>')}))
             .pipe($.foreach(function(stream, file){
                 if(file.isDirectory()) {
@@ -13,16 +13,16 @@ module.exports = function () {
                     var name = paths.pop();
                     if (!name) return stream;
                     var options = extend({
-                        imgName: name + config.sprite.imgExtension,
-                        cssName: '_' + name + config.sprite.cssExtension,
-                        imgPath: config.path.sprite.imgPath + '/' + name + config.sprite.imgExtension,
+                        imgName: name + __CONFIG.sprite.imgExtension,
+                        cssName: '_' + name + __CONFIG.sprite.cssExtension,
+                        imgPath: __CONFIG.path.sprite.imgPath + '/' + name + __CONFIG.sprite.imgExtension,
                         cssOpts: {
                             prefix: name
                         }
-                    },config.sprite.options);
-                    var cssPath = path.resolve(file.path,config.path.sprite.css);
-                    var imagePath = path.resolve(file.path,config.path.sprite.image);
-                    var strm = gulp.src(file.path + '/*' + config.sprite.extension)
+                    },__CONFIG.sprite.options);
+                    var cssPath = path.resolve(file.path,__CONFIG.path.sprite.css);
+                    var imagePath = path.resolve(file.path,__CONFIG.path.sprite.image);
+                    var strm = gulp.src(file.path + '/*' + __CONFIG.sprite.extension)
                         .pipe($.plumber())
                         .pipe($.spritesmith(options));
                     strm.img.pipe(gulp.dest(imagePath));

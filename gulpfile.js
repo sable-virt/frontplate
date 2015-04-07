@@ -4,18 +4,18 @@ var runSequence = require('run-sequence');
 // gulpディレクトリのタスク読み込み
 var tasks = require('./gulp/load');
 global.$ = tasks.plugins;
-global.config = tasks.config;
-global.isProduction = false;
+global.__CONFIG = tasks.config;
+global.__ID_PRODUCTION = false;
 
 gulp.task('watch', function () {
-    gulp.watch(config.path.ejs.watch, ['ejs']);
-    gulp.watch(config.path.html.src, ['html']);
-    gulp.watch(config.path.style.src, ['style']);
-    gulp.watch(config.path.sprite.watch, ['sprite', 'style', 'copy']);
+    gulp.watch(__CONFIG.path.ejs.watch, ['ejs']);
+    gulp.watch(__CONFIG.path.html.src, ['html']);
+    gulp.watch(__CONFIG.path.style.src, ['style']);
+    gulp.watch(__CONFIG.path.sprite.watch, ['sprite', 'style', 'copy']);
 
     var copyWatches = [];
-    if (config.path.copy) {
-        config.path.copy.forEach(function(src) {
+    if (__CONFIG.path.copy) {
+        __CONFIG.path.copy.forEach(function(src) {
             copyWatches.push(src.from);
         });
         gulp.watch(copyWatches, ['copy']);
@@ -25,8 +25,8 @@ gulp.task('build', ['clean'], function (callback) {
     return runSequence('sprite', ['ejs', 'script', 'style', 'copy'], callback);
 });
 gulp.task('production',function (callback) {
-    global.isProduction = true;
+    global.__IS_PRODUCTION = true;
     return runSequence('build', callback);
 });
-gulp.task('default', ['server', 'watch', 'watchScript', 'testWatch'], function () {
+gulp.task('default', ['server', 'watch', 'watchScript', 'watchTest'], function () {
 });
