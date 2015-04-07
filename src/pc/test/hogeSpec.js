@@ -3,6 +3,6 @@ describe('hoge.ts', function() {
 
   });
   it('hoge', function() {
-    assert('a' === 'a');
+    assert('a' === 'b');
   });
 });
