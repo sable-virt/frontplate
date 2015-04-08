@@ -2,6 +2,10 @@
 // Generated on Thu Jun 05 2014 00:09:58 GMT+0900 (JST)
 
 module.exports = function(config) {
+    var conf = require('./gulp/config');
+    global.__CONFIG = conf;
+    global.__IS_PRODUCTION = false;
+    var webpackConfig = require('./webpack.config');
     config.set({
 
         // base path that will be used to resolve all patterns (eg. files, exclude)
@@ -11,20 +15,29 @@ module.exports = function(config) {
         frameworks: ['mocha'],
 
         // list of files / patterns to load in the browser
-        files: [],
+        files: conf.path.test.src,
         exclude: [],
         preprocessors: {
-            'src/**/test/**/*.js': ['espower']
+            '**/*Spec.js': ['webpack']
+        },
+        webpack: {
+            devtool: '#inline-source-map',
+            resolve: webpackConfig.resolve,
+            module: webpackConfig.module
+        },
+        webpackMiddleware: {
+            noInfo: true
         },
         // test results reporter to use
         // possible values: 'dots', 'progress'
         // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-        reporters: ['progress'],
+        reporters: ['progress','notify'],
         coverageReporter: {
             type: 'html',
             dir: 'coverage/'
         },
         client: {
+            captureConsole: true,
             mocha: {
                 reporter: 'html'
             }
