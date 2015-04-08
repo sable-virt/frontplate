@@ -59,12 +59,13 @@ module.exports = {
         },
         // JS Hint
         js: {
-            src: ['src/%type%/js/*.ts','!src/js/_*.ts'],
+            src: ['src/%type%/js/*.js','!src/js/_*.js','src/%type%/js/*.ts','!src/js/_*.ts'],
             dest: 'public/%type%/js'
         },
         test: {
             src: [
                 'public/%type%/js/*.js',
+                'bower_components/angular-mocks/angular-mocks.js',
                 'node_modules/power-assert/build/power-assert.js',
                 'node_modules/sinon/pkg/sinon.js',
                 'src/%type%/test/**/*.js'
