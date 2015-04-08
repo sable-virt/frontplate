@@ -5,13 +5,14 @@ var runSequence = require('run-sequence');
 var tasks = require('./gulp/load');
 global.$ = tasks.plugins;
 global.__CONFIG = tasks.config;
-global.__ID_PRODUCTION = false;
+global.__IS_PRODUCTION = false;
 
 gulp.task('watch', function () {
     gulp.watch(__CONFIG.path.ejs.watch, ['ejs']);
     gulp.watch(__CONFIG.path.html.src, ['html']);
     gulp.watch(__CONFIG.path.style.src, ['style']);
     gulp.watch(__CONFIG.path.sprite.watch, ['sprite', 'style', 'copy']);
+    gulp.watch(__CONFIG.path.test.src,['test']);
 
     var copyWatches = [];
     if (__CONFIG.path.copy) {
@@ -28,5 +29,5 @@ gulp.task('production',function (callback) {
     global.__IS_PRODUCTION = true;
     return runSequence('build', callback);
 });
-gulp.task('default', ['server', 'watch', 'watchScript', 'watchTest'], function () {
+gulp.task('default', ['watch','watchScript','watchTest','server'], function () {
 });
