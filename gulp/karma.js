@@ -1,16 +1,16 @@
 var gulp = require('gulp');
+var karma = require('karma').server;
 
-function karmaTest(watch) {
-    return gulp.src(__CONFIG.path.test.src)
-        .pipe($.karma({
-            configFile: 'karma.conf.js',
-            action: watch ? 'watch' : 'run'
-        }));
-}
-
-gulp.task('test', function() {
-    return karmaTest();
+gulp.task('test', function(callback) {
+    karma.start({
+        configFile: process.cwd() + '/karma.conf.js',
+        singleRun: true
+    },callback);
 });
-gulp.task('watchTest', function() {
-    return karmaTest(true);
+gulp.task('watchTest', function(callback) {
+    karma.start({
+        configFile: process.cwd() + '/karma.conf.js',
+        singleRun: false,
+        autoWatch: true
+    },callback);
 });
