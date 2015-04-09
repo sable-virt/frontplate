@@ -12,7 +12,7 @@ gulp.task('watch', function () {
     gulp.watch(__CONFIG.path.html.src, ['html']);
     gulp.watch(__CONFIG.path.style.src, ['style']);
     gulp.watch(__CONFIG.path.sprite.watch, ['sprite', 'style', 'copy']);
-    gulp.watch(__CONFIG.path.test.src,['test']);
+    gulp.watch(__CONFIG.path.test.src,['runTest']);
 
     var copyWatches = [];
     if (__CONFIG.path.copy) {
