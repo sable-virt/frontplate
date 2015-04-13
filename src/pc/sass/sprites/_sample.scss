@@ -11,12 +11,12 @@ sample
 <i class=" frontainer06"></i>
 ```
 */
-$frontainer01: 0px 0px 0px 0px 300px 300px 910px 605px '../images/sample.png';
-$frontainer02: 305px 0px -305px 0px 300px 300px 910px 605px '../images/sample.png';
-$frontainer03: 0px 305px 0px -305px 300px 300px 910px 605px '../images/sample.png';
-$frontainer04: 305px 305px -305px -305px 300px 300px 910px 605px '../images/sample.png';
-$frontainer05: 610px 0px -610px 0px 300px 300px 910px 605px '../images/sample.png';
-$frontainer06: 610px 305px -610px -305px 300px 300px 910px 605px '../images/sample.png';
+$frontainer01: 0px 0px 0px 0px 300px 300px 910px 605px 'src/pc/images/sample.png';
+$frontainer02: 305px 0px -305px 0px 300px 300px 910px 605px 'src/pc/images/sample.png';
+$frontainer03: 0px 305px 0px -305px 300px 300px 910px 605px 'src/pc/images/sample.png';
+$frontainer04: 305px 305px -305px -305px 300px 300px 910px 605px 'src/pc/images/sample.png';
+$frontainer05: 610px 0px -610px 0px 300px 300px 910px 605px 'src/pc/images/sample.png';
+$frontainer06: 610px 305px -610px -305px 300px 300px 910px 605px 'src/pc/images/sample.png';
 
 .sample {
     display: inline-block;

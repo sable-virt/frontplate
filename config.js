@@ -53,9 +53,8 @@ module.exports = {
         sprite: {
             src: 'src/%type%/**/sprites/*',
             watch: 'src/%type%/**/sprites/**/*',
-            imgPath: '../images',
-            image: '../../images',
-            css: '../../sass/sprites'
+            image: 'src/%type%/images',
+            css: 'src/%type%/sass/sprites'
         },
         // JS Hint
         js: {
