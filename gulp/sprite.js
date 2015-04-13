@@ -31,6 +31,6 @@ module.exports = function () {
                 }
                 return stream;
             }))
-            .pipe($.browser.reload({stream: true}));
+            .pipe($.browser.stream());
     });
 }();

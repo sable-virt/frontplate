@@ -17,6 +17,6 @@ module.exports = function () {
             .pipe($.autoprefixer(__CONFIG.autoprefixer.browser))
             .pipe($.if(__IS_PRODUCTION,$.csso()))
             .pipe(gulp.dest(__CONFIG.path.style.dest))
-            .pipe($.browser.reload({stream: true}));
+            .pipe($.browser.stream());
     });
 }();

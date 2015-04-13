@@ -3,4 +3,5 @@ var $ = require('gulp-load-plugins')({
     replaceString: /\bgulp[\-.]/
 });
 $.browser = require('browser-sync');
+
 module.exports = $;

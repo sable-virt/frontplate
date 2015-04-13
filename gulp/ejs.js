@@ -6,6 +6,6 @@ module.exports = function () {
             .pipe($.plumber({errorHandler: $.notify.onError('<%= error.message %>')}))
             .pipe($.ejs(__CONFIG.ejs))
             .pipe(gulp.dest(__CONFIG.path.ejs.dest))
-            .pipe($.browser.reload({stream: true}));
+            .pipe($.browser.stream());
     });
 }();

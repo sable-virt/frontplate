@@ -25,7 +25,7 @@ function exeWebPack(watch) {
         }))
         .pipe($.webpack(conf))
         .pipe(gulp.dest(__CONFIG.path.js.dest))
-        .pipe($.browser.reload({stream: true}));
+        .pipe($.browser.stream());
 }
 gulp.task('script', function() {
     return exeWebPack(false);
