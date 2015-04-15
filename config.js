@@ -28,11 +28,6 @@ module.exports = {
         // 読み込むJSのパス
         script: '../../public/js/app.js'
     },
-    test: {
-        preprocessors: {
-            'src/%type%/test/*.js': ['webpack']
-        }
-    },
     // パス設定
     path: {
         // html
