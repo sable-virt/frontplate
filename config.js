@@ -1,7 +1,6 @@
 /**
  * タスク設定ファイル
  */
-
 module.exports = {
     dist: 'public/%type%',
     defaultPath: 'pc',
@@ -18,7 +17,18 @@ module.exports = {
         options: {
             cssTemplate: './templates/sprite-template.mustache',
             algorithm: 'binary-tree',
-            padding: 5
+            padding: 5,
+            cssOpts: {
+                functions: false
+            }
+        }
+    },
+    server: {
+        ghostMode: {
+            clicks: false,
+            location: false,
+            forms: false,
+            scroll: false
         }
     },
     // FrontNote
@@ -48,8 +58,9 @@ module.exports = {
         sprite: {
             src: 'src/%type%/**/sprites/*',
             watch: 'src/%type%/**/sprites/**/*',
-            image: 'src/%type%/images',
-            css: 'src/%type%/sass/sprites'
+            imagePath: '../images',
+            imageDest: 'src/%type%/images',
+            cssDest: 'src/%type%/sass/sprites'
         },
         // JS Hint
         js: {
@@ -67,7 +78,7 @@ module.exports = {
         copy: [
             {
                 from: 'src/%type%/lib/**/*',
-                to: 'public/%type%'
+                to: 'public/%type%/lib'
             },
             {
                 from: 'src/%type%/images/**/*',
