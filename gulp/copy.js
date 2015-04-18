@@ -1,12 +1,13 @@
 var gulp = require('gulp');
+var _ = require('lodash');
 var ms = require('merge-stream');
 
-gulp.task('copy', function (callback) {
+gulp.task('copy', function () {
     var files = __CONFIG.path.copy;
     var stream = ms();
-    for (var i = 0,len = files.length; i < len; i++) {
-        stream.add(gulp.src(files[i].from)
-            .pipe(gulp.dest(files[i].to)));
-    }
+    _.forEach(files,function(file) {
+        stream.add(gulp.src(file.from)
+            .pipe(gulp.dest(file.to)));
+    });
     return stream;
 });
