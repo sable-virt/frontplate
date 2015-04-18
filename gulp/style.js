@@ -1,14 +1,15 @@
 var gulp = require('gulp');
+var _ = require('lodash');
 
 module.exports = function () {
     gulp.task('style', function() {
+        var guideOptions = _.merge({
+            out: './guide/'
+        },__CONFIG.styleguide);
+
         return gulp.src(__CONFIG.path.style.src)
             .pipe($.plumber({errorHandler: $.notify.onError('<%= error.message %>')}))
-            .pipe($.frontnote({
-                out: './guide/',
-                css: (__CONFIG.styleguide && __CONFIG.styleguide.css) ? __CONFIG.styleguide.css : null,
-                script: (__CONFIG.styleguide && __CONFIG.styleguide.script) ? __CONFIG.styleguide.script : null
-            }))
+            .pipe($.frontnote(guideOptions))
             .pipe($.sass({
                 errLogToConsole: true,
                 sourceComments: 'normal',
