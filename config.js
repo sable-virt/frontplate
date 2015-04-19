@@ -45,6 +45,7 @@ module.exports = {
             src: 'public/%type%/**/*.html'
         },
         style: {
+            watch: 'src/%type%/sass/**/*.scss',
             src: 'src/%type%/sass/*.scss',
             dest: 'public/%type%/css'
         },
