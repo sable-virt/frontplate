@@ -6,7 +6,6 @@ module.exports = function () {
         var guideOptions = _.merge({
             out: './guide/'
         },__CONFIG.styleguide);
-
         return gulp.src(__CONFIG.path.style.src)
             .pipe($.plumber({errorHandler: $.notify.onError('<%= error.message %>')}))
             .pipe($.frontnote(guideOptions))
@@ -16,7 +15,7 @@ module.exports = function () {
                 sourceMap: __IS_PRODUCTION ? false : true
             }))
             .pipe($.autoprefixer(__CONFIG.autoprefixer.browser))
-            .pipe($.if(__IS_PRODUCTION,$.csso()))
+            .pipe($.if(__IS_PRODUCTION,$.minifyCss()))
             .pipe(gulp.dest(__CONFIG.path.style.dest))
             .pipe($.browser.stream());
     });
