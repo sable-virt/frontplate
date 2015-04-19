@@ -1,7 +1,9 @@
 @import 'setting';
 
-@import 'base/normalize';
+@import 'base/sanitize';
 //@import 'base/reset';
 @import 'base/mixin';
 @import 'base/base';
 @import 'layout/layout';
+@import 'layout/gridle/gridle';
+@import 'sprites/sample';

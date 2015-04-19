@@ -1,0 +1,139 @@
+// |------------------------------------------------------
+// |------------------------------------------------------
+// | Settings mixins
+// |------------------------------------------------------
+// |------------------------------------------------------
+
+/**
+ * Setup
+ */
+@mixin gridle_setup(
+	$settings : ()
+) {
+	$_gridle-settings : map-merge((
+		name : default,
+		min-width : null,
+		max-width : null,
+		query : null,
+		classes : true,
+		context : 12,
+		gutter-width : 20px,
+		direction : ltr,
+		name-multiplicator : 1,
+		debug : false,
+		debug-show-class-names : true,
+		ie7-support : false,
+		html-states-classes : false,
+		generate-push-classes : true,
+		generate-pull-classes : true,
+		generate-prefix-classes : true,
+		generate-suffix-classes : true,
+		generate-helpers-classes : true
+	), $settings) !global;
+
+	// register default state :
+	@include gridle_register_state(default, $_gridle-settings);
+
+}
+
+// Register an state :
+@mixin gridle_register_state(
+	$name,
+	$settings
+) {
+	// settings :
+	$settings : map-merge($_gridle-settings, $settings);
+
+	// set name :
+	$settings : map-set($settings, name, $name);
+
+	// add state in maps :
+	$_gridle_states : map-set($_gridle_states, $name, $settings) !global;
+}
+
+
+/**
+ *  Register a clear each class
+ */
+@mixin gridle_register_clear_each(
+	$count,
+	$clearWhat
+) {
+	// create the clear map :
+	$classMap : (
+		clearEach : $count,
+		clearWhat : $clearWhat
+	);
+
+	// append to map :
+	$_gridle_clear_classes : map-set($_gridle_clear_classes, $count, $classMap) !global;
+}
+
+
+/**
+ * Register a special class
+ */
+@mixin gridle_register_column(
+	$name,
+	$columns,
+	$context
+) {
+	// create a column :
+	$col : _gridle_create_column($name, $columns, $context);
+
+	// add column in maps :
+	$_gridle_columns : map-set($_gridle_columns, $name, $col) !global;
+}
+
+
+/**
+ * Register default states
+ */
+@mixin gridle_register_default_states() {
+	@include gridle_register_state(mobile, (
+		max-width : 480px
+	));
+	@include gridle_register_state(tablet, (
+		min-width : 481px,
+		max-width : 1024px
+	));
+}
+
+
+/**
+ * Register default mobile first states :
+ */
+@mixin gridle_register_default_mobile_first_states() {
+	@include gridle_register_state(xs, (
+		max-width : 768px
+	));
+	@include gridle_register_state(sm, (
+		min-width : 768px
+	));
+	@include gridle_register_state(md, (
+		min-width : 992px
+	));
+	@include gridle_register_state(lg, (
+		min-width : 1200px
+	));
+}
+
+
+/**
+ * Set the debug device (not used for now)
+ * 
+ * @param 	String 		$state 		The state to update
+ * @para m 	String 		$device 	The device to use (iphone, etc...)
+ */
+@mixin gridle_set_debug_device(
+	$state : default,
+	$device : null
+) {
+
+	// check params :
+	@if $state and $device {
+		// set the state device :
+		$_gridle_states_debug_devices : append($_gridle_states_debug_devices, unquote("\"#{$state}\" : \"#{$device}\""), comma);
+	}
+
+}
