@@ -79,6 +79,11 @@ npm run check-update
 npm run update
 ```
 
+## library
+
+- JS:   [Modernizr](http://modernizr.com/)
+- CSS:  [Gridle](http://gridle.org/)
+
 ## History
 * 0.4.0 - 大幅に構成変更。mocha&power-assert,TypeScript導入
 * 0.3.0 - パッケージの整理
