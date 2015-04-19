@@ -17,8 +17,8 @@ module.exports = {
     module: {
         loaders: [
             { test: /\.html$/, loader: 'html-loader' },
-            { test: /\.ts$/, loader: 'typescript-loader?noImplicitAny=false' },
-            { test: /Spec\.js$/, loader: 'webpack-espower-loader' }
+            { test: /Spec\.js$/, loader: 'webpack-espower-loader' },
+            { test: /\.ts$/, loader: 'typescript-loader?noImplicitAny=false' }
         ]
     },
     plugins: [
