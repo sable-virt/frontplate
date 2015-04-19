@@ -45,7 +45,6 @@
     "start": "npm install && gulp build",
     "update": "node node_modules/npm-check-updates/bin/npm-check-updates",
     "update-u": "node node_modules/npm-check-updates/bin/npm-check-updates -u",
-    "changelog": "node changelog.js",
     "test": "gulp test"
   },
   "repository": {
