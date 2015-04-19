@@ -10,8 +10,8 @@ global.$ = tasks.plugins;
 gulp.task('watch', function () {
     gulp.watch(__CONFIG.path.ejs.watch, ['ejs']);
     gulp.watch(__CONFIG.path.html.src, ['html']);
-    gulp.watch(__CONFIG.path.style.src, ['style']);
-    gulp.watch(__CONFIG.path.sprite.watch, ['sprite', 'style', 'copy']);
+    gulp.watch(__CONFIG.path.style.watch, ['style','guide']);
+    gulp.watch(__CONFIG.path.sprite.watch, ['sprite', 'style','guide', 'copy']);
     gulp.watch(__CONFIG.path.test.src,['runTest']);
 
     var copyWatches = [];
@@ -29,5 +29,4 @@ gulp.task('production',function (callback) {
     global.__IS_PRODUCTION = true;
     runSequence('build', callback);
 });
-gulp.task('default', ['server','watch','watchScript','watchTest'], function () {
-});
+gulp.task('default', ['server','watch','watchScript','watchTest'], function () {});
