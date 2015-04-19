@@ -73,10 +73,10 @@ npm run changelog
 
 ```
 # アップデートを確認
-npm run check-update
+npm run update
 
 # アップデートを実行
-npm run update
+npm run update -- -u
 ```
 
 ## library
