@@ -18,6 +18,7 @@
 	background-size: nth($sprite, 7)*$scale nth($sprite, 8)*$scale;
 }
 @mixin sprite($sprite,$scale:1) {
+	display: inline-block;
 	@include sprite-image($sprite);
 	@include sprite-position($sprite,$scale);
 	@include sprite-width($sprite,$scale);
