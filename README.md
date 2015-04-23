@@ -62,12 +62,6 @@ gulp production
 gulp test
 ```
 
-### ChangeLog生成
-
-```
-npm run changelog
-```
-
 ### package.jsonのアップデート
 
 
@@ -82,7 +76,7 @@ npm run update -- -u
 ## library
 
 - JS:   [Modernizr](http://modernizr.com/)
-- CSS:  [Gridle](http://gridle.org/)
+- CSS:  [Semantic Grid Layout](http://gridle.org/)
 
 ## History
 * 0.4.0 - 大幅に構成変更。mocha&power-assert,TypeScript導入
