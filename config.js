@@ -2,28 +2,40 @@
  * タスク設定ファイル
  */
 module.exports = {
+    // 出力先ディレクトリ
     dist: 'public/%type%',
+    // gulpコマンドでデフォルトで監視するディレクトリ(src/*/)
     defaultPath: 'pc',
-    // AutoPrefixer
+    // AutoPrefixerの設定
     autoprefixer: {
         browser: ['last 3 version', 'ie >= 9', 'Android 4.0']
     },
-    // SpriteSmith
+    // Sprite生成設定
     sprite: {
+        // スプライトにする画像の拡張子
         extension: '.png',
+        // 生成するスプライトの拡張子
         imgExtension: '.png',
+        // 生成するcssファイルの拡張子
         cssExtension: '.scss',
-        // SpriteSmithの設定
+        // 細かいオプション
         options: {
+            // 生成するcssのテンプレート
             cssTemplate: './templates/sprite-template.mustache',
+            // スプライト配置アルゴリズム
             algorithm: 'binary-tree',
+            // スプライト画像の間隔
             padding: 5,
+            // 出力cssの詳細オプション
             cssOpts: {
+                // スプライト生成用のmixinは書き出さない
                 functions: false
             }
         }
     },
+    // サーバー設定
     server: {
+        // サーバーの同期オプション
         ghostMode: {
             clicks: false,
             location: false,
@@ -31,31 +43,31 @@ module.exports = {
             scroll: false
         }
     },
-    // FrontNote
+    // スタイルガイド
     styleguide: {
-        // 読み込むCSSのパス
-        css: '../../public/css/style.css',
-        // 読み込むJSのパス
-        script: '../../public/js/app.js'
+        // スタイルガイドが出力された先から読み込むcssまでの相対パス
+        css: '../public/css/style.css',
+        // スタイルガイドに追加したいJSファイルの相対パス
+        script: '../public/js/app.js'
     },
     // パス設定
     path: {
-        // html
+        // HTML: html
         html: {
             src: 'public/%type%/**/*.html'
         },
+        // スタイル関連: SASS,StyleGuide
         style: {
-            watch: 'src/%type%/sass/**/*.scss',
-            src: 'src/%type%/sass/*.scss',
+            src: 'src/%type%/sass/**/*.scss',
             dest: 'public/%type%/css'
         },
-        // EJS
+        // EJS: ejs
         ejs: {
             src: ['src/%type%/**/*.ejs','!src/%type%/**/_*.ejs'],
             watch: ['src/%type%/**/*.ejs'],
             dest: 'public/%type%'
         },
-        // SpriteSmith
+        // スプライト: スプライト画像生成
         sprite: {
             src: 'src/%type%/**/sprites/*',
             watch: 'src/%type%/**/sprites/**/*',
@@ -63,11 +75,12 @@ module.exports = {
             imageDest: 'src/%type%/images',
             cssDest: 'src/%type%/sass/sprites'
         },
-        // JS Hint
+        // スクリプト: script
         js: {
             src: ['src/%type%/js/*.js','!src/js/_*.js','src/%type%/js/*.ts','!src/js/_*.ts'],
             dest: 'public/%type%/js'
         },
+        // テスト: karma
         test: {
             src: [
                 'public/%type%/js/*.js',
@@ -76,6 +89,7 @@ module.exports = {
                 'src/%type%/test/**/*.js'
             ]
         },
+        // 複製: copy
         copy: [
             {
                 from: 'src/%type%/lib/**/*',
