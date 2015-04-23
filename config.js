@@ -46,9 +46,10 @@ module.exports = {
     // スタイルガイド
     styleguide: {
         // スタイルガイドが出力された先から読み込むcssまでの相対パス
-        css: '../public/css/style.css',
+        css: '../public/%type%/css/style.css',
         // スタイルガイドに追加したいJSファイルの相対パス
-        script: '../public/js/app.js'
+        script: '../public/%type%/js/app.js',
+        clean: true
     },
     // パス設定
     path: {
@@ -97,7 +98,7 @@ module.exports = {
             },
             {
                 from: 'src/%type%/images/**/*',
-                to: 'public/%type%'
+                to: 'public/%type%/images'
             }
         ]
     }
