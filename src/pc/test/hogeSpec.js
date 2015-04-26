@@ -1,8 +1,8 @@
-describe('hoge.ts', function() {
-  beforeEach(function() {
+describe('hoge', function() {
+    beforeEach(function() {
 
-  });
-  it('hoge', function() {
-    assert('a' === 'b');
-  });
+    });
+    it('init', function() {
+
+    });
 });

@@ -26,6 +26,11 @@ var SCAFFOLEDS = [{
     ext: 'Spec.js',
     template: __dirname + '/../../templates/test/template.ejs'
 }];
+
+var SCAFFOLDS_NAMES = SCAFFOLEDS.map(function(scaf) {
+    return scaf.name;
+});
+
 var INQUIRY = [{
     type: "list",
     name: "file",
@@ -51,11 +56,6 @@ var INQUIRY = [{
     }
 }];
 
-var SCAFFOLDS_NAMES = SCAFFOLEDS.map(function(scaf) {
-    return scaf.name;
-});
-
 exports.SRC_DIR = SRC_DIR;
 exports.SCAFFOLEDS = SCAFFOLEDS;
-exports.SCAFFOLDS_NAMES = SCAFFOLDS_NAMES;
 exports.INQUIRY = INQUIRY;

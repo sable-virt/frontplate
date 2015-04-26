@@ -10,14 +10,16 @@ var gulp = require('gulp'),
 var SRC_DIR = require('./constants/scaffold').SRC_DIR;
 var SCAFFOLEDS = require('./constants/scaffold').SCAFFOLEDS;
 var INQUIRY = require('./constants/scaffold').INQUIRY;
-var SCAFFOLDS_NAMES = require('./constants/scaffold').SCAFFOLDS_NAMES;
 var directories = [];
 
 gulp.task('sf', function (callback) {
     async.waterfall([
         init,
         question
-    ], scaffold);
+    ], function(err, result) {
+        if (err) throw new Error(err);
+        scaffold(result,callback);
+    });
 });
 
 /**
@@ -67,9 +69,7 @@ function question(args,next) {
  * @param  {[type]} result [description]
  * @return {[type]}        [description]
  */
-function scaffold(err, result) {
-    if (err) throw new Error(err);
-
+function scaffold(result,callback) {
     var file = fs.readFileSync(result.file.template);
     var data = ejs.render(file.toString(),result);
     var filepath = path.join(result.dir,result.file.dir,result.name+result.file.ext);
@@ -93,7 +93,7 @@ function scaffold(err, result) {
             });
         }
     });
-});
+}
 
 function checkOverwrite(filepath,data,callback) {
     // ファイルの上書き確認
