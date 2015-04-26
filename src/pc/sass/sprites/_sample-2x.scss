@@ -20,10 +20,10 @@ $frontainer05: 610px 0px -610px 0px 300px 300px 910px 605px '../images/sample-2x
 $frontainer06: 610px 305px -610px -305px 300px 300px 910px 605px '../images/sample-2x.png' frontainer06;
 
 
-$sample-2x-sprites: ($frontainer01, $frontainer02, $frontainer03, $frontainer04, $frontainer05, $frontainer06, );
-@each $sprite in $sample-2x-sprites {
+$sample-2x: ($frontainer01,$frontainer02,$frontainer03,$frontainer04,$frontainer05,$frontainer06,);
+@each $sprite in $sample-2x {
     $name: nth($sprite,10);
-    .sample-2x.#{$name} {
+    sample-2x.#{$name} {
         @include sprite($sprite,0.5);
     }
 }

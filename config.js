@@ -21,7 +21,7 @@ module.exports = {
         // 細かいオプション
         options: {
             // 生成するcssのテンプレート
-            cssTemplate: './templates/sprite-template.mustache',
+            cssTemplate: './templates/sprite/template.ejs',
             // スプライト配置アルゴリズム
             algorithm: 'binary-tree',
             // スプライト画像の間隔

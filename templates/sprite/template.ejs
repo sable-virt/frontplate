@@ -1,22 +1,15 @@
 /*
 #styleguide
-{{#if options.prefix}}{{options.prefix}}{{/if}}
+<%=options.prefix%>
 
 ```
-{{#each sprites}}
-<i class="{{#if ../options.prefix}}{{../../options.prefix}} {{/if}}{{name}}"></i>
-{{/each}}
-```
+<% sprites.forEach(function(sprite) {%><i class="<%=options.prefix%> <%=sprite.name%>"></i>
+<% }); %>```
 */
 
-{{#block "sprites"}}
-{{#each sprites}}
-${{name}}: {{px.x}} {{px.y}} {{px.offset_x}} {{px.offset_y}} {{px.width}} {{px.height}} {{px.total_width}} {{px.total_height}} '{{{escaped_image}}}' {{name}};
-{{/each}}
-{{/block}}
-
-{{#block "sprite-functions"}}
-{{#if options.functions}}
+<% sprites.forEach(function(sprite) {%>$<%=sprite.name%>: <%=sprite.px.x%> <%=sprite.px.y%> <%=sprite.px.offset_x%> <%=sprite.px.offset_y%> <%=sprite.px.width%> <%=sprite.px.height%> <%=sprite.px.total_width%> <%=sprite.px.total_height%> '<%-sprite.escaped_image%>' <%=sprite.name%>;
+<% }); %>
+<%if (options.functions) {%>
 @mixin sprite-width($sprite,$scale:1) {
     width: nth($sprite, 5) * $scale;
 }
@@ -44,15 +37,11 @@ ${{name}}: {{px.x}} {{px.y}} {{px.offset_x}} {{px.offset_y}} {{px.width}} {{px.h
     @include sprite-height($sprite,$scale);
     @include sprite-size($sprite,$scale);
 }
-{{/if}}
-{{/block}}
-
-{{#block "spritesheet"}}
-${{spritesheet_info.strings.name_sprites}}: ({{#each sprites}}${{strings.name}}, {{/each}});
-{{/block}}
-@each $sprite in ${{spritesheet_info.strings.name_sprites}} {
+<% } %>
+$<%=spritesheet_name%>: (<%sprites.forEach(function(sprite){%>$<%=sprite.name%>,<% }); %>);
+@each $sprite in $<%=spritesheet_name%> {
     $name: nth($sprite,10);
-    {{#if options.prefix}}.{{options.prefix}}{{/if}}.#{$name} {
-        @include sprite($sprite,{{options.scale}});
+    <%=options.prefix%>.#{$name} {
+        @include sprite($sprite,<%=options.scale%>);
     }
 }

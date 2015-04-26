@@ -2,10 +2,20 @@ var gulp = require('gulp'),
     _ = require('lodash'),
     path = require('path'),
     ms = require('merge-stream'),
+    fs = require('fs'),
+    ejs = require('ejs'),
     config = global.config;
 
 module.exports = function () {
     gulp.task('sprite',function() {
+        var op = _.extend({},__CONFIG.sprite.options);
+        var template = op.cssTemplate;
+        if (typeof template === 'string' && path.extname(template) === '.ejs') {
+            var file = fs.readFileSync(process.cwd() + '/' + template);
+            op.cssTemplate = function(data) {
+                return ejs.render(file.toString(),data);
+            };
+        }
         return gulp.src(__CONFIG.path.sprite.src)
             .pipe($.plumber({errorHandler: $.notify.onError('<%= error.message %>')}))
             .pipe($.foreach(function(stream, file){
@@ -24,7 +34,7 @@ module.exports = function () {
                             prefix: name,
                             functions: true
                         }
-                    },__CONFIG.sprite.options);
+                    },op);
                     var strm = gulp.src(file.path + '/*' + __CONFIG.sprite.extension)
                         .pipe($.plumber())
                         .pipe($.spritesmith(options));
