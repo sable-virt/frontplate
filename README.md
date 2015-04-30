@@ -5,7 +5,6 @@
 ## Dependence
 
 * [Gulp](http://gulpjs.com/)
-* [Bower](http://bower.io/)
 
 ## Tasks
 
@@ -18,10 +17,10 @@ npm run start
 ### ファイル監視の実行 & サーバー起動
 
 ```
-# ディレクトリを監視
+# ディレクトリを監視(src/pc)
 gulp
 
-# 指定ディレクトリを監視（spディレクトリを監視する例)
+# 指定ディレクトリを監視（src/spディレクトリを監視する例)
 gulp -sp
 ```
 
@@ -38,6 +37,27 @@ gulp sprite
 
 # 指定ディレクトリのスプライト生成
 gulp sprite -sp
+```
+
+#### 例
+
+```
+images/sprites/icon/icon-twitter.png
+images/sprites/icon/icon-twitter.png
+```
+↓ gulp sprites
+```
+images/sprites/icon.png
+sass/sprites/_icon.scss
+```
+
+#### Retinaディスプレイ用スプライト生成
+
+ディレクトリ名の末尾を-2xにする
+
+```
+images/sprites/icon-2x/icon-twitter.png
+images/sprites/icon-2x/icon-twitter.png
 ```
 
 ### サーバーのみ起動
@@ -79,7 +99,7 @@ npm run update -- -u
 - CSS:  [Semantic Grid Layout](http://gridle.org/)
 
 ## History
-* 0.4.0 - 大幅に構成変更。mocha&power-assert,TypeScript導入
+* 1.0.0 - 大幅に構成変更。mocha&power-assert,TypeScript導入
 * 0.3.0 - パッケージの整理
 * 0.2.0 - Webpackとディレクトリ複数対応とパッケージの整理
 * 0.1.3 - Browserifyの処理を最適化
