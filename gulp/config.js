@@ -5,7 +5,7 @@ var TYPE_REG = /%type%/g;
 
 function getType(args) {
     var result = _.findLast(args, function(val) {
-        return (val.charAt(0) === '-');
+        return /^-(?!-)+/.test(val);
     });
     if (result) {
         return result.replace(/^-/, '');
