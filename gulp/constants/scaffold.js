@@ -4,27 +4,27 @@ var SCAFFOLEDS = [{
     name: 'Page',
     dir: './',
     ext: '.ejs',
-    template: __dirname + '/../../templates/ejs/template.ejs'
+    template: __dirname + '/../../templates/ejs/'
 },{
     name: 'SASS',
     dir: './sass/',
     ext: '.scss',
-    template: __dirname + '/../../templates/sass/template.ejs'
+    template: __dirname + '/../../templates/sass/'
 },{
     name: 'JavaScript',
     dir: './js/',
     ext: '.js',
-    template: __dirname + '/../../templates/js/template.ejs'
+    template: __dirname + '/../../templates/js/'
 },{
     name: 'TypeScript',
     dir: './js/',
     ext: '.ts',
-    template: __dirname + '/../../templates/typescript/template.ejs'
+    template: __dirname + '/../../templates/typescript/'
 },{
     name: 'Test',
     dir: './test/',
     ext: 'Spec.js',
-    template: __dirname + '/../../templates/test/template.ejs'
+    template: __dirname + '/../../templates/test/'
 }];
 
 var SCAFFOLDS_NAMES = SCAFFOLEDS.map(function(scaf) {

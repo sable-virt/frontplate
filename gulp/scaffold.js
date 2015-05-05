@@ -8,7 +8,6 @@ var gulp = require('gulp'),
     colors = require('colors');
 
 var SRC_DIR = require('./constants/scaffold').SRC_DIR;
-var SCAFFOLEDS = require('./constants/scaffold').SCAFFOLEDS;
 var INQUIRY = require('./constants/scaffold').INQUIRY;
 var directories = [];
 
@@ -70,29 +69,30 @@ function question(args,next) {
  * @return {[type]}        [description]
  */
 function scaffold(result,callback) {
-    var file = fs.readFileSync(result.file.template);
-    var data = ejs.render(file.toString(),result);
-    var filepath = path.join(result.dir,result.file.dir,result.name+result.file.ext);
-
-    // 作成するファイルパスにファイルがあるかを確認
-    fs.open(filepath, 'ax+', 384 /*=0600*/, function(err, fd) {
-        if (err) {
-            if (err.code !== 'EEXIST') {
-                throw new Error(err);
-            }
-            // ファイルが存在する場合は上書きの確認をする
-            checkOverwrite(filepath,data,callback);
-        } else {
-            // ファイル新規作成
-            writeFile(fd,data,function() {
-                fs.close(fd,function(err) {
-                    var message = String('[create] ' + filepath);
-                    console.log(colors.underline.green(message));
-                    callback();
+    require(result.file.template + 'template.js')(result,function(params) {
+        var file = fs.readFileSync(result.file.template + 'template.ejs');
+        var data = ejs.render(file.toString(),params);
+        var filepath = path.join(result.dir,result.file.dir,result.name+result.file.ext);
+        fs.open(filepath, 'ax+', 384 /*=0600*/, function(err, fd) {
+            if (err) {
+                if (err.code !== 'EEXIST') {
+                    throw new Error(err);
+                }
+                // ファイルが存在する場合は上書きの確認をする
+                checkOverwrite(filepath,data,callback);
+            } else {
+                // ファイル新規作成
+                writeFile(fd,data,function() {
+                    fs.close(fd,function(err) {
+                        var message = String('[create] ' + filepath);
+                        console.log(colors.underline.green(message));
+                        callback();
+                    });
                 });
-            });
-        }
+            }
+        });
     });
+
 }
 
 function checkOverwrite(filepath,data,callback) {
@@ -126,7 +126,11 @@ function checkOverwrite(filepath,data,callback) {
  * @param {Function} callback [description]
  */
 function writeFile(filepath,data,callback) {
-    fs.writeFile(filepath,data,function(err) {
+    var func = fs.writeFile;
+    if (typeof filepath !== 'string') {
+        func = fs.write;
+    }
+    func(filepath,data,function(err) {
         if (err) throw new Error('cannot overwrite file - ' + filepath);
         callback();
     });
