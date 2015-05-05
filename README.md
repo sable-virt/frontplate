@@ -70,6 +70,12 @@ gulp server
 gulp server -sp
 ```
 
+### Scaffold
+
+簡単にテンプレートを元にファイルを生成できる
+
+gulp sf
+
 ### リリースファイル作成
 
 ```
