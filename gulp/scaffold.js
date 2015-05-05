@@ -5,7 +5,8 @@ var gulp = require('gulp'),
     fs = require('fs'),
     path = require('path'),
     ejs = require('ejs'),
-    colors = require('colors');
+    colors = require('colors'),
+    mkdirp = require('mkdirp');
 
 var SRC_DIR = require('./constants/scaffold').SRC_DIR;
 var INQUIRY = require('./constants/scaffold').INQUIRY;
@@ -57,7 +58,7 @@ function question(args,next) {
         });
     }
     inquirer.prompt(INQUIRY, function( answers ) {
-        _.merge(answers,args);
+        _.merge(args,answers);
         next(null,answers);
     });
 }
@@ -73,6 +74,7 @@ function scaffold(result,callback) {
         var file = fs.readFileSync(result.file.template + 'template.ejs');
         var data = ejs.render(file.toString(),params);
         var filepath = path.join(result.dir,result.file.dir,result.name+result.file.ext);
+        mkdirp.sync(path.dirname(filepath));
         fs.open(filepath, 'ax+', 384 /*=0600*/, function(err, fd) {
             if (err) {
                 if (err.code !== 'EEXIST') {

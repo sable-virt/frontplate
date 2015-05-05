@@ -35,6 +35,7 @@
     "karma-webpack": "^1.5.0",
     "lodash": "^3.7.0",
     "merge-stream": "^0.1.7",
+    "mkdirp": "^0.5.0",
     "mocha": "^2.2.4",
     "npm-check-updates": "^1.5.1",
     "power-assert": "^0.11.0",
