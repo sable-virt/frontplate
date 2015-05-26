@@ -1,4 +1,4 @@
-import Hoge = require('./module/Hoge');
+import Hoge from './module/Hoge';
 
 var hoge = new Hoge('hage');
 

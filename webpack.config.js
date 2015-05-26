@@ -6,19 +6,22 @@ module.exports = {
         sourceMapFilename: 'map/[file].map',
         jsonpFunction: 'fr'
     },
-    devtool: '#source-map',
+    bail: true,
+    debug: true,
+    devtool: '#eval-source-map',
     resolve: {
         extensions: ['','.js','.ts'],
         modulesDirectories: [
             'bower_components',
-            'node_modules'
+            'node_modules',
+            'src'
         ]
     },
     module: {
         loaders: [
             { test: /\.html$/, loader: 'html-loader' },
-            { test: /Spec\.js$/, loader: 'webpack-espower-loader' },
-            { test: /\.ts$/, loader: 'typescript-loader?noImplicitAny=false' }
+            { test: /test\/.*?Spec\.js$/, loader: 'webpack-espower-loader' },
+            { test: /\.js/, exclude: /node_modules|bower_components/, loaders: ['babel-loader'] }
         ]
     },
     plugins: [

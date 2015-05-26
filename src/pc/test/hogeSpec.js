@@ -1,8 +1,8 @@
-describe('hoge', function() {
-    beforeEach(function() {
+describe('hoge', () => {
+    beforeEach(() => {
 
     });
-    it('init', function() {
+    it('init', () => {
 
     });
 });

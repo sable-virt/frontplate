@@ -21,7 +21,7 @@ module.exports = {
         // 細かいオプション
         options: {
             // 生成するcssのテンプレート
-            cssTemplate: './templates/sprite/template.ejs',
+            cssTemplate: './templates/sprite.ejs',
             // スプライト配置アルゴリズム
             algorithm: 'binary-tree',
             // スプライト画像の間隔
@@ -49,6 +49,7 @@ module.exports = {
         css: '../public/%type%/css/style.css',
         // スタイルガイドに追加したいJSファイルの相対パス
         script: '../public/%type%/js/app.js',
+        out: './public/styleguide',
         clean: true
     },
     // パス設定
@@ -64,14 +65,14 @@ module.exports = {
         },
         // EJS: ejs
         ejs: {
-            src: ['src/%type%/**/*.ejs','!src/%type%/**/_*.ejs'],
-            watch: ['src/%type%/**/*.ejs'],
+            src: ['src/%type%/view/**/*.ejs','!src/%type%/view/**/_*.ejs'],
+            watch: ['src/%type%/view/**/*.ejs'],
             dest: 'public/%type%'
         },
         // スプライト: スプライト画像生成
         sprite: {
-            src: 'src/%type%/**/sprites/*',
-            watch: 'src/%type%/**/sprites/**/*',
+            src: 'src/%type%/sprites/*',
+            watch: 'src/%type%/sprites/**/*',
             imagePath: '../images',
             imageDest: 'src/%type%/images',
             cssDest: 'src/%type%/sass/sprites'

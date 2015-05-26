@@ -22,8 +22,8 @@ $frontainer06: 610px 305px -610px -305px 300px 300px 910px 605px '../images/samp
 
 $sample: ($frontainer01,$frontainer02,$frontainer03,$frontainer04,$frontainer05,$frontainer06,);
 @each $sprite in $sample {
-    $name: nth($sprite,10);
-    sample.#{$name} {
-        @include sprite($sprite,1);
-    }
+$name: nth($sprite,10);
+sample.#{$name} {
+@include sprite($sprite,1);
+}
 }
