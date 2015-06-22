@@ -1,3 +1,7 @@
+/**
+ * HTML Lintタスク
+ * HTMLが変更されたときにLintを通す
+ */
 var gulp = require('gulp');
 
 module.exports = function () {

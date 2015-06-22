@@ -1,3 +1,7 @@
+/**
+ * スプライト生成タスク
+ * スプライト画像とCSSを生成するタスク
+ */
 var gulp = require('gulp'),
     _ = require('lodash'),
     path = require('path'),

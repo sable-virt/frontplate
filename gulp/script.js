@@ -1,8 +1,17 @@
+/**
+ * スクリプトタスク
+ * JSファイルをwebpackを使ってコンパイルして出力する
+ */
 var gulp = require('gulp'),
     through = require('through2'),
     path = require('path'),
     webpack = require('webpack');
 
+/**
+ * webpackコンパイル開始
+ * @param watch
+ * @returns {*}
+ */
 function exeWebPack(watch) {
     var conf = Object.create(require('../webpack.config.js'));
     conf.watch = watch;
@@ -27,9 +36,17 @@ function exeWebPack(watch) {
         .pipe(gulp.dest(__CONFIG.path.js.dest))
         .pipe($.browser.stream());
 }
+
+/**
+ * スクリプトコンパイルタスク
+ */
 gulp.task('script', function() {
     return exeWebPack(false);
 });
+
+/**
+ * スクリプト監視タスク
+ */
 gulp.task('watchScript', function() {
     return exeWebPack(true);
 });

@@ -1,3 +1,7 @@
+/**
+ * スタイルガイドタスク
+ * 指定されたCSSが変更されたときに指定したディレクトリにスタイルガイドを出力する
+ */
 var gulp = require('gulp');
 
 module.exports = function () {

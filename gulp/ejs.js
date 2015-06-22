@@ -1,3 +1,7 @@
+/**
+ * EJSタスク
+ * EJSで作られたファイルを指定ディレクトリにコンパイルして出力する
+ */
 var gulp = require('gulp');
 
 module.exports = function () {

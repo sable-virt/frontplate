@@ -1,3 +1,6 @@
+/**
+ * サーバー起動タスク
+ */
 var gulp = require('gulp');
 var _ = require('lodash');
 var rewrite = require('connect-modrewrite');

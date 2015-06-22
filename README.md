@@ -1,6 +1,6 @@
 # Frontplate
 
-個人的に利用しているWeb制作テンプレート
+個人的に利用しているWeb制作テンプレート(version 1.0.0)
 
 ## Dependence
 

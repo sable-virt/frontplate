@@ -1,3 +1,7 @@
+/**
+ * 一括読み込みタスク
+ * 指定されたディレクトリ以下のスクリプトをrequireする
+ */
 var fs = require('fs'),
     _ = require('lodash'),
     path = require('path');

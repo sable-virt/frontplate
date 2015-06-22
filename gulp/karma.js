@@ -1,3 +1,7 @@
+/**
+ * ユニットタスク
+ * karmaを使ってユニットテストを実行する
+ */
 var gulp = require('gulp');
 var karma = require('karma').server;
 var runner = require('karma').runner;

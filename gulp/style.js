@@ -1,3 +1,7 @@
+/**
+ * スタイルタスク
+ * SCSSをコンパイルしてAutoprefixerをかける。プロダクションリリース時には圧縮する
+ */
 var gulp = require('gulp');
 var _ = require('lodash');
 
