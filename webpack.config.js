@@ -6,11 +6,8 @@ module.exports = {
         sourceMapFilename: 'map/[file].map',
         jsonpFunction: 'fr'
     },
-    bail: true,
-    debug: true,
-    devtool: '#eval-source-map',
+    devtool: '#source-map',
     resolve: {
-        extensions: ['','.js','.ts'],
         modulesDirectories: [
             'bower_components',
             'node_modules',
@@ -18,6 +15,9 @@ module.exports = {
         ]
     },
     module: {
+        preLoaders: [
+            { test: /\.js$/, exclude: /node_modules|bower_components/, loader: 'eslint-loader' }
+        ],
         loaders: [
             { test: /\.html$/, loader: 'html-loader' },
             { test: /test\/.*?Spec\.js$/, loader: 'webpack-espower-loader' },
@@ -35,5 +35,9 @@ module.exports = {
         new webpack.optimize.AggressiveMergingPlugin(),
         new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.optimize.DedupePlugin()
-    ]
+    ],
+    eslint: {
+        configFile: '.eslintrc',
+        failOnError: true
+    }
 };
