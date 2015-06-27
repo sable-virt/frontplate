@@ -1,28 +1,30 @@
 # Frontplate
 
-個人的に利用しているWeb制作テンプレート
+個人的に利用しているWeb制作テンプレート (version 1.0.0)
+
+※ 旧バージョンが好みだった方はこちらからダウンロードできます。  
+[https://github.com/frontainer/frontplate/releases/tag/0.3.0](https://github.com/frontainer/frontplate/releases/tag/0.3.0)
 
 ## Dependence
 
 * [Gulp](http://gulpjs.com/)
-* [WebPack](http://webpack.github.io/)
-* [Bower](http://bower.io/)
 
 ## Tasks
 
 最初に必要なモジュールをインストール
 
-    npm install
-    bower install
+```
+npm run start
+```
 
 ### ファイル監視の実行 & サーバー起動
 
 ```
-# ディレクトリを監視
+# ディレクトリを監視(src/pc)
 gulp
 
-# 指定ディレクトリを監視（spディレクトリを監視する例)
-gulp -d=sp
+# 指定ディレクトリを監視（src/spディレクトリを監視する例)
+gulp -sp
 ```
 
 ### スプライト画像生成
@@ -37,74 +39,88 @@ images/spites以下のディレクトリごとにスプライト画像とsassフ
 gulp sprite
 
 # 指定ディレクトリのスプライト生成
-gulp sprite -d=sp
+gulp sprite -sp
+```
+
+#### 例
+
+```
+images/sprites/icon/icon-twitter.png
+images/sprites/icon/icon-twitter.png
+```
+↓ gulp sprite
+```
+images/sprites/icon.png
+sass/sprites/_icon.scss
+```
+
+#### Retinaディスプレイ用スプライト生成
+
+ディレクトリ名の末尾を-2xにする
+
+```
+images/sprites/icon-2x/icon-twitter.png
+images/sprites/icon-2x/icon-twitter.png
 ```
 
 ### サーバーのみ起動
 
 ```
 # サーバー起動
-gulp serv
+gulp server
 
 # 指定ディレクトリでサーバー起動
-gulp serv -d=sp
+gulp server -sp
 ```
 
-### Minify
+### リリースファイル作成
 
 ```
-# ソースをMinify
-gulp -min
-
-# 指定ディレクトリのソースをMinify
-gulp -d=sp -min
+gulp production
 ```
 
-##  依存パッケージ
+### テストの実行
 
-* [browser-sync](https://github.com/shakyShane/browser-sync)
-* [connect-modrewrite](https://www.npmjs.com/package/connect-modrewrite)
-* [del](https://www.npmjs.com/package/del)
-* [exports-loader](https://www.npmjs.com/package/exports-loader)
-* [extend](https://www.npmjs.com/package/extend)
-* [gulp-autoprefixer](https://www.npmjs.org/package/gulp-autoprefixer)
-* [gulp-csso](https://www.npmjs.org/package/gulp-csso)
-* [gulp-ejs](https://www.npmjs.org/package/gulp-ejs)
-* [gulp-filter](https://www.npmjs.com/package/gulp-filter)
-* [gulp-foreach](https://www.npmjs.org/package/gulp-foreach)
-* [gulp-frontnote](https://www.npmjs.org/package/gulp-frontnote)
-* [gulp-htmlhint](https://www.npmjs.org/package/gulp-htmlhint)
-* [gulp-if](https://www.npmjs.org/package/gulp-if)
-* [gulp-imagemin](https://www.npmjs.org/package/gulp-imagemin)
-* [gulp-karma](https://www.npmjs.org/package/gulp-karma)
-* [gulp-load-plugins](https://www.npmjs.org/package/gulp-load-plugins)
-* [gulp-notify](https://www.npmjs.org/package/gulp-notify)
-* [gulp-plumber](https://www.npmjs.org/package/gulp-plumber)
-* [gulp-rename](https://www.npmjs.org/package/gulp-rename)
-* [gulp-sass](https://www.npmjs.org/package/gulp-sass)
-* [gulp-uglify](https://www.npmjs.org/package/gulp-uglify)
-* [gulp-util](https://www.npmjs.org/package/gulp-util)
-* [gulp-webpack](https://www.npmjs.org/package/gulp-webpack)
-* [gulp.spritesmith](https://github.com/twolfson/gulp.spritesmith)
-* [html-loader](https://github.com/twolfson/html-loader)
-* [imports-loader](https://github.com/twolfson/imports-loader)
-* [jasmine-core](https://github.com/twolfson/jasmine-core)
-* [karma](https://github.com/twolfson/karma)
-* [karma-jasmine](https://github.com/twolfson/karma-jasmine)
-* [karma-phantomjs-launcher](https://github.com/twolfson/karma-phantomjs-launcher)
-* [run-sequence](https://github.com/twolfson/run-sequence)
-* [source-map-loader](https://github.com/twolfson/source-map-loader)
-* [through2](https://github.com/sindresorhus/through2)
-* [webpack](https://github.com/sindresorhus/webpack)
+```
+gulp test
+```
 
+### 個別タスク
 
-## Library
-* [jQuery](http://jquery.com/)
-* [modernizr](http://modernizr.com/)
-* [lodash](https://lodash.com/)
+```
+gulp clean
+gulp copy
+gulp ejs
+gulp guide
+gulp html
+gulp script
+gulp server
+gulp sprite
+gulp style
+```
+
+## library
+
+- JS:   [Modernizr](http://modernizr.com/)
+- CSS:  [Semantic Grid Layout](http://gridle.org/)
+
+## Other documentation
+
+- [Babel](https://babeljs.io/)
+- [EJS](http://www.embeddedjs.com/)
+- [ESLint](http://eslint.org/)
+- [FrontNote](http://frontainer.com/frontnote/)
+- [HTMLHint](http://htmlhint.com/)
+- [SASS](http://sass-lang.com/)
+- [webpack](http://webpack.github.io/)
+- [JSHint](http://jshint.com/)
+- [Mocha](http://mochajs.org/)
+- [PowerAssert](https://github.com/power-assert-js/power-assert)
+- [Sinon](http://sinonjs.org/)
 
 ## History
-* 0.3.0 - パッケージの整理完了
+* 1.0.0 - 大幅に構成変更。mocha&power-assert,Babel導入
+* 0.3.0 - パッケージの整理
 * 0.2.0 - Webpackとディレクトリ複数対応とパッケージの整理
 * 0.1.3 - Browserifyの処理を最適化
 * 0.1.2 - AngulerJS用タスクにgulp-ng-annotateを追加。処理分岐のためgulp-ifを追加。

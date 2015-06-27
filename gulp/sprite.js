@@ -1,36 +1,52 @@
+/**
+ * スプライト生成タスク
+ * スプライト画像とCSSを生成するタスク
+ */
 var gulp = require('gulp'),
-    config = frontplate.config,
-    $ = frontplate.plugins,
+    _ = require('lodash'),
     path = require('path'),
-    _extend = require('extend');
+    ms = require('merge-stream'),
+    fs = require('fs'),
+    ejs = require('ejs'),
+    config = global.config;
 
 module.exports = function () {
     gulp.task('sprite',function() {
-        return gulp.src(frontplate.getPath('sprite'))
+        var op = _.extend({},__CONFIG.sprite.options);
+        var template = op.cssTemplate;
+        if (typeof template === 'string' && path.extname(template) === '.ejs') {
+            var file = fs.readFileSync(process.cwd() + '/' + template);
+            op.cssTemplate = function(data) {
+                return ejs.render(file.toString(),data);
+            };
+        }
+        return gulp.src(__CONFIG.path.sprite.src)
             .pipe($.plumber({errorHandler: $.notify.onError('<%= error.message %>')}))
             .pipe($.foreach(function(stream, file){
                 if(file.isDirectory()) {
                     var paths = file.path.split(path.sep);
                     var name = paths.pop();
                     if (!name) return stream;
-
-                    var options = _extend({
-                        imgName: name + config.sprite.imgExtension,
-                        cssName: '_' + name + config.sprite.cssExtension,
-                        imgPath: config.path.sprite.imgPath + '/' + name + config.sprite.imgExtension,
+                    var isRetina = name.search(/-2x$/) !== -1;
+                    var options = _.merge({
+                        cssSpritesheetName: name,
+                        imgName: name + __CONFIG.sprite.imgExtension,
+                        cssName: '_' + name + __CONFIG.sprite.cssExtension,
+                        imgPath: __CONFIG.path.sprite.imagePath + '/' + name + __CONFIG.sprite.imgExtension,
                         cssOpts: {
-                            prefix: name
+                            scale: isRetina ? .5 : 1,
+                            prefix: name,
+                            functions: true
                         }
-                    },config.sprite.options);
-                    var strm = gulp.src(file.path + '/*' + config.sprite.extension)
+                    },op);
+                    var strm = gulp.src(file.path + '/*' + __CONFIG.sprite.extension)
                         .pipe($.plumber())
                         .pipe($.spritesmith(options));
-                    strm.img.pipe(gulp.dest(frontplate.getPath('sprite','imgDest')));
-                    strm.css.pipe(gulp.dest(frontplate.getPath('sprite','cssDest')));
-                    return strm;
+                    strm.img.pipe(gulp.dest(__CONFIG.path.sprite.imageDest));
+                    strm.css.pipe(gulp.dest(__CONFIG.path.sprite.cssDest));
+                    return ms(stream,strm);
                 }
                 return stream;
-            }))
-            .pipe($.browser.reload({stream: true}));
+            }));
     });
 }();

@@ -1,13 +1,15 @@
-var gulp = require('gulp'),
-    config = frontplate.config,
-    $ = frontplate.plugins;
+/**
+ * EJSタスク
+ * EJSで作られたファイルを指定ディレクトリにコンパイルして出力する
+ */
+var gulp = require('gulp');
 
 module.exports = function () {
     gulp.task('ejs', function () {
-        return gulp.src(frontplate.getPath('ejs'))
+        return gulp.src(__CONFIG.path.ejs.src)
             .pipe($.plumber({errorHandler: $.notify.onError('<%= error.message %>')}))
-            .pipe($.ejs(frontplate.config.ejs))
-            .pipe(gulp.dest(frontplate.getPath('ejs','dest')))
-            .pipe($.browser.reload({stream: true}));
+            .pipe($.ejs(__CONFIG.ejs))
+            .pipe(gulp.dest(__CONFIG.path.ejs.dest))
+            .pipe($.browser.stream());
     });
 }();
