@@ -1,24 +1,26 @@
-var gulp = require('gulp'),
-    config = frontplate.config,
-    $ = frontplate.plugins;
+/**
+ * スタイルタスク
+ * SCSSをコンパイルしてAutoprefixerをかける。プロダクションリリース時には圧縮する
+ */
+var gulp = require('gulp');
+var _ = require('lodash');
 
 module.exports = function () {
     gulp.task('style', function() {
-        return gulp.src(frontplate.getPath('sass'))
+        var guideOptions = _.merge({
+            out: './guide/'
+        },__CONFIG.styleguide);
+        return gulp.src(__CONFIG.path.style.src)
             .pipe($.plumber({errorHandler: $.notify.onError('<%= error.message %>')}))
-            .pipe($.frontnote({
-                out: config.appPath + '/guide' + '/' + frontplate.option.d ,
-                css: (config.styleguide && config.styleguide.css) ? frontplate.path(config.styleguide.css,true) : null,
-                script: (config.styleguide && config.styleguide.script) ? frontplate.path(config.styleguide.script,true) : null
-            }))
+            .pipe($.frontnote(guideOptions))
             .pipe($.sass({
                 errLogToConsole: true,
                 sourceComments: 'normal',
-                sourceMap: true
+                sourceMap: __IS_PRODUCTION ? false : true
             }))
-            .pipe($.autoprefixer(config.autoprefixer.browser))
-            .pipe($.if(frontplate.option.min,$.csso()))
-            .pipe(gulp.dest(frontplate.getPath('sass','dest')))
-            .pipe($.browser.reload({stream: true}));
+            .pipe($.autoprefixer(__CONFIG.autoprefixer.browser))
+            .pipe($.if(__IS_PRODUCTION,$.minifyCss()))
+            .pipe(gulp.dest(__CONFIG.path.style.dest))
+            .pipe($.browser.stream());
     });
 }();

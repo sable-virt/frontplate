@@ -1,0 +1,29 @@
+/*
+#styleguide
+sample-2x
+
+```
+<i class="sample-2x frontainer01"></i>
+<i class="sample-2x frontainer02"></i>
+<i class="sample-2x frontainer03"></i>
+<i class="sample-2x frontainer04"></i>
+<i class="sample-2x frontainer05"></i>
+<i class="sample-2x frontainer06"></i>
+```
+*/
+
+$frontainer01: 0px 0px 0px 0px 300px 300px 910px 605px '../images/sample-2x.png' frontainer01;
+$frontainer02: 305px 0px -305px 0px 300px 300px 910px 605px '../images/sample-2x.png' frontainer02;
+$frontainer03: 0px 305px 0px -305px 300px 300px 910px 605px '../images/sample-2x.png' frontainer03;
+$frontainer04: 305px 305px -305px -305px 300px 300px 910px 605px '../images/sample-2x.png' frontainer04;
+$frontainer05: 610px 0px -610px 0px 300px 300px 910px 605px '../images/sample-2x.png' frontainer05;
+$frontainer06: 610px 305px -610px -305px 300px 300px 910px 605px '../images/sample-2x.png' frontainer06;
+
+
+$sample-2x: ($frontainer01,$frontainer02,$frontainer03,$frontainer04,$frontainer05,$frontainer06,);
+@each $sprite in $sample-2x {
+$name: nth($sprite,10);
+sample-2x.#{$name} {
+@include sprite($sprite,0.5);
+}
+}

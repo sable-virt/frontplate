@@ -1,12 +1,14 @@
-var gulp = require('gulp'),
-    config = frontplate.config,
-    $ = frontplate.plugins;
+/**
+ * HTML Lintタスク
+ * HTMLが変更されたときにLintを通す
+ */
+var gulp = require('gulp');
 
 module.exports = function () {
     gulp.task('html', function () {
-        return gulp.src(frontplate.getPath('html'))
+        return gulp.src(__CONFIG.path.html.src)
             .pipe($.plumber({errorHandler: $.notify.onError('<%= error.message %>')}))
-            .pipe($.htmlhint(frontplate.config.htmlhint))
+            .pipe($.htmlhint(__CONFIG.htmlhint))
             .pipe($.htmlhint.reporter())
             .pipe($.htmlhint.failReporter());
     });

@@ -1,34 +1,52 @@
+/**
+ * スクリプトタスク
+ * JSファイルをwebpackを使ってコンパイルして出力する
+ */
 var gulp = require('gulp'),
-    config = frontplate.config,
-    $ = frontplate.plugins,
-    conf = require('../webpack.config.js'),
     through = require('through2'),
-    path = require('path');
+    path = require('path'),
+    webpack = require('webpack');
 
-function exeWebPack(conf,watch) {
-    if(watch === true) {
-        conf.watch = true;
-    } else {
-        conf.watch = false;
+/**
+ * webpackコンパイル開始
+ * @param watch
+ * @returns {*}
+ */
+function exeWebPack(watch) {
+    var conf = Object.create(require('../webpack.config.js'));
+    conf.watch = watch;
+    if(global.__IS_PRODUCTION) {
+        delete conf.devtool;
+        conf.plugins = conf.plugins || [];
+        conf.plugins.push(new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                warnings: true
+            }
+        }));
     }
-    var filter = $.filter('**/*.js');
-    return gulp.src(frontplate.getPath('js'))
+    return gulp.src(__CONFIG.path.js.src)
         .pipe(through.obj(function(file,charset,callback) {
             conf.entry = conf.entry || {};
-            conf.entry[path.basename(file.path,path.extname(file.path))] = file.path;
+            var fileName = path.basename(file.path).replace(/\.(ts|js)$/,'');
+            conf.entry[fileName] = file.path;
             this.push(file);
             callback();
         }))
         .pipe($.webpack(conf))
-        .pipe(filter)
-        .pipe($.if(frontplate.option.min, $.uglify()))
-        .pipe(filter.restore())
-        .pipe(gulp.dest(frontplate.getPath('js','dest')))
-        .pipe($.browser.reload({stream: true}));
+        .pipe(gulp.dest(__CONFIG.path.js.dest))
+        .pipe($.browser.stream());
 }
+
+/**
+ * スクリプトコンパイルタスク
+ */
 gulp.task('script', function() {
-    return exeWebPack(conf);
+    return exeWebPack(false);
 });
+
+/**
+ * スクリプト監視タスク
+ */
 gulp.task('watchScript', function() {
-    return exeWebPack(conf,true);
+    return exeWebPack(true);
 });

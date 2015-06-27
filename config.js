@@ -1,81 +1,105 @@
 /**
  * タスク設定ファイル
  */
-
-var fs = require("fs");
 module.exports = {
-    appPath: 'app',
-    defaultDir: 'pc',
-    // AutoPrefixer
+    // 出力先ディレクトリ
+    dist: 'public/%type%',
+    // gulpコマンドでデフォルトで監視するディレクトリ(src/*/)
+    defaultPath: 'pc',
+    // AutoPrefixerの設定
     autoprefixer: {
-        browser: ['last 3 version', 'ie >= 8', 'Android 4.0']
+        browser: ['last 3 version', 'ie >= 9', 'Android 4.0']
     },
-    // SpriteSmith
+    // Sprite生成設定
     sprite: {
+        // スプライトにする画像の拡張子
         extension: '.png',
+        // 生成するスプライトの拡張子
         imgExtension: '.png',
+        // 生成するcssファイルの拡張子
         cssExtension: '.scss',
-        // SpriteSmithの設定
+        // 細かいオプション
         options: {
-            cssTemplate: './templates/sprite-template.mustache',
+            // 生成するcssのテンプレート
+            cssTemplate: './templates/sprite.ejs',
+            // スプライト配置アルゴリズム
             algorithm: 'binary-tree',
-            padding: 5
+            // スプライト画像の間隔
+            padding: 5,
+            // 出力cssの詳細オプション
+            cssOpts: {
+                // スプライト生成用のmixinは書き出さない
+                functions: false
+            }
         }
     },
-    // FrontNote
+    // サーバー設定
+    server: {
+        // サーバーの同期オプション
+        ghostMode: {
+            clicks: false,
+            location: false,
+            forms: false,
+            scroll: false
+        }
+    },
+    // スタイルガイド
     styleguide: {
-        // 読み込むCSSのパス
-        css: '../../public/%type%/css/style.css',
-        // 読み込むJSのパス
-        script: '../../public/%type%/js/app.js'
+        // スタイルガイドが出力された先から読み込むcssまでの相対パス
+        css: '../public/%type%/css/style.css',
+        // スタイルガイドに追加したいJSファイルの相対パス
+        script: '../public/%type%/js/app.js',
+        out: './public/styleguide',
+        clean: true
     },
     // パス設定
     path: {
-        // html
+        // HTML: html
         html: {
             src: 'public/%type%/**/*.html'
         },
-        // SASS
-        sass: {
-            src: 'source/%type%/sass/**/*.scss',
+        // スタイル関連: SASS,StyleGuide
+        style: {
+            src: 'src/%type%/sass/**/*.scss',
             dest: 'public/%type%/css'
         },
-        // EJS
+        // EJS: ejs
         ejs: {
-            src: ['source/%type%/**/*.ejs','!source/%type%/**/_*.ejs'],
-            watch: ['source/%type%/**/*.ejs'],
-            dest: 'public/%type%/'
+            src: ['src/%type%/view/**/*.ejs','!src/%type%/view/**/_*.ejs'],
+            watch: ['src/%type%/view/**/*.ejs'],
+            dest: 'public/%type%'
         },
-        // SpriteSmith
+        // スプライト: スプライト画像生成
         sprite: {
-            src: 'source/%type%/sprites/*',
-            watch: 'source/%type%/sprites/**/*',
-            imgDest: 'source/%type%/images',
-            cssDest: 'source/%type%/sass/sprites',
-            imgPath: '../images'
+            src: 'src/%type%/sprites/*',
+            watch: 'src/%type%/sprites/**/*',
+            imagePath: '../images',
+            imageDest: 'src/%type%/images',
+            cssDest: 'src/%type%/sass/sprites'
         },
-        // JS Hint
+        // スクリプト: script
         js: {
-            src: ['source/%type%/js/*.js','!source/%type%/js/_*.js'],
+            src: ['src/%type%/js/*.js','!src/js/_*.js','src/%type%/js/*.ts','!src/js/_*.ts'],
             dest: 'public/%type%/js'
         },
-        // Image min
-        images: {
-            src: 'source/%type%/images/**/*',
-            dest: 'public/%type%/images'
-        },
+        // テスト: karma
         test: {
             src: [
-                'public/%type%/js/common.js',
-                //'../bower_components/angular-mocks/angular-mocks.js',
-                'public/%type%/js/app.js',
-                'source/%type%/**/*Spec.js'
+                'public/%type%/js/*.js',
+                'node_modules/power-assert/build/power-assert.js',
+                'node_modules/sinon/pkg/sinon.js',
+                'src/%type%/test/**/*.js'
             ]
         },
+        // 複製: copy
         copy: [
             {
-                from: 'source/%type%/lib/**/*',
+                from: 'src/%type%/lib/**/*',
                 to: 'public/%type%/lib'
+            },
+            {
+                from: 'src/%type%/images/**/*',
+                to: 'public/%type%/images'
             }
         ]
     }

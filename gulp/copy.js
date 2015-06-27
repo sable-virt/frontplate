@@ -1,13 +1,17 @@
-var gulp = require('gulp'),
-    config = frontplate.config,
-    $ = frontplate.plugins;
+/**
+ * 複製タスク
+ * 指定されたファイルを指定されたディレクトリに複製する
+ */
+var gulp = require('gulp');
+var _ = require('lodash');
+var ms = require('merge-stream');
 
-gulp.task('copy', function (callback) {
-    var files = config.path.copy;
-    var stream;
-    for (var i = 0,len = files.length; i < len; i++) {
-        stream = gulp.src(frontplate.path(files[i].from))
-            .pipe(gulp.dest(frontplate.path(files[i].to)));
-    }
+gulp.task('copy', function () {
+    var files = __CONFIG.path.copy;
+    var stream = ms();
+    _.forEach(files,function(file) {
+        stream.add(gulp.src(file.from)
+            .pipe(gulp.dest(file.to)));
+    });
     return stream;
 });
