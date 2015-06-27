@@ -2,6 +2,9 @@
 
 個人的に利用しているWeb制作テンプレート (version 1.0.0)
 
+※ 旧バージョンが好みだった方はこちらからダウンロードできます。  
+[https://github.com/frontainer/frontplate/releases/tag/0.3.0](https://github.com/frontainer/frontplate/releases/tag/0.3.0)
+
 ## Dependence
 
 * [Gulp](http://gulpjs.com/)
