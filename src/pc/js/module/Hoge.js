@@ -2,7 +2,7 @@ class Hoge {
     constructor(name) {
         this.name = name;
     }
-    callName():void {
+    callName() {
         console.log(this.name);
         //console.log(this.aaa.fdasfsdafas);
     }
