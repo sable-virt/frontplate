@@ -1,6 +1,6 @@
 # Frontplate
 
-個人的に利用しているWeb制作テンプレート(version 1.0.0)
+個人的に利用しているWeb制作テンプレート (version 1.0.0)
 
 ## Dependence
 
@@ -45,7 +45,7 @@ gulp sprite -sp
 images/sprites/icon/icon-twitter.png
 images/sprites/icon/icon-twitter.png
 ```
-↓ gulp sprites
+↓ gulp sprite
 ```
 images/sprites/icon.png
 sass/sprites/_icon.scss
@@ -80,6 +80,20 @@ gulp production
 
 ```
 gulp test
+```
+
+### 個別タスク
+
+```
+gulp clean
+gulp copy
+gulp ejs
+gulp guide
+gulp html
+gulp script
+gulp server
+gulp sprite
+gulp style
 ```
 
 ## library
