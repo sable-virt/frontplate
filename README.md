@@ -70,12 +70,6 @@ gulp server
 gulp server -sp
 ```
 
-### Scaffold
-
-簡単にテンプレートを元にファイルを生成できる
-
-gulp sf
-
 ### リリースファイル作成
 
 ```
@@ -88,24 +82,13 @@ gulp production
 gulp test
 ```
 
-### package.jsonのアップデート
-
-
-```
-# アップデートを確認
-npm run update
-
-# アップデートを実行
-npm run update -- -u
-```
-
 ## library
 
 - JS:   [Modernizr](http://modernizr.com/)
 - CSS:  [Semantic Grid Layout](http://gridle.org/)
 
 ## History
-* 1.0.0 - 大幅に構成変更。mocha&power-assert,TypeScript導入
+* 1.0.0 - 大幅に構成変更。mocha&power-assert,Babel導入
 * 0.3.0 - パッケージの整理
 * 0.2.0 - Webpackとディレクトリ複数対応とパッケージの整理
 * 0.1.3 - Browserifyの処理を最適化
