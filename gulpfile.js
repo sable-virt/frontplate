@@ -15,7 +15,6 @@ gulp.task('watch', function () {
     gulp.watch(__CONFIG.path.html.src, ['html']);
     gulp.watch(__CONFIG.path.style.src, ['style','guide']);
     gulp.watch(__CONFIG.path.sprite.watch, ['sprite', 'style','guide', 'copy']);
-    gulp.watch(__CONFIG.path.test.src,['runTest']);
 
     var copyWatches = [];
     // 複製タスクはループで回して監視対象とする

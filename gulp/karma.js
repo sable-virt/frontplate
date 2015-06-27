@@ -26,6 +26,6 @@ gulp.task('watchTest', function(callback) {
     karma.start({
         configFile: process.cwd() + '/karma.conf.js',
         singleRun: false,
-        autoWatch: false
+        autoWatch: true
     },callback);
 });
