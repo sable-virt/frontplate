@@ -87,6 +87,20 @@ gulp test
 - JS:   [Modernizr](http://modernizr.com/)
 - CSS:  [Semantic Grid Layout](http://gridle.org/)
 
+## Other documentation
+
+- [Babel](https://babeljs.io/)
+- [EJS](http://www.embeddedjs.com/)
+- [ESLint](http://eslint.org/)
+- [FrontNote](http://frontainer.com/frontnote/)
+- [HTMLHint](http://htmlhint.com/)
+- [SASS](http://sass-lang.com/)
+- [webpack](http://webpack.github.io/)
+- [JSHint](http://jshint.com/)
+- [Mocha](http://mochajs.org/)
+- [PowerAssert](https://github.com/power-assert-js/power-assert)
+- [Sinon](http://sinonjs.org/)
+
 ## History
 * 1.0.0 - 大幅に構成変更。mocha&power-assert,Babel導入
 * 0.3.0 - パッケージの整理
