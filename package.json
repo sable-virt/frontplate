@@ -54,5 +54,6 @@
     "url": "git@github.com:frontainer/frontplate.git"
   },
   "author": "frontainer",
-  "license": "MIT"
+  "license": "MIT",
+  "private": true
 }
