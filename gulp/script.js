@@ -5,6 +5,7 @@
 var gulp = require('gulp'),
     through = require('through2'),
     path = require('path'),
+    ws = require('webpack-stream'),
     webpack = require('webpack');
 
 /**
@@ -32,7 +33,7 @@ function exeWebPack(watch) {
             this.push(file);
             callback();
         }))
-        .pipe($.webpack(conf))
+        .pipe(ws(conf,webpack))
         .pipe(gulp.dest(__CONFIG.path.js.dest))
         .pipe($.browser.stream());
 }

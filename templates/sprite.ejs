@@ -41,7 +41,7 @@
 $<%=spritesheet_name%>: (<%sprites.forEach(function(sprite){%>$<%=sprite.name%>,<% }); %>);
 @each $sprite in $<%=spritesheet_name%> {
     $name: nth($sprite,10);
-    <%=options.prefix%>.#{$name} {
+    .<%=options.prefix%>.#{$name} {
         @include sprite($sprite,<%=options.scale%>);
     }
 }
