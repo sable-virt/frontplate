@@ -37,6 +37,7 @@
     "lodash": "^3.9.3",
     "merge-stream": "^0.1.7",
     "mocha": "^2.2.5",
+    "node-libs-browser": "^0.5.2",
     "phantomjs": "^1.9.17",
     "power-assert": "^0.11.0",
     "run-sequence": "^1.1.1",
