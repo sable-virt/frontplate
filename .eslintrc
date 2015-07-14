@@ -23,8 +23,14 @@
     "no-void": 1,
     "camelcase": [2, {"properties": "always"}],
     "no-array-constructor": 1,
-    "prefer-const": 1,
-    "quotes": [2, "single"]
+    "quotes": [2, "single"],
+
+    "space-after-keywords": 0,
+    "space-infix-ops": 0,
+    "space-return-throw-case": 0,
+    "comma-spacing": 0,
+    "prefer-const": 0,
+    "no-undef": 0
   },
   "ecmaFeatures": {
     "arrowFunctions": true,
