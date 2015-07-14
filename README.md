@@ -9,10 +9,6 @@
 
 * [Gulp](http://gulpjs.com/)
 
-### Only Windows
-
-* [Visual Studio](http://www.visualstudio.com)
-
 ## Tasks
 
 最初に必要なモジュールをインストール
