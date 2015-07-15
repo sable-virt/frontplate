@@ -30,7 +30,8 @@
     "space-return-throw-case": 0,
     "comma-spacing": 0,
     "prefer-const": 0,
-    "no-undef": 0
+    "no-undef": 0,
+    "curly": 0
   },
   "ecmaFeatures": {
     "arrowFunctions": true,
