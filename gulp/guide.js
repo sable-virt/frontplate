@@ -7,8 +7,7 @@ var gulp = require('gulp');
 module.exports = function () {
     gulp.task('guide', function() {
         return gulp.src(__CONFIG.path.style.src)
-            .pipe($.plumber({errorHandler: $.notify.onError('<%= error.message %>')}))
-            .pipe($.frontnote(__CONFIG.styleguide))
-            .pipe($.browser.stream());
+            .pipe($.plumber({ errorHandler: $.notify.onError('<%= error.message %>') }))
+            .pipe($.frontnote(__CONFIG.styleguide));
     });
 }();
