@@ -1,6 +1,6 @@
 # Frontplate
 
-個人的に利用しているWeb制作テンプレート (version 1.0.1)
+個人的に利用しているWeb制作テンプレート (version 1.0.2)
 
 ※ 旧バージョンが好みだった方はこちらからダウンロードできます。  
 [https://github.com/frontainer/frontplate/releases/tag/0.3.0](https://github.com/frontainer/frontplate/releases/tag/0.3.0)
@@ -143,6 +143,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 ## History
+* 1.0.2 - ESLintの設定を少しゆるく。StyleGuideタスクでのBrowserSync更新を停止（styleタスクに）
 * 1.0.1 - ESLintの設定見直し。不具合の修正。パッケージアップデート。
 * 1.0.0 - 大幅に構成変更。mocha&power-assert,Babel導入
 * 0.3.0 - パッケージの整理
