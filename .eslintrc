@@ -5,7 +5,7 @@
     "es6": true
   },
   "rules": {
-    "comma-dangle": [1, "always"],
+    "comma-dangle": [1, "never"],
     "no-console": 1,
     "eol-last": 0,
     "block-scoped-var": 1,
@@ -24,7 +24,7 @@
     "camelcase": [2, {"properties": "always"}],
     "no-array-constructor": 1,
     "quotes": [2, "single"],
-
+    "no-unused-vars": 1,
     "space-after-keywords": 0,
     "space-infix-ops": 0,
     "space-return-throw-case": 0,
