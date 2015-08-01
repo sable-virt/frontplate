@@ -10,6 +10,7 @@ module.exports = {
     autoprefixer: {
         browser: ['last 3 version', 'ie >= 9', 'Android 4.0']
     },
+    htmlhint: '.htmlhintrc',
     // Sprite生成設定
     sprite: {
         // スプライトにする画像の拡張子
