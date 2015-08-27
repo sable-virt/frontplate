@@ -48,8 +48,9 @@
     "webpack-stream": "^2.1.0"
   },
   "scripts": {
-    "start": "npm install && gulp build",
-    "test": "gulp test"
+    "start": "npm install && npm run build",
+    "test": "gulp test",
+    "build": "gulp build && gulp test"
   },
   "repository": {
     "type": "git",
