@@ -36,7 +36,7 @@
     "karma-phantomjs-launcher": "^0.2.0",
     "karma-webpack": "^1.7.0",
     "lodash": "^3.10.1",
-    "merge-stream": "^1.0.0",
+    "merge-stream": "^0.1.8",
     "mocha": "^2.2.5",
     "phantomjs": "^1.9.17",
     "power-assert": "^1.0.0",
