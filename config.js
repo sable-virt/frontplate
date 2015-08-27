@@ -80,7 +80,7 @@ module.exports = {
         },
         // スクリプト: script
         js: {
-            src: ['src/%type%/js/*.js','!src/js/_*.js','src/%type%/js/*.ts','!src/js/_*.ts'],
+            src: ['src/%type%/js/*.js','!src/js/_*.js'],
             dest: 'public/%type%/js'
         },
         // テスト: karma
