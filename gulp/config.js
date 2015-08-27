@@ -5,7 +5,7 @@
  */
 
 var _ = require('lodash');
-var config = Object.create(require('../config'));
+var config = _.clone(require('../config'));
 var TYPE = getType(process.argv);
 var TYPE_REG = /%type%/g;
 
