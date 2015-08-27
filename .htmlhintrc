@@ -12,7 +12,7 @@
     "src-not-empty": true,
     "head-script-disabled": false,
     "img-alt-require": true,
-    "doctype-html5": false,
+    "doctype-html5": true,
     "id-class-value": "dash",
     "style-disabled": false,
     "space-tab-mixed-disabled": true,
