@@ -13,13 +13,14 @@ module.exports = function () {
         return gulp.src(__CONFIG.path.style.src)
             .pipe($.plumber({errorHandler: $.notify.onError('<%= error.message %>')}))
             .pipe($.frontnote(guideOptions))
+            .pipe($.sourcemaps.init())
             .pipe($.sass({
                 errLogToConsole: true,
-                sourceComments: 'normal',
-                sourceMap: __IS_PRODUCTION ? false : true
+                sourceComments: 'normal'
             }))
             .pipe($.autoprefixer(__CONFIG.autoprefixer.browser))
-            .pipe($.if(__IS_PRODUCTION,$.minifyCss()))
+            .pipe($.minifyCss())
+            .pipe($.if(!__IS_PRODUCTION,$.sourcemaps.write('./maps')))
             .pipe(gulp.dest(__CONFIG.path.style.dest))
             .pipe($.browser.stream());
     });

@@ -2,12 +2,46 @@
 
 個人的に利用しているWeb制作テンプレート
 
-※ 旧バージョンが好みだった方はこちらからダウンロードできます。  
-[https://github.com/frontainer/frontplate/releases/tag/0.3.0](https://github.com/frontainer/frontplate/releases/tag/0.3.0)
-
 ## Dependence
 
 * [Gulp](http://gulpjs.com/)
+
+```
+npm i -g gulp
+```
+
+## 構成
+
+```
+package.json - nomパッケージ設定ファイル
+config.js - テンプレートの設定ファイル。出力先やgulpの設定を変更できる
+karma.conf.js - Karmaの設定ファイル
+webpack.config.js - WebPackの設定ファイル
+gulpfile.js - gulpファイル
+npm-shrinkwrap - npmパッケージのバージョン固定ファイル
+/gulp - gulpのタスクがたくさん入ってる
+/public - コンパイルされたデータが入っている
+/src - 開発用フォルダ
+  ┣ /pc
+  ┃  ┣ /images - 画像を入れるフォルダ。public/pc/imagesに複製される
+  ┃  ┣ /js - JSフォルダ。ES6で書ける。直下にあるJSは
+  ┃  ┃  ┣ app.js - public/pc/js/app.jsとして出力される
+  ┃  ┃  ┗ /modules
+  ┃  ┃       ┗ hoge.js - ここファイルは出力されないが変更は監視される
+  ┃  ┣ /lib - ライブラリフォルダ。外部ライブラリ等を置く。public/pc/libに複製される
+  ┃  ┣ /sass - sassフォルダ。ファイル名が_(アンダースコア)で始まっていないscssはpublic/pc/cssに出力される
+  ┃  ┣ /sprites - スプライト生成フォルダ。ここに作ったフォルダがsass/sprites/_フォルダ名.scssとして出力される
+  ┃  ┃  ┗ /icon - スプライト画像を入れるフォルダ。class="icon icon-ファイル名"で参照されるので英数字推奨
+  ┃  ┣ /test - テストコードを置くフォルダ。ここにおいたファイルはテストコードとして実行される
+  ┃  ┗ /view - ビューファイル(ejs)を置くフォルダ。ファイル名が_(アンダースコア)で始まっていないejsはpublic/pcに出力される
+  ┃        ┣ index.ejs - public/pc/index.htmlとして出力される
+  ┃        ┗ parts/
+  ┃              ┣ _header.ejs - アンダースコアから始まるファイルは出力されない
+  ┃              ┗ sub.ejs - public/pc/parts/sub.htmlとして出力される
+  ┗ /任意のフォルダ - 任意のフォルダを作ってpcと同じ構造を作ることができる
+/templates - テンプレートファイルフォルダ
+  ┗ sprite.ejs - スプライト画像用テンプレート
+```
 
 ## Tasks
 
@@ -15,6 +49,13 @@
 
 ```
 npm run start
+```
+
+
+### 全体をビルド
+
+```
+gulp build
 ```
 
 ### ファイル監視の実行 & サーバー起動
@@ -102,7 +143,6 @@ gulp style
 ## library
 
 - JS:   [Modernizr](http://modernizr.com/)
-- CSS:  [Semantic Grid Layout](http://gridle.org/)
 
 ## Other documentation
 
@@ -143,6 +183,8 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 ## History
+* 1.0.4 - CSSにSourceMap出力を追加。JS/CSSの圧縮をデフォルトに変更。パッケージアップデート
+* 1.0.3 - パッケージアップデート。npm shrinkwrapを実施
 * 1.0.2 - ESLintの設定を少しゆるく。StyleGuideタスクでのBrowserSync更新を停止（styleタスクに）
 * 1.0.1 - ESLintの設定見直し。不具合の修正。パッケージアップデート。
 * 1.0.0 - 大幅に構成変更。mocha&power-assert,Babel導入
