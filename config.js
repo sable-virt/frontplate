@@ -7,8 +7,13 @@ module.exports = {
     // gulpコマンドでデフォルトで監視するディレクトリ(src/*/)
     defaultPath: 'pc',
     // AutoPrefixerの設定
-    autoprefixer: {
-        browser: ['last 3 version', 'ie >= 9', 'Android 4.0']
+    style: {
+        cssnano: {
+            autoprefixer: false
+        },
+        autoprefixer: {
+            browser: ['last 3 version', 'ie >= 9', 'Android 4.0']
+        }
     },
     htmlhint: '.htmlhintrc',
     // Sprite生成設定
