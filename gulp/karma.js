@@ -3,29 +3,23 @@
  * karmaを使ってユニットテストを実行する
  */
 var gulp = require('gulp');
-var karma = require('karma').server;
+var Server = require('karma').Server;
 var runner = require('karma').runner;
-
-gulp.task('runTest', function(callback) {
-    runner.run({
-        configFile: process.cwd() + '/karma.conf.js'
-    },function(exitCode) {
-        //process.exit(exitCode);
-        callback();
-    });
-});
+var CONFFILE = process.cwd() + '/karma.conf.js';
 
 gulp.task('test', function(callback) {
-    karma.start({
-        configFile: process.cwd() + '/karma.conf.js',
+    var server = new Server({
+        configFile: CONFFILE,
         singleRun: true,
         autoWatch: false
     },callback);
+    server.start();
 });
 gulp.task('watchTest', function(callback) {
-    karma.start({
-        configFile: process.cwd() + '/karma.conf.js',
+    var server = new Server({
+        configFile: CONFFILE,
         singleRun: false,
         autoWatch: true
     },callback);
+    server.start();
 });
