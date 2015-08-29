@@ -5,13 +5,13 @@
 import gulp from 'gulp';
 import _ from 'lodash';
 import config from './config';
+import $ from './plugins';
 
 import autoprefixer from 'autoprefixer';
 import cssMqpacker  from 'css-mqpacker';
 import cssnano from 'cssnano';
 
 gulp.task('style', () => {
-    console.log(config.IS_PRODUCTION);
     var guideOptions = _.merge({
         out: './guide/'
     }, config.styleguide);

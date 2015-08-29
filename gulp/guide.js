@@ -4,6 +4,7 @@
  */
 import gulp from 'gulp';
 import config from './config';
+import $ from './plugins';
 
 gulp.task('guide', () => {
     return gulp.src(config.path.style.src)

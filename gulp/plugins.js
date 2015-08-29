@@ -5,7 +5,7 @@
 import loader from 'gulp-load-plugins';
 import browser from 'browser-sync';
 
-const $ = loader({
+let $ = loader({
     pattern: ['gulp-*', 'gulp.*'],
     replaceString: /\bgulp[\-.]/
 });

@@ -4,7 +4,6 @@ import runSequence from 'run-sequence';
 // gulpディレクトリのタスク読み込み
 import tasks from './gulp/load';
 import config from './gulp/config';
-global.$ = tasks.plugins;
 
 /**
  * 監視タスク

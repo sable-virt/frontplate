@@ -9,6 +9,7 @@ import ms from 'merge-stream';
 import fs from 'fs';
 import ejs from 'ejs';
 import config from './config';
+import $ from './plugins';
 
 gulp.task('sprite', () => {
     let op = _.extend({}, config.sprite.options);

@@ -5,6 +5,7 @@ import gulp from 'gulp';
 import _ from 'lodash';
 import rewrite from 'connect-modrewrite';
 import config from './config';
+import $ from './plugins';
 
 gulp.task('server', () => {
     let options = _.merge(config.server, {

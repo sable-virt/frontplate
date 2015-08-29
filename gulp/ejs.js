@@ -4,6 +4,7 @@
  */
 import gulp from 'gulp';
 import config from './config';
+import $ from './plugins';
 
 gulp.task('ejs', () => {
     return gulp.src(config.path.ejs.src)

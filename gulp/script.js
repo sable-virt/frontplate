@@ -11,6 +11,7 @@ import ws from 'webpack-stream';
 import webpack from 'webpack';
 import conf from '../webpack.config.js';
 import config from './config';
+import $ from './plugins';
 
 /**
  * webpackコンパイル開始

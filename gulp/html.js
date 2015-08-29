@@ -4,6 +4,7 @@
  */
 import gulp from 'gulp';
 import config from './config';
+import $ from './plugins';
 
 gulp.task('html', () => {
     return gulp.src(config.path.html.src)
