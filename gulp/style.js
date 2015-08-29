@@ -17,6 +17,7 @@ module.exports = function () {
             .pipe($.sass())
             .pipe($.postcss([
                 require('autoprefixer')(__CONFIG.style.autoprefixer),
+                require('css-mqpacker')(__CONFIG.style.mqpacker),
                 require('cssnano')(__CONFIG.style.cssnano)
             ]))
             .pipe($.if(!__IS_PRODUCTION,$.sourcemaps.write('./maps')))
