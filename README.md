@@ -20,7 +20,7 @@
 ## Dependence
 
 * [NodeJS](https://nodejs.org/)
-* [Gulp](http://gulpjs.com/)
+* [Gulp](http://gulpjs.com/) 3.9以上
 
 ```
 npm i -g gulp
@@ -195,7 +195,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 ## History
-* 1.1.0 - CSSのビルドにPostCSS導入
+* 1.1.0 - CSSのビルドにPostCSS導入。gulp関連のファイルをES2015化
 * 1.0.4 - CSSにSourceMap出力を追加。JS/CSSの圧縮をデフォルトに変更。パッケージアップデート
 * 1.0.3 - パッケージアップデート。npm shrinkwrapを実施
 * 1.0.2 - ESLintの設定を少しゆるく。StyleGuideタスクでのBrowserSync更新を停止（styleタスクに）
