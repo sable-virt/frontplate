@@ -10,6 +10,7 @@ import through from 'through2';
 import ws from 'webpack-stream';
 import webpack from 'webpack';
 import conf from '../webpack.config.js';
+import config from './config';
 
 /**
  * webpackコンパイル開始
@@ -18,14 +19,14 @@ import conf from '../webpack.config.js';
  */
 function exeWebPack(watch) {
     conf.watch = watch;
-    gulp.src(__CONFIG.path.js.src)
+    gulp.src(config.path.js.src)
         .pipe(ws(conf,webpack))
-        .pipe(gulp.dest(__CONFIG.path.js.dest))
+        .pipe(gulp.dest(config.path.js.dest))
         .pipe($.browser.stream());
 }
 
 gulp.task('_setEntries', () => {
-    return gulp.src(__CONFIG.path.js.src)
+    return gulp.src(config.path.js.src)
         .pipe(through.obj(function(file,charset,callback) {
             conf.entry = conf.entry || {};
             var fileName = path.basename(file.path).replace(/\.(ts|js)$/,'');

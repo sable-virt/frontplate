@@ -8,10 +8,10 @@ import path from 'path';
 import ms from 'merge-stream';
 import fs from 'fs';
 import ejs from 'ejs';
-const config = global.config;
+import config from './config';
 
 gulp.task('sprite', () => {
-    let op = _.extend({}, __CONFIG.sprite.options);
+    let op = _.extend({}, config.sprite.options);
     let template = op.cssTemplate;
     if (typeof template === 'string' && path.extname(template) === '.ejs') {
         let file = fs.readFileSync(`${process.cwd()}/${template}`);
@@ -19,7 +19,7 @@ gulp.task('sprite', () => {
             return ejs.render(file.toString(), data);
         };
     }
-    return gulp.src(__CONFIG.path.sprite.src)
+    return gulp.src(config.path.sprite.src)
         .pipe($.plumber({errorHandler: $.notify.onError('<%= error.message %>')}))
         .pipe($.foreach((stream, file) => {
             if (file.isDirectory()) {
@@ -29,20 +29,20 @@ gulp.task('sprite', () => {
                 let isRetina = name.search(/-2x$/) !== -1;
                 let options = _.merge({
                     cssSpritesheetName: name,
-                    imgName: `${name}${__CONFIG.sprite.imgExtension}`,
-                    cssName: `_${name}${__CONFIG.sprite.cssExtension}`,
-                    imgPath: `${__CONFIG.path.sprite.imagePath}/${name}${__CONFIG.sprite.imgExtension}`,
+                    imgName: `${name}${config.sprite.imgExtension}`,
+                    cssName: `_${name}${config.sprite.cssExtension}`,
+                    imgPath: `${config.path.sprite.imagePath}/${name}${config.sprite.imgExtension}`,
                     cssOpts: {
                         scale: isRetina ? .5 : 1,
                         prefix: name,
                         functions: true
                     }
                 }, op);
-                let strm = gulp.src(`${file.path}/*${__CONFIG.sprite.extension}`)
+                let strm = gulp.src(`${file.path}/*${config.sprite.extension}`)
                     .pipe($.plumber())
                     .pipe($.spritesmith(options));
-                strm.img.pipe(gulp.dest(__CONFIG.path.sprite.imageDest));
-                strm.css.pipe(gulp.dest(__CONFIG.path.sprite.cssDest));
+                strm.img.pipe(gulp.dest(config.path.sprite.imageDest));
+                strm.css.pipe(gulp.dest(config.path.sprite.cssDest));
                 return ms(stream, strm);
             }
             return stream;

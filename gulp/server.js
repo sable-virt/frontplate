@@ -4,11 +4,12 @@
 import gulp from 'gulp';
 import _ from 'lodash';
 import rewrite from 'connect-modrewrite';
+import config from './config';
 
 gulp.task('server', () => {
-    let options = _.merge(__CONFIG.server, {
+    let options = _.merge(config.server, {
         server: {
-            baseDir: __CONFIG.dist,
+            baseDir: config.dist,
             directory: false,
             middleware: [
                 rewrite([

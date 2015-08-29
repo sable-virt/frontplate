@@ -6,9 +6,7 @@
 
 import _ from 'lodash';
 import config from '../config';
-const TYPE = getType(process.argv);
 const TYPE_REG = /%type%/g;
-
 /**
  * コマンドで指定されたタイプを取得する
  * @param args
@@ -30,7 +28,7 @@ function getType(args) {
  */
 function buildPath(data) {
     if (typeof data === 'number') return data;
-    if (typeof data === 'string') return data.replace(TYPE_REG, TYPE);
+    if (typeof data === 'string') return data.replace(TYPE_REG, getType(process.argv));
     for (let key in data) {
         let value = data[key];
         delete data[key];
@@ -38,7 +36,7 @@ function buildPath(data) {
     }
     return data;
 }
-
-buildPath(config);
-config.TYPE = TYPE;
-export default config;
+var conf = buildPath(config);
+conf.TYPE = getType(process.argv);
+conf.IS_PRODUCTION = false;
+export default conf;

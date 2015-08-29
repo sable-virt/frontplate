@@ -3,11 +3,12 @@
  * EJSで作られたファイルを指定ディレクトリにコンパイルして出力する
  */
 import gulp from 'gulp';
+import config from './config';
 
 gulp.task('ejs', () => {
-    return gulp.src(__CONFIG.path.ejs.src)
+    return gulp.src(config.path.ejs.src)
         .pipe($.plumber({errorHandler: $.notify.onError('<%= error.message %>')}))
-        .pipe($.ejs(__CONFIG.ejs))
-        .pipe(gulp.dest(__CONFIG.path.ejs.dest))
+        .pipe($.ejs(config.ejs))
+        .pipe(gulp.dest(config.path.ejs.dest))
         .pipe($.browser.stream());
 });
