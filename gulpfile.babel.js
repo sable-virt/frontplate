@@ -11,8 +11,8 @@ import config from './gulp/config';
 gulp.task('watch', () => {
     gulp.watch(config.path.ejs.watch, ['ejs']);
     gulp.watch(config.path.html.src, ['html']);
-    gulp.watch(config.path.style.src, ['guide','style']);
-    gulp.watch(config.path.sprite.watch, ['sprite', 'guide','style', 'copy']);
+    gulp.watch(config.path.style.src, ['style']);
+    gulp.watch(config.path.sprite.watch, ['sprite','style', 'copy']);
 
     var copyWatches = [];
     // 複製タスクはループで回して監視対象とする
