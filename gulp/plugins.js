@@ -2,10 +2,12 @@
  * プラグイン読み込み
  * 指定したパターンのプラグインを自動的に読み込む
  */
-var $ = require('gulp-load-plugins')({
+import loader from 'gulp-load-plugins';
+import browser from 'browser-sync';
+
+const $ = loader({
     pattern: ['gulp-*', 'gulp.*'],
     replaceString: /\bgulp[\-.]/
 });
-$.browser = require('browser-sync');
-
-module.exports = $;
+$.browser = browser;
+export default $;
