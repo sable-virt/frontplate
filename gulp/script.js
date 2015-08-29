@@ -2,13 +2,16 @@
  * スクリプトタスク
  * JSファイルをwebpackを使ってコンパイルして出力する
  */
-var _ = require('lodash'),
-    gulp = require('gulp'),
-    through = require('through2'),
-    path = require('path'),
-    ws = require('webpack-stream'),
-    webpack = require('webpack'),
-    conf = _.clone(require('../webpack.config.js'));
+
+import path from 'path';
+import gulp from 'gulp';
+import _ from 'lodash';
+import through from 'through2';
+import ws from 'webpack-stream';
+import webpack from 'webpack';
+import conf from '../webpack.config.js';
+import config from './config';
+import $ from './plugins';
 
 /**
  * webpackコンパイル開始
@@ -17,14 +20,14 @@ var _ = require('lodash'),
  */
 function exeWebPack(watch) {
     conf.watch = watch;
-    gulp.src(__CONFIG.path.js.src)
+    gulp.src(config.path.js.src)
         .pipe(ws(conf,webpack))
-        .pipe(gulp.dest(__CONFIG.path.js.dest))
+        .pipe(gulp.dest(config.path.js.dest))
         .pipe($.browser.stream());
 }
 
-gulp.task('_setEntries', function() {
-    return gulp.src(__CONFIG.path.js.src)
+gulp.task('_setEntries', () => {
+    return gulp.src(config.path.js.src)
         .pipe(through.obj(function(file,charset,callback) {
             conf.entry = conf.entry || {};
             var fileName = path.basename(file.path).replace(/\.(ts|js)$/,'');
@@ -37,13 +40,13 @@ gulp.task('_setEntries', function() {
 /**
  * スクリプトコンパイルタスク
  */
-gulp.task('script',['_setEntries'], function() {
+gulp.task('script',['_setEntries'], () => {
     return exeWebPack(false);
 });
 
 /**
  * スクリプト監視タスク
  */
-gulp.task('watchScript',['_setEntries'], function() {
+gulp.task('watchScript',['_setEntries'], () => {
     return exeWebPack(true);
 });

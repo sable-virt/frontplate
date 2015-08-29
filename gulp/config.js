@@ -4,18 +4,16 @@
  * 定数の設定も行う
  */
 
-var _ = require('lodash');
-var config = _.clone(require('../config'));
-var TYPE = getType(process.argv);
-var TYPE_REG = /%type%/g;
-
+import _ from 'lodash';
+import config from '../config';
+const TYPE_REG = /%type%/g;
 /**
  * コマンドで指定されたタイプを取得する
  * @param args
  * @returns {*}
  */
 function getType(args) {
-    var result = _.findLast(args, function(val) {
+    var result = _.findLast(args, (val) => {
         return /^-(?!-)+/.test(val);
     });
     if (result) {
@@ -30,15 +28,15 @@ function getType(args) {
  */
 function buildPath(data) {
     if (typeof data === 'number') return data;
-    if (typeof data === 'string') return data.replace(TYPE_REG, TYPE);
-    for (var key in data) {
-        var value = data[key];
+    if (typeof data === 'string') return data.replace(TYPE_REG, getType(process.argv));
+    for (let key in data) {
+        let value = data[key];
         delete data[key];
         data[buildPath(key)] = buildPath(value);
     }
     return data;
 }
-
-buildPath(config);
-config.TYPE = TYPE;
-module.exports = config;
+var conf = buildPath(config);
+conf.TYPE = getType(process.argv);
+conf.IS_PRODUCTION = false;
+export default conf;

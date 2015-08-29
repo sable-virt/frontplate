@@ -2,12 +2,12 @@
  * スタイルガイドタスク
  * 指定されたCSSが変更されたときに指定したディレクトリにスタイルガイドを出力する
  */
-var gulp = require('gulp');
+import gulp from 'gulp';
+import config from './config';
+import $ from './plugins';
 
-module.exports = function () {
-    gulp.task('guide', function() {
-        return gulp.src(__CONFIG.path.style.src)
-            .pipe($.plumber({ errorHandler: $.notify.onError('<%= error.message %>') }))
-            .pipe($.frontnote(__CONFIG.styleguide));
-    });
-}();
+gulp.task('guide', () => {
+    return gulp.src(config.path.style.src)
+        .pipe($.plumber({errorHandler: $.notify.onError('<%= error.message %>')}))
+        .pipe($.frontnote(config.styleguide));
+});
