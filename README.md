@@ -1,9 +1,25 @@
 # Frontplate
 
-個人的に利用しているWeb制作テンプレート
+フロントエンド開発を効率化よくするためのテンプレート
+
+## Feature
+
+- HTMLモジュール（EJS）
+- SASS
+- ES2015
+- スプライト画像の作成とSassファイルの出力
+- JS/CSSの圧縮と最適化
+- ベンダープレフィックス付与自動化
+- ユニットテスト（Mocha/PowerAssert）
+- LiveReload
+- ESLint
+- HTMLHint
+- スタイルガイド生成
+- JS/CSSソースマップ
 
 ## Dependence
 
+* [NodeJS](https://nodejs.org/)
 * [Gulp](http://gulpjs.com/)
 
 ```
@@ -43,22 +59,27 @@ npm-shrinkwrap - npmパッケージのバージョン固定ファイル
   ┗ sprite.ejs - スプライト画像用テンプレート
 ```
 
-## Tasks
+## Get Started
 
-最初に必要なモジュールをインストール
+### 準備
+
+frontplateを任意のディレクトリに展開し、展開したディレクトリで以下のコマンドを実行します。
 
 ```
 npm run start
 ```
 
-
 ### 全体をビルド
+
+すべてのファイルをビルドします。開発を始める前に必ず一度はビルドしましょう。
 
 ```
 gulp build
 ```
 
 ### ファイル監視の実行 & サーバー起動
+
+以下のコマンドを実行するとブラウザで開発中のページが開きます。この状態でCSSやJSを修正するとユニットテストやLintも同時に実行され、ブラウザが自動的に更新されます。
 
 ```
 # ディレクトリを監視(src/pc)
@@ -70,10 +91,7 @@ gulp -sp
 
 ### スプライト画像生成
 
-images/spites以下のディレクトリごとにスプライト画像とsassファイルを出力
-
-* スプライト画像 - images/sprites/*.png
-* sass - sass/sprites/_*.scss
+複数の画像をタイル上に１枚の画像にするスプライトを自動的に生成します。images/spites以下のディレクトリごとにスプライト画像とsassファイルを出力
 
 ```
 # スプライト生成
@@ -89,15 +107,17 @@ gulp sprite -sp
 images/sprites/icon/icon-twitter.png
 images/sprites/icon/icon-twitter.png
 ```
-↓ gulp sprite
+↓ `gulp sprite`
 ```
 images/sprites/icon.png
 sass/sprites/_icon.scss
 ```
 
+スプライト画像は`images/sprites/*.png`に、sassは`sass/sprites/_*.scss`に展開されるので、作られたsassを`@import`して使用します。
+
 #### Retinaディスプレイ用スプライト生成
 
-ディレクトリ名の末尾を-2xにする
+ディレクトリ名の末尾を`-2x`にすることで自動的にsass上でサイズを1/2して表示されるようになります。
 
 ```
 images/sprites/icon-2x/icon-twitter.png
@@ -105,6 +125,8 @@ images/sprites/icon-2x/icon-twitter.png
 ```
 
 ### サーバーのみ起動
+
+ビルドや監視が不要でサーバーのみ起動したい場合は以下のコマンドを使用します。
 
 ```
 # サーバー起動
@@ -116,28 +138,18 @@ gulp server -sp
 
 ### リリースファイル作成
 
+ひと通りの開発が完了した時点で、リリース用のファイルを作成します。production
+タスクではJSとCSSのソースマップが出力されなくなります。
 ```
 gulp production
 ```
 
 ### テストの実行
 
+ユニットテストのみを実行します。
+
 ```
 gulp test
-```
-
-### 個別タスク
-
-```
-gulp clean
-gulp copy
-gulp ejs
-gulp guide
-gulp html
-gulp script
-gulp server
-gulp sprite
-gulp style
 ```
 
 ## library
@@ -162,7 +174,7 @@ gulp style
 
 The MIT License (MIT)
 
-Copyright (c) 2014 Frontainer
+Copyright (c) 2015 frontainer
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -183,6 +195,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 ## History
+* 1.1.0 - CSSのビルドにPostCSS導入
 * 1.0.4 - CSSにSourceMap出力を追加。JS/CSSの圧縮をデフォルトに変更。パッケージアップデート
 * 1.0.3 - パッケージアップデート。npm shrinkwrapを実施
 * 1.0.2 - ESLintの設定を少しゆるく。StyleGuideタスクでのBrowserSync更新を停止（styleタスクに）
