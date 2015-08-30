@@ -30,7 +30,7 @@ var webpackConfig = {
         }),
         new webpack.optimize.UglifyJsPlugin({
             compress: {
-                warnings: true
+                warnings: false
             }
         }),
         //new webpack.optimize.CommonsChunkPlugin('app','app.js'),
