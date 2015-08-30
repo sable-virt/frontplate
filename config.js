@@ -7,9 +7,15 @@ module.exports = {
     // gulpコマンドでデフォルトで監視するディレクトリ(src/*/)
     defaultPath: 'pc',
     // AutoPrefixerの設定
-    autoprefixer: {
-        browser: ['last 3 version', 'ie >= 9', 'Android 4.0']
+    style: {
+        cssnano: {
+            autoprefixer: false
+        },
+        autoprefixer: {
+            browser: ['last 3 version', 'ie >= 9', 'Android 4.0']
+        }
     },
+    htmlhint: '.htmlhintrc',
     // Sprite生成設定
     sprite: {
         // スプライトにする画像の拡張子
@@ -79,7 +85,7 @@ module.exports = {
         },
         // スクリプト: script
         js: {
-            src: ['src/%type%/js/*.js','!src/js/_*.js','src/%type%/js/*.ts','!src/js/_*.ts'],
+            src: ['src/%type%/js/*.js','!src/js/_*.js'],
             dest: 'public/%type%/js'
         },
         // テスト: karma

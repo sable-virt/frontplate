@@ -2,14 +2,14 @@
  * EJSタスク
  * EJSで作られたファイルを指定ディレクトリにコンパイルして出力する
  */
-var gulp = require('gulp');
+import gulp from 'gulp';
+import config from './config';
+import $ from './plugins';
 
-module.exports = function () {
-    gulp.task('ejs', function () {
-        return gulp.src(__CONFIG.path.ejs.src)
-            .pipe($.plumber({errorHandler: $.notify.onError('<%= error.message %>')}))
-            .pipe($.ejs(__CONFIG.ejs))
-            .pipe(gulp.dest(__CONFIG.path.ejs.dest))
-            .pipe($.browser.stream());
-    });
-}();
+gulp.task('ejs', () => {
+    return gulp.src(config.path.ejs.src)
+        .pipe($.plumber({errorHandler: $.notify.onError('<%= error.message %>')}))
+        .pipe($.ejs(config.ejs))
+        .pipe(gulp.dest(config.path.ejs.dest))
+        .pipe($.browser.stream());
+});

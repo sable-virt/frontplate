@@ -2,51 +2,50 @@
  * スプライト生成タスク
  * スプライト画像とCSSを生成するタスク
  */
-var gulp = require('gulp'),
-    _ = require('lodash'),
-    path = require('path'),
-    ms = require('merge-stream'),
-    fs = require('fs'),
-    ejs = require('ejs'),
-    config = global.config;
+import gulp from 'gulp';
+import _ from 'lodash';
+import path from 'path';
+import ms from 'merge-stream';
+import fs from 'fs';
+import ejs from 'ejs';
+import config from './config';
+import $ from './plugins';
 
-module.exports = function () {
-    gulp.task('sprite',function() {
-        var op = _.extend({},__CONFIG.sprite.options);
-        var template = op.cssTemplate;
-        if (typeof template === 'string' && path.extname(template) === '.ejs') {
-            var file = fs.readFileSync(process.cwd() + '/' + template);
-            op.cssTemplate = function(data) {
-                return ejs.render(file.toString(),data);
-            };
-        }
-        return gulp.src(__CONFIG.path.sprite.src)
-            .pipe($.plumber({errorHandler: $.notify.onError('<%= error.message %>')}))
-            .pipe($.foreach(function(stream, file){
-                if(file.isDirectory()) {
-                    var paths = file.path.split(path.sep);
-                    var name = paths.pop();
-                    if (!name) return stream;
-                    var isRetina = name.search(/-2x$/) !== -1;
-                    var options = _.merge({
-                        cssSpritesheetName: name,
-                        imgName: name + __CONFIG.sprite.imgExtension,
-                        cssName: '_' + name + __CONFIG.sprite.cssExtension,
-                        imgPath: __CONFIG.path.sprite.imagePath + '/' + name + __CONFIG.sprite.imgExtension,
-                        cssOpts: {
-                            scale: isRetina ? .5 : 1,
-                            prefix: name,
-                            functions: true
-                        }
-                    },op);
-                    var strm = gulp.src(file.path + '/*' + __CONFIG.sprite.extension)
-                        .pipe($.plumber())
-                        .pipe($.spritesmith(options));
-                    strm.img.pipe(gulp.dest(__CONFIG.path.sprite.imageDest));
-                    strm.css.pipe(gulp.dest(__CONFIG.path.sprite.cssDest));
-                    return ms(stream,strm);
-                }
-                return stream;
-            }));
-    });
-}();
+gulp.task('sprite', () => {
+    let op = _.extend({}, config.sprite.options);
+    let template = op.cssTemplate;
+    if (typeof template === 'string' && path.extname(template) === '.ejs') {
+        let file = fs.readFileSync(`${process.cwd()}/${template}`);
+        op.cssTemplate = (data) => {
+            return ejs.render(file.toString(), data);
+        };
+    }
+    return gulp.src(config.path.sprite.src)
+        .pipe($.plumber({errorHandler: $.notify.onError('<%= error.message %>')}))
+        .pipe($.foreach((stream, file) => {
+            if (file.isDirectory()) {
+                let paths = file.path.split(path.sep);
+                let name = paths.pop();
+                if (!name) return stream;
+                let isRetina = name.search(/-2x$/) !== -1;
+                let options = _.merge({
+                    cssSpritesheetName: name,
+                    imgName: `${name}${config.sprite.imgExtension}`,
+                    cssName: `_${name}${config.sprite.cssExtension}`,
+                    imgPath: `${config.path.sprite.imagePath}/${name}${config.sprite.imgExtension}`,
+                    cssOpts: {
+                        scale: isRetina ? .5 : 1,
+                        prefix: name,
+                        functions: true
+                    }
+                }, op);
+                let strm = gulp.src(`${file.path}/*${config.sprite.extension}`)
+                    .pipe($.plumber())
+                    .pipe($.spritesmith(options));
+                strm.img.pipe(gulp.dest(config.path.sprite.imageDest));
+                strm.css.pipe(gulp.dest(config.path.sprite.cssDest));
+                return ms(stream, strm);
+            }
+            return stream;
+        }));
+});

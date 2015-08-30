@@ -1,9 +1,9 @@
 var webpack = require("webpack");
 
-module.exports = {
+var webpackConfig = {
     output: {
         filename: "[name].js",
-        sourceMapFilename: 'map/[file].map',
+        sourceMapFilename: 'maps/[name].map',
         jsonpFunction: 'fr'
     },
     devtool: '#source-map',
@@ -28,10 +28,12 @@ module.exports = {
         new webpack.DefinePlugin({
             __IS_PRODUCTION: JSON.stringify(global.__IS_PRODUCTION)
         }),
-        new webpack.ResolverPlugin(
-            new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin("bower.json", ["main"])
-        ),
-        new webpack.optimize.CommonsChunkPlugin('app','app.js'),
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                warnings: true
+            }
+        }),
+        //new webpack.optimize.CommonsChunkPlugin('app','app.js'),
         new webpack.optimize.AggressiveMergingPlugin(),
         new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.optimize.DedupePlugin()
@@ -41,3 +43,5 @@ module.exports = {
         failOnError: true
     }
 };
+
+export default webpackConfig;

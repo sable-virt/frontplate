@@ -2,9 +2,10 @@
  * クリーンタスク
  * 指定されたディレクトリ以下をすべて削除する
  */
-var gulp = require('gulp'),
-    del = require('del');
+import gulp from 'gulp';
+import del from 'del';
+import config from './config';
 
-gulp.task('clean', function (callback) {
-    del(__CONFIG.dist,callback);
+gulp.task('clean', (callback) => {
+    del(config.dist,callback);
 });
