@@ -22,7 +22,8 @@ var webpackConfig = {
             { test: /\.html$/, loader: 'html-loader' },
             { test: /test\/.*?Spec\.js$/, loader: 'webpack-espower-loader' },
             { test: /\.js/, exclude: /node_modules|bower_components/, loaders: ['babel-loader'] }
-        ]
+        ],
+        noParse: [/node_modules/,/bower_components/]
     },
     plugins: [
         new webpack.DefinePlugin({
