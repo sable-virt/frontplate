@@ -4,39 +4,24 @@ var webpackConfig = {
     output: {
         filename: "[name].js",
         sourceMapFilename: 'maps/[name].map',
-        jsonpFunction: 'f'
+        jsonpFunction: 'fr'
     },
     devtool: '#source-map',
     resolve: {
         modulesDirectories: [
             'bower_components',
             'node_modules',
-            'src',
-            'lib'
+            'src'
         ]
     },
     module: {
         preLoaders: [
-            {
-                test: /\.js$/,
-                exclude: /node_modules|bower_components/,
-                loader: 'eslint-loader'
-            }
+            { test: /\.js$/, exclude: /node_modules|bower_components/, loader: 'eslint-loader' }
         ],
         loaders: [
-            {
-                test: /\.html$/,
-                loader: 'html-loader'
-            },
-            {
-                test: /test\/.*?Spec\.js$/,
-                loader: 'webpack-espower-loader'
-            },
-            {
-                test: /\.js/,
-                exclude: /node_modules|bower_components/,
-                loaders: ['babel-loader']
-            }
+            { test: /\.html$/, loader: 'html-loader' },
+            { test: /test\/.*?Spec\.js$/, loader: 'webpack-espower-loader' },
+            { test: /\.js/, exclude: /node_modules|bower_components/, loaders: ['babel-loader'] }
         ]
     },
     plugins: [
