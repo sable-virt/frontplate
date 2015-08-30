@@ -1,6 +1,6 @@
 var webpack = require("webpack");
 
-module.exports = {
+var webpackConfig = {
     output: {
         filename: "[name].js",
         sourceMapFilename: 'maps/[name].map',
@@ -43,3 +43,5 @@ module.exports = {
         failOnError: true
     }
 };
+
+export default webpackConfig;
