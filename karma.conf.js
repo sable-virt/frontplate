@@ -1,10 +1,8 @@
 // Karma configuration
 // Generated on Thu Jun 05 2014 00:09:58 GMT+0900 (JST)
 
-module.exports = function(config) {
+export default function(config) {
     var conf = require('./gulp/config');
-    global.__CONFIG = conf;
-    global.__IS_PRODUCTION = false;
     var webpackConfig = require('./webpack.config');
     config.set({
 
@@ -21,7 +19,7 @@ module.exports = function(config) {
             '**/*Spec.js': ['webpack']
         },
         webpack: {
-            devtool: '#inline-source-map',
+            devtool: '#source-map',
             resolve: webpackConfig.resolve,
             module: webpackConfig.module
         },
