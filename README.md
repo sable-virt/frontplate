@@ -124,13 +124,6 @@ images/sprites/icon-2x/icon-twitter.png
 images/sprites/icon-2x/icon-twitter.png
 ```
 
-### JavaScript
-
-Babelで提供されるES2015の記法を使うことができます。
-また、JavaScript内部では`IS_PRODUCTION`定数が提供されます。
-`IS_PRODUCTION`定数は`gulp production`コマンドによってJSが生成された場合にtrueを返します。
-これを利用してデバッグ用のコードを仕込んだりすることができます。
-
 ### サーバーのみ起動
 
 ビルドや監視が不要でサーバーのみ起動したい場合は以下のコマンドを使用します。

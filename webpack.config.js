@@ -1,19 +1,17 @@
-import webpack from "webpack";
-import config from './gulp/config';
+var webpack = require("webpack");
 
 var webpackConfig = {
     output: {
         filename: "[name].js",
         sourceMapFilename: 'maps/[name].map',
-        jsonpFunction: 'f'
+        jsonpFunction: 'fr'
     },
     devtool: '#source-map',
     resolve: {
         modulesDirectories: [
             'bower_components',
             'node_modules',
-            'src',
-            'lib'
+            'src'
         ]
     },
     module: {
@@ -24,12 +22,11 @@ var webpackConfig = {
             { test: /\.html$/, loader: 'html-loader' },
             { test: /test\/.*?Spec\.js$/, loader: 'webpack-espower-loader' },
             { test: /\.js/, exclude: /node_modules|bower_components/, loaders: ['babel-loader'] }
-        ],
-        noParse: ['node_modules','bower_components']
+        ]
     },
     plugins: [
         new webpack.DefinePlugin({
-            IS_PRODUCTION: config.IS_PRODUCTION
+            __IS_PRODUCTION: JSON.stringify(global.__IS_PRODUCTION)
         }),
         new webpack.optimize.UglifyJsPlugin({
             compress: {
