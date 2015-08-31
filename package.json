@@ -31,7 +31,6 @@
     "gulp-sourcemaps": "^1.5.2",
     "gulp.spritesmith": "^4.0.0",
     "html-loader": "^0.3.0",
-    "jshint": "^2.8.0",
     "karma": "^0.13.9",
     "karma-mocha": "^0.2.0",
     "karma-notify-reporter": "^0.1.1",
