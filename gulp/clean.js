@@ -7,5 +7,6 @@ import del from 'del';
 import config from './config';
 
 gulp.task('clean', (callback) => {
-    del(config.dist,callback);
+    del.sync([config.dist]);
+    callback();
 });
