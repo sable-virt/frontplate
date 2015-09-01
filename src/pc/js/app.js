@@ -1,3 +1,1 @@
-if (IS_PRODUCTION) {
-    alert('');
-}
+alert('');

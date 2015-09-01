@@ -16,13 +16,10 @@ export default function(config) {
         files: conf.path.test.src,
         exclude: [],
         preprocessors: {
-            '**/*Spec.js': ['webpack']
+            'src/**/js/*.js': ['webpack'],
+            'src/**/test/**/*.js': ['webpack']
         },
-        webpack: {
-            devtool: '#source-map',
-            resolve: webpackConfig.resolve,
-            module: webpackConfig.module
-        },
+        webpack: webpackConfig,
         webpackMiddleware: {
             noInfo: true
         },

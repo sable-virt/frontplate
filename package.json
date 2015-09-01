@@ -1,7 +1,7 @@
 {
   "name": "Frontplate",
-  "version": "1.1.0",
-  "description": "個人的に利用しているWeb制作テンプレート",
+  "version": "1.1.2",
+  "description": "フロントエンド開発の効率をあげるフルスタックテンプレート",
   "main": "gulpfile.js",
   "dependencies": {},
   "devDependencies": {

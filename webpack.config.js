@@ -18,11 +18,11 @@ var webpackConfig = {
     },
     module: {
         preLoaders: [
-            { test: /\.js$/, exclude: /node_modules|bower_components/, loader: 'eslint-loader' }
+            { test: /\.js$/, exclude: /node_modules|bower_components/, loader: 'eslint-loader' },
         ],
         loaders: [
             { test: /\.html$/, loader: 'html-loader' },
-            { test: /test\/.*?Spec\.js$/, loader: 'webpack-espower-loader' },
+            { test: /test\/.*?\.js$/, loaders: ['webpack-espower-loader'] },
             { test: /\.js/, exclude: /node_modules|bower_components/, loaders: ['babel-loader'] }
         ]
     },
