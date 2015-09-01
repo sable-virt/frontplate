@@ -21,7 +21,8 @@ export default function(config) {
         },
         webpack: webpackConfig,
         webpackMiddleware: {
-            noInfo: true
+            //noInfo: true,
+            quiet: true
         },
         // test results reporter to use
         // possible values: 'dots', 'progress'
