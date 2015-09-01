@@ -2,7 +2,7 @@
   "name": "Frontplate",
   "version": "1.1.2",
   "description": "フロントエンド開発の効率をあげるフルスタックテンプレート",
-  "main": "gulpfile.js",
+  "main": "gulpfile.babel.js",
   "dependencies": {},
   "devDependencies": {
     "autoprefixer": "^5.2.0",
