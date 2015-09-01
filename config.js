@@ -6,6 +6,8 @@ module.exports = {
     dist: 'public/%type%',
     // gulpコマンドでデフォルトで監視するディレクトリ(src/*/)
     defaultPath: 'pc',
+    // 変更監視時にユニットテストも行うかどうか
+    autoTest: true,
     // AutoPrefixerの設定
     style: {
         cssnano: {
@@ -91,7 +93,7 @@ module.exports = {
         // テスト: karma
         test: {
             src: [
-                'public/%type%/js/*.js',
+                'src/%type%/js/*.js',
                 'node_modules/power-assert/build/power-assert.js',
                 'node_modules/sinon/pkg/sinon.js',
                 'src/%type%/test/**/*.js'

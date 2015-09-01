@@ -3,6 +3,6 @@ describe('app', () => {
 
     });
     it('init', () => {
-
+        assert('a' === 'a');
     });
 });
