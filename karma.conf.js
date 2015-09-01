@@ -1,9 +1,11 @@
 // Karma configuration
 // Generated on Thu Jun 05 2014 00:09:58 GMT+0900 (JST)
 
+import _ from 'lodash';
+
 export default function(config) {
     var conf = require('./gulp/config');
-    var webpackConfig = require('./webpack.config');
+    var webpackConfig = _.clone(require('./webpack.config'));
     // outputをdeleteしないとts-loader使った時などに、拡張子のない謎のファイルができることがある
     delete webpackConfig.output;
     config.set({
