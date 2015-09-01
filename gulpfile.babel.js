@@ -46,4 +46,6 @@ var defaultTasks = ['server','watch','watchScript'];
 if (config.autoTest) {
     defaultTasks.push('watchTest');
 }
-gulp.task('default', defaultTasks, () => {});
+gulp.task('default', (callback) => {
+    runSequence('build',defaultTasks, callback);
+});
