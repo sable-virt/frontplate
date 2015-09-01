@@ -36,10 +36,14 @@ gulp.task('build', ['clean'], (callback) => {
  */
 gulp.task('production', (callback) => {
     config.IS_PRODUCTION = true;
-    runSequence('build', callback);
+    runSequence('build','test',callback);
 });
 
 /**
  * デフォルトタスク
  */
-gulp.task('default', ['server','watch','watchScript','watchTest'], () => {});
+var defaultTasks = ['server','watch','watchScript'];
+if (config.autoTest) {
+    defaultTasks.push('watchTest');
+}
+gulp.task('default', defaultTasks, () => {});

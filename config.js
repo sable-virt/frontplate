@@ -6,6 +6,8 @@ module.exports = {
     dist: 'public/%type%',
     // gulpコマンドでデフォルトで監視するディレクトリ(src/*/)
     defaultPath: 'pc',
+    // 変更監視時にユニットテストも行うかどうか
+    autoTest: true,
     // AutoPrefixerの設定
     style: {
         cssnano: {
