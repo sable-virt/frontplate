@@ -18,7 +18,7 @@ var webpackConfig = {
     },
     module: {
         preLoaders: [
-            { test: /\.js$/, exclude: /node_modules|bower_components/, loader: 'eslint-loader' },
+            { test: /\.js$/, exclude: /node_modules|bower_components/, loader: 'eslint-loader' }
         ],
         loaders: [
             { test: /\.html$/, loader: 'html-loader' },
