@@ -21,9 +21,10 @@ import $ from './plugins';
 function exeWebPack(watch) {
     conf.watch = watch;
     gulp.src(config.path.js.src)
-        .pipe(ws(conf,webpack))
-        .pipe(gulp.dest(config.path.js.dest))
-        .pipe($.browser.stream());
+        .pipe(ws(conf,webpack,function(err,stats) {
+            $.browser.reload()
+        }))
+        .pipe(gulp.dest(config.path.js.dest));
 }
 
 gulp.task('_setEntries', () => {
