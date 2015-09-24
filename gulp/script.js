@@ -21,7 +21,7 @@ let conf;
 gulp.task('_setEntries', () => {
     conf = require('../webpack.config.js');
     return gulp.src(config.path.js.src)
-        .pipe(through.obj(function(file,charset,callback) {
+        .pipe(through.obj((file,charset,callback) => {
             conf.entry = conf.entry || {};
             var fileName = path.basename(file.path).replace(/\.(ts|js)$/,'');
             conf.entry[fileName] = file.path;
@@ -38,9 +38,10 @@ gulp.task('_setEntries', () => {
 function exeWebPack(watch) {
     conf.watch = watch;
     gulp.src(config.path.js.src)
-        .pipe(ws(conf,webpack,function(err,stats) {
-            $.browser.reload()
-        }))
+        .pipe(ws(conf,webpack))
+        .on('data', () => {
+            $.browser.reload();
+        })
         .pipe(gulp.dest(config.path.js.dest));
 }
 
