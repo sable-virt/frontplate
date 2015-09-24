@@ -6,7 +6,7 @@ var webpackConfig = {
         sourceMapFilename: 'maps/[name].map',
         jsonpFunction: 'fr'
     },
-    devtool: '#source-map',
+    devtool: '#inline-source-map',
     resolve: {
         modulesDirectories: [
             'bower_components',
@@ -20,8 +20,8 @@ var webpackConfig = {
         ],
         loaders: [
             { test: /\.html$/, loader: 'html-loader' },
-            { test: /test\/.*?\.js$/, loaders: ['webpack-espower-loader'] },
-            { test: /\.js/, exclude: /node_modules|bower_components/, loaders: ['babel-loader'] }
+            { test: /Spec\.js$/i, loaders: ['webpack-espower-loader'] },
+            { test: /\.js$/, exclude: /node_modules|bower_components/, loaders: ['babel-loader'] }
         ]
     },
     plugins: [
@@ -29,6 +29,7 @@ var webpackConfig = {
             __IS_PRODUCTION: JSON.stringify(global.__IS_PRODUCTION)
         }),
         new webpack.optimize.UglifyJsPlugin({
+            exclude: /Spec\.js$/i,
             compress: {
                 warnings: false
             }
