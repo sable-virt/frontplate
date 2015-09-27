@@ -93,7 +93,7 @@ module.exports = {
         // テスト: karma
         test: {
             src: [
-                'src/%type%/js/*.js',
+                'public/%type%/js/*.js',
                 'node_modules/power-assert/build/power-assert.js',
                 'node_modules/sinon/pkg/sinon.js',
                 'src/%type%/test/**/*.js'
