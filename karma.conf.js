@@ -10,7 +10,6 @@ export default function(config) {
     delete webpackConfig.entry;
     // outputをdeleteしないとts-loader使った時などに、拡張子のない謎のファイルができることがある
     delete webpackConfig.output;
-    console.log(webpackConfig);
     config.set({
 
         // base path that will be used to resolve all patterns (eg. files, exclude)
