@@ -6,8 +6,11 @@ import _ from 'lodash';
 export default function(config) {
     var conf = require('./gulp/config');
     var webpackConfig = _.clone(require('./webpack.config'));
+    // entryをdeleteしないとwatch時に無駄なコンパイルが発生する
+    delete webpackConfig.entry;
     // outputをdeleteしないとts-loader使った時などに、拡張子のない謎のファイルができることがある
     delete webpackConfig.output;
+    console.log(webpackConfig);
     config.set({
 
         // base path that will be used to resolve all patterns (eg. files, exclude)
@@ -20,7 +23,6 @@ export default function(config) {
         files: conf.path.test.src,
         exclude: [],
         preprocessors: {
-            'src/**/js/*.js': ['webpack'],
             'src/**/test/**/*.js': ['webpack']
         },
         webpack: webpackConfig,
