@@ -195,6 +195,12 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 ## History
+* 1.1.6 - ES5単体で動くように。CSSコンパイル周りの高速化。
+* 1.1.5 - 不具合修正とBabelのexperimentalをデフォルト0に。
+* 1.1.4 - JSが正しくwatchされない不具合の修正
+* 1.1.3 - パッケージ更新とJSのwatch不具合の修正
+* 1.1.2 - テストコードもES6で書けるように。ビルド時にユニットテストするかどうかをconfigで設定可能に。
+* 1.1.1 - IS_PRODUCTION変数が正しく設定されない不具合の修正
 * 1.1.0 - CSSのビルドにPostCSS導入。gulp関連のファイルをES2015化
 * 1.0.4 - CSSにSourceMap出力を追加。JS/CSSの圧縮をデフォルトに変更。パッケージアップデート
 * 1.0.3 - パッケージアップデート。npm shrinkwrapを実施
