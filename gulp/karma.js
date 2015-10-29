@@ -2,12 +2,12 @@
  * ユニットタスク
  * karmaを使ってユニットテストを実行する
  */
-import gulp from 'gulp';
-import {Server,runner} from 'karma';
-const CONFFILE = process.cwd() + '/karma.conf.js';
+var gulp = require('gulp');
+var Server = require('karma').Server;
+var CONFFILE = process.cwd() + '/karma.conf.js';
 
-gulp.task('test', (callback) => {
-    let server = new Server({
+gulp.task('test', function(callback) {
+    var server = new Server({
         configFile: CONFFILE,
         singleRun: true,
         autoWatch: false
@@ -15,8 +15,8 @@ gulp.task('test', (callback) => {
     server.start();
 });
 
-gulp.task('watchTest', (callback) => {
-    let server = new Server({
+gulp.task('watchTest', function(callback) {
+    var server = new Server({
         configFile: CONFFILE,
         singleRun: false,
         autoWatch: true

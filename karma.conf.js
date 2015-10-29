@@ -1,9 +1,9 @@
 // Karma configuration
 // Generated on Thu Jun 05 2014 00:09:58 GMT+0900 (JST)
 
-import _ from 'lodash';
+var _ = require('lodash');
 
-export default function(config) {
+module.exports = function(config) {
     var conf = require('./gulp/config');
     var webpackConfig = _.clone(require('./webpack.config'));
     // entryをdeleteしないとwatch時に無駄なコンパイルが発生する

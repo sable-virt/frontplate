@@ -3,22 +3,22 @@
  * JSファイルをwebpackを使ってコンパイルして出力する
  */
 
-import path from 'path';
-import fs from 'fs';
-import gulp from 'gulp';
-import _ from 'lodash';
-import through from 'through2';
-import ws from 'webpack-stream';
-import webpack from 'webpack';
-import config from './config';
-import $ from './plugins';
+var path = require('path');
+var fs = require('fs');
+var gulp = require('gulp');
+var _ = require('lodash');
+var through = require('through2');
+var ws = require('webpack-stream');
+var webpack = require('webpack');
+var config = require('./config');
+var $ = require('./plugins');
 
-let conf;
+var conf;
 
 /**
  * エントリーの登録
  */
-gulp.task('_setEntries', () => {
+gulp.task('_setEntries', function() {
     conf = require('../webpack.config.js');
     return gulp.src(config.path.js.src)
         .pipe(through.obj(function(file,charset,callback) {
@@ -39,7 +39,7 @@ function exeWebPack(watch) {
     conf.watch = watch;
     gulp.src(config.path.js.src)
         .pipe(ws(conf,webpack))
-        .on('data', () => {
+        .on('data', function() {
             $.browser.reload();
         })
         .pipe(gulp.dest(config.path.js.dest));
@@ -48,13 +48,13 @@ function exeWebPack(watch) {
 /**
  * スクリプトコンパイルタスク
  */
-gulp.task('script',['_setEntries'], () => {
+gulp.task('script',['_setEntries'], function() {
     return exeWebPack(false);
 });
 
 /**
  * スクリプト監視タスク
  */
-gulp.task('watchScript',['_setEntries'], () => {
+gulp.task('watchScript',['_setEntries'], function() {
     return exeWebPack(true);
 });

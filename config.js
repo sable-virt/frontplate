@@ -10,8 +10,10 @@ module.exports = {
     autoTest: true,
     // AutoPrefixerの設定
     style: {
+        // cssnanoでの最適化オプション(always:常に,production:Productionのみ,none:しない)
+        optimisation: 'none',   // alwaysにするとコンパイルに時間がかかるようになります
         cssnano: {
-            autoprefixer: false
+
         },
         autoprefixer: {
             browser: ['last 3 version', 'ie >= 9', 'Android 4.0']
