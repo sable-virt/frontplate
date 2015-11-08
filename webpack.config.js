@@ -16,13 +16,14 @@ var webpackConfig = {
     },
     module: {
         preLoaders: [
-            { test: /\.js$/, exclude: /node_modules|bower_components/, loader: 'eslint-loader' }
+            { test: /\.js$/, exclude:/Spec\.js$/i, loaders: ['eslint'] }
         ],
         loaders: [
-            { test: /\.html$/, loader: 'html-loader' },
-            { test: /Spec\.js$/i, loaders: ['webpack-espower-loader'] },
-            { test: /\.js$/, exclude: /node_modules|bower_components/, loaders: ['babel-loader?stage=0'] }
-        ]
+            { test: /\.html$/, loaders: ['html'] },
+            { test: /Spec\.js$/i, loaders: ['webpack-espower','babel'] },
+            { test: /\.js$/, loaders: ['babel'] }
+        ],
+        noParse: [/node_modules/]
     },
     plugins: [
         new webpack.DefinePlugin({
