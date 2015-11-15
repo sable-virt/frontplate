@@ -13,10 +13,10 @@ module.exports = {
         // cssnanoでの最適化オプション(always:常に,production:Productionのみ,none:しない)
         optimisation: 'none',   // alwaysにするとコンパイルに時間がかかるようになります
         cssnano: {
-
         },
         autoprefixer: {
-            browser: ['last 3 version', 'ie >= 9', 'Android 4.0']
+            browsers: ['last 3 version', 'ie >= 9', 'Android 4.0'],
+            ignore: ['text-size-adjust']
         }
     },
     htmlhint: '.htmlhintrc',
@@ -70,7 +70,7 @@ module.exports = {
         },
         // スタイル関連: SASS,StyleGuide
         style: {
-            src: 'src/%type%/sass/**/*.scss',
+            src: ['src/%type%/sass/**/*.scss','!src/%type%/sass/**/_*.scss'],
             dest: 'public/%type%/css'
         },
         // EJS: ejs

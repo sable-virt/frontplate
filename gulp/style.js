@@ -8,6 +8,7 @@ var config = require('./config');
 var $ = require('./plugins');
 
 var autoprefixer = require('autoprefixer');
+var doiuse = require('doiuse');
 var cssMqpacker = require('css-mqpacker');
 var cssnano = require('cssnano');
 
@@ -18,6 +19,7 @@ gulp.task('style', function() {
 
     var postCSSPlugins = [
         autoprefixer(config.style.autoprefixer),
+        doiuse(config.style.autoprefixer),
         cssMqpacker(config.style.mqpacker)
     ];
     if (config.css && config.css.optimisation && config.css.optimisation !== 'none') {
@@ -31,6 +33,9 @@ gulp.task('style', function() {
         .pipe($.plumber({errorHandler: $.notify.onError('<%= error.message %>')}))
         .pipe($.frontnote(guideOptions))
         .pipe($.if(!config.IS_PRODUCTION, $.sourcemaps.init()))
+        .pipe($.sassLint())
+        .pipe($.sassLint.format())
+        .pipe($.sassLint.failOnError())
         .pipe($.sass(_.merge({
             outputStyle: 'compressed'
         },config.style.sass)))
