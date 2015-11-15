@@ -10,25 +10,14 @@ var $ = require('./plugins');
 var autoprefixer = require('autoprefixer');
 var doiuse = require('doiuse');
 var cssMqpacker = require('css-mqpacker');
-var cssnano = require('cssnano');
 
 gulp.task('style', function() {
+    config.style = config.style || {};
     var guideOptions = _.merge({
         out: './guide/'
     }, config.styleguide);
+    var sourcemaps = config.style.sourcemaps || './maps';
 
-    var postCSSPlugins = [
-        autoprefixer(config.style.autoprefixer),
-        doiuse(config.style.autoprefixer),
-        cssMqpacker(config.style.mqpacker)
-    ];
-    if (config.css && config.css.optimisation && config.css.optimisation !== 'none') {
-        if (config.css.optimisation === 'always' || config.IS_PRODUCTION) {
-            postCSSPlugins.push(cssnano(_.merge(config.style.cssnano,{
-                autoprefixer: false
-            })));
-        }
-    }
     return gulp.src(config.path.style.src)
         .pipe($.plumber({errorHandler: $.notify.onError('<%= error.message %>')}))
         .pipe($.frontnote(guideOptions))
@@ -36,11 +25,14 @@ gulp.task('style', function() {
         .pipe($.sassLint())
         .pipe($.sassLint.format())
         .pipe($.sassLint.failOnError())
-        .pipe($.sass(_.merge({
-            outputStyle: 'compressed'
-        },config.style.sass)))
-        .pipe($.postcss(postCSSPlugins))
-        .pipe($.if(!config.IS_PRODUCTION, $.sourcemaps.write('./maps')))
+        .pipe($.sass())
+        .pipe($.postcss([
+            autoprefixer(config.style.autoprefixer),
+            doiuse(config.style.autoprefixer),
+            cssMqpacker(config.style.mqpacker)
+        ]))
+        .pipe($.csso())
+        .pipe($.if(!config.IS_PRODUCTION, $.sourcemaps.write(sourcemaps)))
         .pipe(gulp.dest(config.path.style.dest))
         .pipe($.browser.stream({match: "**/*.css"}));
 });
