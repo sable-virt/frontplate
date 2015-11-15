@@ -20,6 +20,9 @@ gulp.task('server', function() {
         },
         notify: false
     });
+    if (options.proxy) {
+        delete options.server;
+    }
     return $.browser(options);
 });
 gulp.task('reload', function() {
