@@ -8,12 +8,8 @@ module.exports = {
     defaultPath: 'pc',
     // 変更監視時にユニットテストも行うかどうか
     autoTest: true,
-    // AutoPrefixerの設定
+    // CSSの設定
     style: {
-        // cssnanoでの最適化オプション(always:常に,production:Productionのみ,none:しない)
-        optimisation: 'none',   // alwaysにするとコンパイルに時間がかかるようになります
-        cssnano: {
-        },
         autoprefixer: {
             browsers: ['last 3 version', 'ie >= 9', 'Android 4.0'],
             ignore: ['text-size-adjust']
