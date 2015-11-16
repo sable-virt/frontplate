@@ -10,10 +10,13 @@ module.exports = {
     autoTest: true,
     // CSSの設定
     style: {
+        // autoPrefixer(https://github.com/postcss/autoprefixer#options)
         autoprefixer: {
             browsers: ['last 3 version', 'ie >= 9', 'Android 4.0'],
             ignore: ['text-size-adjust']
-        }
+        },
+        // css-mqpacker(https://github.com/hail2u/node-css-mqpacker#options)
+        mqpacker: {}
     },
     htmlhint: '.htmlhintrc',
     // Sprite生成設定
@@ -39,7 +42,7 @@ module.exports = {
             }
         }
     },
-    // サーバー設定
+    // サーバー設定 BrowserSync(http://www.browsersync.io/docs/options/)
     server: {
         // サーバーの同期オプション
         ghostMode: {
@@ -49,7 +52,7 @@ module.exports = {
             scroll: false
         }
     },
-    // スタイルガイド
+    // スタイルガイド frontnote(https://github.com/frontainer/frontnote#option---オプション)
     styleguide: {
         // スタイルガイドが出力された先から読み込むcssまでの相対パス
         css: '../../%type%/css/style.css',
@@ -67,6 +70,7 @@ module.exports = {
         // スタイル関連: SASS,StyleGuide
         style: {
             src: ['src/%type%/sass/**/*.scss','!src/%type%/sass/**/_*.scss'],
+            watch: ['src/%type%/sass/**/*.scss'],
             dest: 'public/%type%/css'
         },
         // EJS: ejs
