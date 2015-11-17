@@ -54,7 +54,8 @@
   "scripts": {
     "start": "npm install && npm run build",
     "test": "gulp test",
-    "build": "gulp build && gulp test"
+    "build": "gulp build && gulp test",
+    "changelog": "conventional-changelog -p eslint -i CHANGELOG.md -w -r 0"
   },
   "repository": {
     "type": "git",
