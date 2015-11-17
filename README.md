@@ -2,6 +2,12 @@
 
 フロントエンド開発の効率を上げるテンプレート
 
+** Version2.0 Released!! **
+
+[CHANGELOG](https://github.com/frontainer/frontplate/blob/master/CHANGELOG.md)
+
+[過去バージョン](https://github.com/frontainer/frontplate/releases)
+
 ## Feature
 
 - HTMLモジュール（EJS）
@@ -189,6 +195,3 @@ gulp test
 
 - [EJS](http://www.embeddedjs.com/)
 - [HTMLHint](http://htmlhint.com/)
-
-
-
