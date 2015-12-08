@@ -8,7 +8,6 @@ var config = require('./config');
 var $ = require('./plugins');
 
 var autoprefixer = require('autoprefixer');
-var doiuse = require('doiuse');
 var cssMqpacker = require('css-mqpacker');
 
 gulp.task('style', function() {
@@ -21,17 +20,16 @@ gulp.task('style', function() {
     return gulp.src(config.path.style.src)
         .pipe($.plumber({errorHandler: $.notify.onError('<%= error.message %>')}))
         .pipe($.frontnote(guideOptions))
-        .pipe($.if(!config.IS_PRODUCTION, $.sourcemaps.init()))
         .pipe($.sassLint())
         .pipe($.sassLint.format())
         .pipe($.sassLint.failOnError())
+        .pipe($.if(!config.IS_PRODUCTION, $.sourcemaps.init()))
         .pipe($.sass())
         .pipe($.postcss([
             autoprefixer(config.style.autoprefixer),
-            doiuse(config.style.autoprefixer),
             cssMqpacker(config.style.mqpacker)
         ]))
-        .pipe($.csso())
+        .pipe($.minifyCss(config.style.minify))
         .pipe($.if(!config.IS_PRODUCTION, $.sourcemaps.write(sourcemaps)))
         .pipe(gulp.dest(config.path.style.dest))
         .pipe($.browser.stream({match: "**/*.css"}));
