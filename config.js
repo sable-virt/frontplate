@@ -13,7 +13,9 @@ module.exports = {
         // autoPrefixer(https://github.com/postcss/autoprefixer#options)
         autoprefixer: {
             browsers: ['last 3 version', 'ie >= 9', 'Android 4.0'],
-            ignore: ['text-size-adjust']
+            ignore: [
+
+            ]
         },
         // css-mqpacker(https://github.com/hail2u/node-css-mqpacker#options)
         mqpacker: {}
@@ -89,7 +91,7 @@ module.exports = {
         },
         // スクリプト: script
         js: {
-            src: ['src/%type%/js/*.js','!src/js/_*.js'],
+            src: ['src/%type%/js/*.js','!src/%type%/js/_*.js'],
             dest: 'public/%type%/js'
         },
         // テスト: karma
