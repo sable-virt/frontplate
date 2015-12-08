@@ -19,11 +19,10 @@ var webpackConfig = {
             { test: /\.js$/, exclude:/Spec\.js$/i, loaders: ['eslint'] }
         ],
         loaders: [
-            { test: /\.html$/, loaders: ['html'] },
-            { test: /Spec\.js$/i, loaders: ['webpack-espower','babel'] },
-            { test: /\.js$/, loaders: ['babel'] }
-        ],
-        noParse: [/node_modules/]
+            { test: /\.html$/, exclude:/node_modules/, loaders: ['html'] },
+            { test: /Spec\.js$/i, exclude:/node_modules/, loaders: ['webpack-espower','babel'] },
+            { test: /\.js$/, exclude:/node_modules/, loaders: ['babel'] }
+        ]
     },
     plugins: [
         new webpack.DefinePlugin({
