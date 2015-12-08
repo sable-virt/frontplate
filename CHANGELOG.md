@@ -1,26 +1,31 @@
 <a name="2.0.0"></a>
-# [2.0.0](https://github.com/frontainer/frontplate/compare/1.1.6...v2.0.0) (2015-11-17)
-
+# [2.0.0](https://github.com/frontainer/frontplate/compare/1.1.6...v2.0.0) (2015-12-08)
 
 ### Breaking
 
 * SCSSのコンパイル対象と監視対象を切り分け ([8b5d9fe2ad5076986760064ebb6f5398a6e6766f](https://github.com/frontainer/frontplate/commit/8b5d9fe2ad5076986760064ebb6f5398a6e6766f))
-* cssnanoからcssoに変更 ([328c866dfa8757d0b4192c5de8c3ffdeb77efd96](https://github.com/frontainer/frontplate/commit/328c866dfa8757d0b4192c5de8c3ffdeb77efd96))
+* cssnanoではなくCSSの圧縮にminify-cssを導入 ([c2e3b3374503e1e52051c3747d8c2b506b1defd0](https://github.com/frontainer/frontplate/commit/c2e3b3374503e1e52051c3747d8c2b506b1defd0))
 
 ### Docs
 
 * ライセンス表記を外部ファイル化 ([5ad3c21ad7f3304a6ddbfce29d8d63b6017aa41b](https://github.com/frontainer/frontplate/commit/5ad3c21ad7f3304a6ddbfce29d8d63b6017aa41b))
 
+### Fix
+
+* BEM記法だとwarningになってしまっていたので'both'にして両対応 ([80c36de6bee7782222454cfd7286269ff6eb0ba5](https://github.com/frontainer/frontplate/commit/80c36de6bee7782222454cfd7286269ff6eb0ba5))
+* JavaScriptの監視範囲が必要以上に広くなっていたのを修正 ([35b1161560bbe65ae03374da49309d85f73cb5ab](https://github.com/frontainer/frontplate/commit/35b1161560bbe65ae03374da49309d85f73cb5ab))
+* noParseオプションではコンパイルできない事象があったので、excludeに修正 ([6e834c09fc552f69563995996936468ee954b1d4](https://github.com/frontainer/frontplate/commit/6e834c09fc552f69563995996936468ee954b1d4))
+* ESLintのno-var,no-protoを2(error)に設定 ([0fd78d7c03f9d40e53d1edf11b90ee581376eb8b](https://github.com/frontainer/frontplate/commit/0fd78d7c03f9d40e53d1edf11b90ee581376eb8b))
+
 ### New
 
-* sass-lintとdoiuseを導入 ([176566de87517a88c80a1e0cf0e3bb971e73f1ba](https://github.com/frontainer/frontplate/commit/176566de87517a88c80a1e0cf0e3bb971e73f1ba))
+* sass-lintを導入 ([176566de87517a88c80a1e0cf0e3bb971e73f1ba](https://github.com/frontainer/frontplate/commit/176566de87517a88c80a1e0cf0e3bb971e73f1ba))
 
 ### Update
 
-* ESLintのno-var,no-protoを2(error)に設定 ([0fd78d7c03f9d40e53d1edf11b90ee581376eb8b](https://github.com/frontainer/frontplate/commit/0fd78d7c03f9d40e53d1edf11b90ee581376eb8b))
 * config.jsからBrowserSyncのproxyを設定できるよう修正 ([227432b53191fc6801022ba8e9b47929d9cbbfec](https://github.com/frontainer/frontplate/commit/227432b53191fc6801022ba8e9b47929d9cbbfec))
+* spritesmithの仕様変更に合わせて修正 ([002cb84b440a77671dc16c8c759e57c083d89572](https://github.com/frontainer/frontplate/commit/002cb84b440a77671dc16c8c759e57c083d89572))
 * webpack.configのexcludeとnoParseの設定を修正 ([ee772c03cc3bc5128703c83c899282fa9de24587](https://github.com/frontainer/frontplate/commit/ee772c03cc3bc5128703c83c899282fa9de24587))
-
 
 <a name="1.1.6"></a>
 ## [1.1.6](https://github.com/frontainer/frontplate/compare/1.1.5...1.1.6) (2015-10-29)
