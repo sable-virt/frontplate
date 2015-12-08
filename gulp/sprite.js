@@ -39,12 +39,13 @@ gulp.task('sprite', function() {
                         functions: true
                     }
                 }, op);
-                var strm = gulp.src(file.path + '/' + config.sprite.extension)
+                var strm = gulp.src(file.path + '/*' + config.sprite.extension)
                     .pipe($.plumber())
                     .pipe($.spritesmith(options));
-                strm.img.pipe(gulp.dest(config.path.sprite.imageDest));
-                strm.css.pipe(gulp.dest(config.path.sprite.cssDest));
-                return ms(stream, strm);
+
+                var imgStream = strm.img.pipe(gulp.dest(config.path.sprite.imageDest));
+                var cssStream = strm.css.pipe(gulp.dest(config.path.sprite.cssDest));
+                return ms(imgStream, cssStream);
             }
             return stream;
         }));
