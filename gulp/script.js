@@ -8,7 +8,6 @@ var fs = require('fs');
 var gulp = require('gulp');
 var _ = require('lodash');
 var through = require('through2');
-var ws = require('webpack-stream');
 var webpack = require('webpack');
 var config = require('./config');
 var $ = require('./plugins');
@@ -37,12 +36,14 @@ gulp.task('_setEntries', function() {
  */
 function exeWebPack(watch) {
     conf.watch = watch;
-    gulp.src(config.path.js.src)
-        .pipe(ws(conf,webpack))
-        .on('data', function() {
-            $.browser.reload();
-        })
-        .pipe(gulp.dest(config.path.js.dest));
+    conf.output.path = config.path.js.dest;
+    webpack(conf, function(err, stats) {
+        if(err) return console.error(err);
+        var jsonStats = stats.toJson();
+        if(jsonStats.errors.length > 0) return console.error(jsonStats.errors);
+        if(jsonStats.warnings.length > 0) return console.error(jsonStats.warnings);
+        $.browser.reload();
+    });
 }
 
 /**
