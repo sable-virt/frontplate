@@ -20,14 +20,11 @@ var webpackConfig = {
         ],
         loaders: [
             { test: /\.html$/, exclude:/node_modules/, loaders: ['html'] },
-            { test: /Spec\.js$/i, exclude:/node_modules/, loaders: ['webpack-espower','babel'] },
-            { test: /\.js$/, exclude:/node_modules/, loaders: ['babel'] }
+            { test: /Spec\.js$/i, exclude:/node_modules/, loaders: ['webpack-espower','babel?presets[]=es2015'] },
+            { test: /\.jsx?$/, exclude:/node_modules/, loaders: ['babel?presets[]=es2015'] }
         ]
     },
     plugins: [
-        new webpack.DefinePlugin({
-            __IS_PRODUCTION: JSON.stringify(global.__IS_PRODUCTION)
-        }),
         new webpack.optimize.UglifyJsPlugin({
             exclude: /Spec\.js$/i,
             compress: {
