@@ -99,7 +99,7 @@ rules:
       convention: hyphenatedlowercase
   property-sort-order: 0
   quotes:
-    - 1
+    - 0
     - style: double
   shorthand-values:
     - 1
