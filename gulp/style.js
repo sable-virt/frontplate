@@ -24,12 +24,11 @@ gulp.task('style', function() {
         .pipe($.sassLint.format())
         .pipe($.sassLint.failOnError())
         .pipe($.if(!config.IS_PRODUCTION, $.sourcemaps.init()))
-        .pipe($.sass())
+        .pipe($.sass(config.style.sass))
         .pipe($.postcss([
             autoprefixer(config.style.autoprefixer),
             cssMqpacker(config.style.mqpacker)
         ]))
-        .pipe($.minifyCss(config.style.minify))
         .pipe($.if(!config.IS_PRODUCTION, $.sourcemaps.write(sourcemaps)))
         .pipe(gulp.dest(config.path.style.dest))
         .pipe($.browser.stream({match: "**/*.css"}));

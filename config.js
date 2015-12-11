@@ -10,6 +10,10 @@ module.exports = {
     autoTest: true,
     // CSSの設定
     style: {
+        // node-sass(https://github.com/sass/node-sass#options)
+        sass: {
+            outputStyle: 'compressed'
+        },
         // autoPrefixer(https://github.com/postcss/autoprefixer#options)
         autoprefixer: {
             browsers: ['last 3 version', 'ie >= 9', 'Android 4.0'],
