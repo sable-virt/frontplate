@@ -22,6 +22,7 @@
 
 * CSSの圧縮にminify-cssを導入(cssnano廃止) ([c2e3b3374503e1e52051c3747d8c2b506b1defd0](https://github.com/frontainer/frontplate/commit/c2e3b3374503e1e52051c3747d8c2b506b1defd0))
 * sass-lintを導入 ([176566de87517a88c80a1e0cf0e3bb971e73f1ba](https://github.com/frontainer/frontplate/commit/176566de87517a88c80a1e0cf0e3bb971e73f1ba))
+* node-sassのオプションをconfigから設定できるように([43f76b2984b97ee68bf90752b2fffc77ba759d8a](https://github.com/frontainer/frontplate/commit/43f76b2984b97ee68bf90752b2fffc77ba759d8a))
 
 ### Update
 
