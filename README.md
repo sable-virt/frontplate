@@ -27,7 +27,7 @@
 
 ## Dependence
 
-* [NodeJS](https://nodejs.org/)
+* [NodeJS](https://nodejs.org/) 4.0以上
 * [Gulp](http://gulpjs.com/) 3.9以上
 
 ```
