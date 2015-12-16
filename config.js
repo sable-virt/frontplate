@@ -8,16 +8,21 @@ module.exports = {
     defaultPath: 'pc',
     // 変更監視時にユニットテストも行うかどうか
     autoTest: true,
-    // AutoPrefixerの設定
+    // CSSの設定
     style: {
-        // cssnanoでの最適化オプション(always:常に,production:Productionのみ,none:しない)
-        optimisation: 'none',   // alwaysにするとコンパイルに時間がかかるようになります
-        cssnano: {
-
+        // node-sass(https://github.com/sass/node-sass#options)
+        sass: {
+            outputStyle: 'compressed'
         },
+        // autoPrefixer(https://github.com/postcss/autoprefixer#options)
         autoprefixer: {
-            browser: ['last 3 version', 'ie >= 9', 'Android 4.0']
-        }
+            browsers: ['last 3 version', 'ie >= 9', 'Android 4.0'],
+            ignore: [
+
+            ]
+        },
+        // css-mqpacker(https://github.com/hail2u/node-css-mqpacker#options)
+        mqpacker: {}
     },
     htmlhint: '.htmlhintrc',
     // Sprite生成設定
@@ -43,7 +48,7 @@ module.exports = {
             }
         }
     },
-    // サーバー設定
+    // サーバー設定 BrowserSync(http://www.browsersync.io/docs/options/)
     server: {
         // サーバーの同期オプション
         ghostMode: {
@@ -53,7 +58,7 @@ module.exports = {
             scroll: false
         }
     },
-    // スタイルガイド
+    // スタイルガイド frontnote(https://github.com/frontainer/frontnote#option---オプション)
     styleguide: {
         // スタイルガイドが出力された先から読み込むcssまでの相対パス
         css: '../../%type%/css/style.css',
@@ -70,7 +75,8 @@ module.exports = {
         },
         // スタイル関連: SASS,StyleGuide
         style: {
-            src: 'src/%type%/sass/**/*.scss',
+            src: ['src/%type%/sass/**/*.scss','!src/%type%/sass/**/_*.scss'],
+            watch: ['src/%type%/sass/**/*.scss'],
             dest: 'public/%type%/css'
         },
         // EJS: ejs
@@ -89,7 +95,7 @@ module.exports = {
         },
         // スクリプト: script
         js: {
-            src: ['src/%type%/js/*.js','!src/js/_*.js'],
+            src: ['src/%type%/js/*.js','!src/%type%/js/_*.js'],
             dest: 'public/%type%/js'
         },
         // テスト: karma

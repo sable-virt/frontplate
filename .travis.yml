@@ -1,0 +1,15 @@
+sudo: false
+language: node_js
+node_js:
+- '5.0'
+- '4.2'
+- '4.1'
+- '4.0'
+before_script:
+- npm install -g gulp
+script:
+  - gulp build
+  - npm test
+notifications:
+  slack:
+    secure: U1Ta+5fq1Np5Vig6D2qte0jvrnzHJc2DpKpgJSZOd8LGP3FWZ/t1vTT7sepY6WzMETuen0BGtO56wlCE2qFBAQUPIC5rkH71wy2hFE3WGjOuNSB6Sqpf9mfK6XvEQJRi9UDVlSDFuBHAftrnit855IyUEL7aZZWsvhdYUS+j4DQ=

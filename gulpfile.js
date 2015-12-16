@@ -11,7 +11,7 @@ var config = require('./gulp/config');
 gulp.task('watch', function() {
     gulp.watch(config.path.ejs.watch, ['ejs']);
     gulp.watch(config.path.html.src, ['html']);
-    gulp.watch(config.path.style.src, ['style']);
+    gulp.watch(config.path.style.watch, ['style']);
     gulp.watch(config.path.sprite.watch, ['sprite','style', 'copy']);
 
     var copyWatches = [];
@@ -46,6 +46,6 @@ var defaultTasks = ['server','watch','watchScript'];
 if (config.autoTest) {
     defaultTasks.push('watchTest');
 }
-gulp.task('default', function(callback) {
-    return runSequence('build',defaultTasks, callback);
+gulp.task('default', function() {
+    return runSequence(defaultTasks);
 });

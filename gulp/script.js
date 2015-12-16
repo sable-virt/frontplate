@@ -8,11 +8,9 @@ var fs = require('fs');
 var gulp = require('gulp');
 var _ = require('lodash');
 var through = require('through2');
-var ws = require('webpack-stream');
 var webpack = require('webpack');
 var config = require('./config');
 var $ = require('./plugins');
-
 var conf;
 
 /**
@@ -35,26 +33,39 @@ gulp.task('_setEntries', function() {
  * @param watch
  * @returns {*}
  */
-function exeWebPack(watch) {
+function exeWebPack(watch,callback) {
     conf.watch = watch;
-    gulp.src(config.path.js.src)
-        .pipe(ws(conf,webpack))
-        .on('data', function() {
-            $.browser.reload();
-        })
-        .pipe(gulp.dest(config.path.js.dest));
+    conf.output.path = config.path.js.dest;
+    webpack(conf, function(err, stats) {
+        if(err) return console.error(err);
+        var jsonStats = stats.toJson();
+        if(jsonStats.errors.length > 0) {
+            jsonStats.errors.forEach(function(value) {
+                console.error(value);
+            });
+            return;
+        }
+        if(jsonStats.warnings.length > 0) {
+            jsonStats.warnings.forEach(function(value) {
+                console.log(value);
+            });
+        }
+        $.browser.reload();
+        if (callback) callback();
+        callback = null;
+    });
 }
 
 /**
  * スクリプトコンパイルタスク
  */
-gulp.task('script',['_setEntries'], function() {
-    return exeWebPack(false);
+gulp.task('script',['_setEntries'], function(callback) {
+    return exeWebPack(false,callback);
 });
 
 /**
  * スクリプト監視タスク
  */
-gulp.task('watchScript',['_setEntries'], function() {
-    return exeWebPack(true);
+gulp.task('watchScript',['_setEntries'], function(callback) {
+    return exeWebPack(true,callback);
 });

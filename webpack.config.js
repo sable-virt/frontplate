@@ -16,18 +16,15 @@ var webpackConfig = {
     },
     module: {
         preLoaders: [
-            { test: /\.js$/, exclude: /node_modules|bower_components/, loader: 'eslint-loader' }
+            { test: /\.js$/, exclude:/Spec\.js$/i, loaders: ['eslint'] }
         ],
         loaders: [
-            { test: /\.html$/, loader: 'html-loader' },
-            { test: /Spec\.js$/i, loaders: ['webpack-espower-loader'] },
-            { test: /\.js$/, exclude: /node_modules|bower_components/, loaders: ['babel-loader?stage=0'] }
+            { test: /\.html$/, exclude:/node_modules/, loaders: ['html'] },
+            { test: /Spec\.js$/i, exclude:/node_modules/, loaders: ['webpack-espower','babel?presets[]=es2015'] },
+            { test: /\.jsx?$/, exclude:/node_modules/, loaders: ['babel?presets[]=es2015'] }
         ]
     },
     plugins: [
-        new webpack.DefinePlugin({
-            __IS_PRODUCTION: JSON.stringify(global.__IS_PRODUCTION)
-        }),
         new webpack.optimize.UglifyJsPlugin({
             exclude: /Spec\.js$/i,
             compress: {

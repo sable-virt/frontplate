@@ -11,15 +11,15 @@ gulp.task('test', function(callback) {
         configFile: CONFFILE,
         singleRun: true,
         autoWatch: false
-    },callback);
-    server.start();
+    });
+    server.start(callback);
 });
 
-gulp.task('watchTest', function(callback) {
+gulp.task('watchTest', function() {
     var server = new Server({
         configFile: CONFFILE,
         singleRun: false,
         autoWatch: true
-    },callback);
+    });
     server.start();
 });
