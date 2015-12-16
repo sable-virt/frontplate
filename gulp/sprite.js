@@ -39,7 +39,7 @@ gulp.task('sprite', function() {
                         functions: true
                     }
                 }, op);
-                var strm = gulp.src(file.path + '/' + config.sprite.extension)
+                var strm = gulp.src(file.path + '/*' + config.sprite.extension)
                     .pipe($.plumber())
                     .pipe($.spritesmith(options));
                 strm.img.pipe(gulp.dest(config.path.sprite.imageDest));
