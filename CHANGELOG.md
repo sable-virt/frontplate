@@ -17,6 +17,7 @@
 * JavaScriptの監視範囲が必要以上に広くなっていたのを修正 ([35b1161560bbe65ae03374da49309d85f73cb5ab](https://github.com/frontainer/frontplate/commit/35b1161560bbe65ae03374da49309d85f73cb5ab))
 * callback待ちのためにctrl+cを2回 実行しないとdefaultタスクが抜けれない不具合の修正 ([2f04f2859884b829552cb1c584d4c837c26857b6](https://github.com/frontainer/frontplate/commit/2f04f2859884b829552cb1c584d4c837c26857b6))
 * noParseオプションではコンパイルできない事象があったので、excludeに修正 ([6e834c09fc552f69563995996936468ee954b1d4](https://github.com/frontainer/frontplate/commit/6e834c09fc552f69563995996936468ee954b1d4))
+* spriteが生成されない不具合の修正 ([45b3a844bfed454d2b54dd1969b4b03b95d5725e](https://github.com/frontainer/frontplate/commit/45b3a844bfed454d2b54dd1969b4b03b95d5725e))
 
 ### New
 
