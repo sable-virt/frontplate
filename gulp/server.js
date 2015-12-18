@@ -1,14 +1,15 @@
+'use strict';
 /**
  * サーバー起動タスク
  */
-var gulp = require('gulp');
-var _ = require('lodash');
-var rewrite = require('connect-modrewrite');
-var config = require('./config');
-var $ = require('./plugins');
+let gulp = require('gulp');
+let _ = require('lodash');
+let rewrite = require('connect-modrewrite');
+let config = require('./config');
+let $ = require('./plugins');
 
-gulp.task('server', function() {
-    var options = _.merge(config.server, {
+gulp.task('server', () => {
+    let options = _.merge(config.server, {
         server: {
             baseDir: config.dist,
             directory: false,
@@ -25,6 +26,6 @@ gulp.task('server', function() {
     }
     return $.browser(options);
 });
-gulp.task('reload', function() {
+gulp.task('reload', () => {
     $.browser.reload();
 });

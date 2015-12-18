@@ -1,21 +1,22 @@
+'use strict';
 /**
  * スタイルタスク
  * SCSSをコンパイルしてAutoprefixerをかける。プロダクションリリース時には圧縮する
  */
-var gulp = require('gulp');
-var _ = require('lodash');
-var config = require('./config');
-var $ = require('./plugins');
+let gulp = require('gulp');
+let _ = require('lodash');
+let config = require('./config');
+let $ = require('./plugins');
 
-var autoprefixer = require('autoprefixer');
-var cssMqpacker = require('css-mqpacker');
+let autoprefixer = require('autoprefixer');
+let cssMqpacker = require('css-mqpacker');
 
-gulp.task('style', function() {
+gulp.task('style', () => {
     config.style = config.style || {};
-    var guideOptions = _.merge({
+    let guideOptions = _.merge({
         out: './guide/'
     }, config.styleguide);
-    var sourcemaps = config.style.sourcemaps || './maps';
+    let sourcemaps = config.style.sourcemaps || './maps';
 
     return gulp.src(config.path.style.src)
         .pipe($.plumber({errorHandler: $.notify.onError('<%= error.message %>')}))

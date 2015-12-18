@@ -1,11 +1,12 @@
+'use strict';
 // Karma configuration
 // Generated on Thu Jun 05 2014 00:09:58 GMT+0900 (JST)
 
-var _ = require('lodash');
+let _ = require('lodash');
 
 module.exports = function(config) {
-    var conf = require('./gulp/config');
-    var webpackConfig = _.clone(require('./webpack.config'));
+    let conf = require('./gulp/config');
+    let webpackConfig = _.clone(require('./webpack.config'));
     // entryをdeleteしないとwatch時に無駄なコンパイルが発生する
     delete webpackConfig.entry;
     // outputをdeleteしないとts-loader使った時などに、拡張子のない謎のファイルができることがある

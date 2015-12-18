@@ -1,17 +1,18 @@
+'use strict';
 /**
  * 複製タスク
  * 指定されたファイルを指定されたディレクトリに複製する
  */
-var gulp = require('gulp');
-var _ = require('lodash');
-var ms = require('merge-stream');
-var config = require('./config');
-var $ = require('./plugins');
+let gulp = require('gulp');
+let _ = require('lodash');
+let ms = require('merge-stream');
+let config = require('./config');
+let $ = require('./plugins');
 
-gulp.task('copy', function() {
-    var files = config.path.copy;
-    var stream = ms();
-    _.forEach(files,function(file) {
+gulp.task('copy', () => {
+    let files = config.path.copy;
+    let stream = ms();
+    _.forEach(files,(file) => {
         stream.add(gulp.src(file.from)
             .pipe(gulp.dest(file.to)));
     });

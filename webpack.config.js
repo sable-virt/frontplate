@@ -1,6 +1,7 @@
-var webpack = require("webpack");
+'use strict';
+let webpack = require("webpack");
 
-var webpackConfig = {
+let webpackConfig = {
     output: {
         filename: "[name].js",
         sourceMapFilename: 'maps/[name].map',
