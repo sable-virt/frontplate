@@ -13,9 +13,12 @@ gulp.task('copy', () => {
     let files = config.path.copy;
     let stream = ms();
     _.forEach(files,(file) => {
-        stream.add(gulp.src(file.from)
-            .pipe(gulp.dest(file.to)));
+        let st = gulp.src(file.from)
+            .pipe(gulp.dest(file.to));
+        stream.add(st);
     });
-    stream.pipe($.browser.stream());
+    stream.on('end',() => {
+        $.browser.stream();
+    });
     return stream;
 });
