@@ -1,27 +1,28 @@
+'use strict';
 /**
  * スクリプトタスク
  * JSファイルをwebpackを使ってコンパイルして出力する
  */
 
-var path = require('path');
-var fs = require('fs');
-var gulp = require('gulp');
-var _ = require('lodash');
-var through = require('through2');
-var webpack = require('webpack');
-var config = require('./config');
-var $ = require('./plugins');
-var conf;
-
+let path = require('path');
+let fs = require('fs');
+let gulp = require('gulp');
+let _ = require('lodash');
+let through = require('through2');
+let webpack = require('webpack');
+let config = require('./config');
+let $ = require('./plugins');
+let conf;
+const FILE_EXT = /\.(ts|js)$/;
 /**
  * エントリーの登録
  */
-gulp.task('_setEntries', function() {
+gulp.task('_setEntries', () => {
     conf = require('../webpack.config.js');
     return gulp.src(config.path.js.src)
         .pipe(through.obj(function(file,charset,callback) {
             conf.entry = conf.entry || {};
-            var fileName = path.basename(file.path).replace(/\.(ts|js)$/,'');
+            let fileName = path.basename(file.path).replace(FILE_EXT,'');
             conf.entry[fileName] = file.path;
             this.push(file);
             callback();
@@ -36,17 +37,17 @@ gulp.task('_setEntries', function() {
 function exeWebPack(watch,callback) {
     conf.watch = watch;
     conf.output.path = config.path.js.dest;
-    webpack(conf, function(err, stats) {
+    webpack(conf, (err, stats) => {
         if(err) return console.error(err);
-        var jsonStats = stats.toJson();
+        let jsonStats = stats.toJson();
         if(jsonStats.errors.length > 0) {
-            jsonStats.errors.forEach(function(value) {
+            jsonStats.errors.forEach((value) => {
                 console.error(value);
             });
             return;
         }
         if(jsonStats.warnings.length > 0) {
-            jsonStats.warnings.forEach(function(value) {
+            jsonStats.warnings.forEach((value) => {
                 console.log(value);
             });
         }
@@ -59,13 +60,13 @@ function exeWebPack(watch,callback) {
 /**
  * スクリプトコンパイルタスク
  */
-gulp.task('script',['_setEntries'], function(callback) {
+gulp.task('script',['_setEntries'], (callback) => {
     return exeWebPack(false,callback);
 });
 
 /**
  * スクリプト監視タスク
  */
-gulp.task('watchScript',['_setEntries'], function(callback) {
+gulp.task('watchScript',['_setEntries'], (callback) => {
     return exeWebPack(true,callback);
 });

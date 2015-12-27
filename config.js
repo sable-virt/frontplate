@@ -1,3 +1,4 @@
+'use strict';
 /**
  * タスク設定ファイル
  */
@@ -40,7 +41,7 @@ module.exports = {
             // スプライト配置アルゴリズム
             algorithm: 'binary-tree',
             // スプライト画像の間隔
-            padding: 5,
+            padding: 6,
             // 出力cssの詳細オプション
             cssOpts: {
                 // スプライト生成用のmixinは書き出さない
