@@ -1,3 +1,18 @@
+<a name="2.0.1"></a>
+# [2.0.1](https://github.com/frontainer/frontplate/compare/2.0.0...v2.0.1) (2015-12-27)
+
+
+### Build
+
+* gulpタスクをES6へ書き替え ([730e0fbfe78631e5289edc3a598059cf44667752](https://github.com/frontainer/frontplate/commit/730e0fbfe78631e5289edc3a598059cf44667752))
+
+### Fix
+
+* コピー対象の数が多い時に一部欠落する不具合の修正 ([c529b5b75ac098461927639412f4b206b8792b9e](https://github.com/frontainer/frontplate/commit/c529b5b75ac098461927639412f4b206b8792b9e))
+* スプライト画像をRetinaサイズで作成した際に割り切れずボヤける対策のため、paddingを5から6へ修正 ([87ae8da582d57c6a344492e86b87cfee4f04c5b2](https://github.com/frontainer/frontplate/commit/87ae8da582d57c6a344492e86b87cfee4f04c5b2))
+
+
+
 <a name="2.0.0"></a>
 # [2.0.0](https://github.com/frontainer/frontplate/compare/1.1.6...v2.0.0) (2015-12-09)
 
