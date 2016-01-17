@@ -1,3 +1,17 @@
+<a name="2.0.2"></a>
+## [2.0.2](https://github.com/frontainer/frontplate/compare/2.0.1...v2.0.2) (2016-01-17)
+
+
+### New
+
+* 異なる環境でも動作するようDockerfileを追加 ([63cc1014fea16f4ab1b2a7f440c8a3ae1a76c217](https://github.com/frontainer/frontplate/commit/63cc1014fea16f4ab1b2a7f440c8a3ae1a76c217))
+
+### Update
+
+* 依存パッケージのアップデート ([f6099f9095822bf47c743da01fb4b97d1f3bc1af](https://github.com/frontainer/frontplate/commit/f6099f9095822bf47c743da01fb4b97d1f3bc1af))
+
+
+
 <a name="2.0.1"></a>
 # [2.0.1](https://github.com/frontainer/frontplate/compare/2.0.0...v2.0.1) (2015-12-27)
 
