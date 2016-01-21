@@ -19,6 +19,9 @@ const FILE_EXT = /\.(ts|js)$/;
  */
 gulp.task('_setEntries', () => {
     conf = require('../webpack.config.js');
+    if (config.IS_PRODUCTION) {
+        delete conf.devtool;
+    }
     return gulp.src(config.path.js.src)
         .pipe(through.obj(function(file,charset,callback) {
             conf.entry = conf.entry || {};
