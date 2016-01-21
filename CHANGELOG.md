@@ -5,15 +5,9 @@
 
 * productionタスク時にソースマップを出力しないように ([f7ca0e60eadaaec41b9af1b7a7bd70bd14b1ee2e](https://github.com/frontainer/frontplate/commit/f7ca0e60eadaaec41b9af1b7a7bd70bd14b1ee2e))
 
-
-### New
-
-* 異なる環境でも動作するようDockerfileを追加 ([63cc1014fea16f4ab1b2a7f440c8a3ae1a76c217](https://github.com/frontainer/frontplate/commit/63cc1014fea16f4ab1b2a7f440c8a3ae1a76c217))
-
 ### Update
 
 * 依存パッケージのアップデート ([f6099f9095822bf47c743da01fb4b97d1f3bc1af](https://github.com/frontainer/frontplate/commit/f6099f9095822bf47c743da01fb4b97d1f3bc1af))
-
 
 
 <a name="2.0.1"></a>
