@@ -1,6 +1,10 @@
 <a name="2.0.2"></a>
 ## [2.0.2](https://github.com/frontainer/frontplate/compare/2.0.1...v2.0.2) (2016-01-17)
 
+### Fix
+
+* productionタスク時にソースマップを出力しないように ([f7ca0e60eadaaec41b9af1b7a7bd70bd14b1ee2e](https://github.com/frontainer/frontplate/commit/f7ca0e60eadaaec41b9af1b7a7bd70bd14b1ee2e))
+
 
 ### New
 
