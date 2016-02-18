@@ -7,7 +7,7 @@ let webpackConfig = {
         sourceMapFilename: 'maps/[name].map',
         jsonpFunction: 'fr'
     },
-    devtool: '#inline-source-map',
+    devtool: '#source-map',
     resolve: {
         modulesDirectories: [
             'bower_components',
