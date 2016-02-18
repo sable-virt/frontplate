@@ -7,7 +7,6 @@
 let path = require('path');
 let fs = require('fs');
 let gulp = require('gulp');
-let _ = require('lodash');
 let through = require('through2');
 let webpack = require('webpack');
 let config = require('./config');

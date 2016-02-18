@@ -4,7 +4,8 @@
  * スプライト画像とCSSを生成するタスク
  */
 let gulp = require('gulp');
-let _ = require('lodash');
+let extend = require('extend');
+let merge = require('merge');
 let path = require('path');
 let ms = require('merge-stream');
 let fs = require('fs');
@@ -15,7 +16,7 @@ let $ = require('./plugins');
 const RETINA = /-2x$/;
 
 gulp.task('sprite', () => {
-    let op = _.extend({}, config.sprite.options);
+    let op = extend({}, config.sprite.options);
     let template = op.cssTemplate;
     if (typeof template === 'string' && path.extname(template) === '.ejs') {
         let file = fs.readFileSync(`${process.cwd()}/${template}`);
@@ -31,7 +32,7 @@ gulp.task('sprite', () => {
                 let name = paths.pop();
                 if (!name) return stream;
                 let isRetina = name.search(RETINA) !== -1;
-                let options = _.merge({
+                let options = merge({
                     cssSpritesheetName: name,
                     imgName: `${name}${config.sprite.imgExtension}`,
                     cssName: `_${name}${config.sprite.cssExtension}`,
