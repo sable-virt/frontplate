@@ -5,7 +5,6 @@
  * 定数の設定も行う
  */
 
-let _ = require('lodash');
 let config = require('../config');
 const TYPE_REG = /%type%/g;
 /**
@@ -14,9 +13,15 @@ const TYPE_REG = /%type%/g;
  * @returns {*}
  */
 function getType(args) {
-    var result = _.findLast(args, (val) => {
-        return /^-(?!-)+/.test(val);
-    });
+    args = args || [];
+    let i = args.length;
+    let result;
+    while(i--) {
+        if (/^-(?!-)+/.test(args[i])) {
+            result = args[i];
+            break;
+        }
+    }
     if (result) {
         return result.replace(/^-/, '');
     }

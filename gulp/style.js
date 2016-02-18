@@ -4,7 +4,7 @@
  * SCSSをコンパイルしてAutoprefixerをかける。プロダクションリリース時には圧縮する
  */
 let gulp = require('gulp');
-let _ = require('lodash');
+let merge = require('merge');
 let config = require('./config');
 let $ = require('./plugins');
 
@@ -13,7 +13,7 @@ let cssMqpacker = require('css-mqpacker');
 
 gulp.task('style', () => {
     config.style = config.style || {};
-    let guideOptions = _.merge({
+    let guideOptions = merge({
         out: './guide/'
     }, config.styleguide);
     let sourcemaps = config.style.sourcemaps || './maps';

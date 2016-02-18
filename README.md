@@ -2,11 +2,19 @@
 
 フロントエンド開発の効率を上げるテンプレート
 
-** Version2.0 Released!! **
+** Version3.0 Released!! **
+
+※ npm3でのみ動作確認しています
 
 [CHANGELOG](https://github.com/frontainer/frontplate/blob/master/CHANGELOG.md)
 
 [過去バージョン](https://github.com/frontainer/frontplate/releases)
+
+## npmのアップデート
+
+```
+npm update -g npm
+```
 
 ## Feature
 
@@ -112,8 +120,8 @@ gulp sprite -sp
 #### 例
 
 ```
-images/sprites/icon/icon-twitter.png
-images/sprites/icon/icon-twitter.png
+sprites/icon/icon-twitter.png
+sprites/icon/icon-twitter.png
 ```
 ↓ `gulp sprite`
 ```
@@ -128,8 +136,8 @@ sass/sprites/_icon.scss
 ディレクトリ名の末尾を`-2x`にすることで自動的にsass上でサイズを1/2して表示されるようになります。
 
 ```
-images/sprites/icon-2x/icon-twitter.png
-images/sprites/icon-2x/icon-twitter.png
+sprites/icon-2x/icon-twitter.png
+sprites/icon-2x/icon-twitter.png
 ```
 
 ### サーバーのみ起動

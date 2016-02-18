@@ -2,11 +2,11 @@
 // Karma configuration
 // Generated on Thu Jun 05 2014 00:09:58 GMT+0900 (JST)
 
-let _ = require('lodash');
+let extend = require('extend');
 
 module.exports = function(config) {
     let conf = require('./gulp/config');
-    let webpackConfig = _.clone(require('./webpack.config'));
+    let webpackConfig = extend({},require('./webpack.config'));
     // entryをdeleteしないとwatch時に無駄なコンパイルが発生する
     delete webpackConfig.entry;
     // outputをdeleteしないとts-loader使った時などに、拡張子のない謎のファイルができることがある

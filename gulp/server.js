@@ -3,13 +3,13 @@
  * サーバー起動タスク
  */
 let gulp = require('gulp');
-let _ = require('lodash');
+let merge = require('merge');
 let rewrite = require('connect-modrewrite');
 let config = require('./config');
 let $ = require('./plugins');
 
 gulp.task('server', () => {
-    let options = _.merge(config.server, {
+    let options = merge(config.server, {
         server: {
             baseDir: config.dist,
             directory: false,
