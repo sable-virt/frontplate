@@ -112,8 +112,8 @@ gulp sprite -sp
 #### 例
 
 ```
-images/sprites/icon/icon-twitter.png
-images/sprites/icon/icon-twitter.png
+sprites/icon/icon-twitter.png
+sprites/icon/icon-twitter.png
 ```
 ↓ `gulp sprite`
 ```
@@ -128,8 +128,8 @@ sass/sprites/_icon.scss
 ディレクトリ名の末尾を`-2x`にすることで自動的にsass上でサイズを1/2して表示されるようになります。
 
 ```
-images/sprites/icon-2x/icon-twitter.png
-images/sprites/icon-2x/icon-twitter.png
+sprites/icon-2x/icon-twitter.png
+sprites/icon-2x/icon-twitter.png
 ```
 
 ### サーバーのみ起動
