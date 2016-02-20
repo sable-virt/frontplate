@@ -32,7 +32,7 @@ gulp.task('sprite', () => {
                 let name = paths.pop();
                 if (!name) return stream;
                 let isRetina = name.search(RETINA) !== -1;
-                let options = merge({
+                let options = merge.recursive({
                     cssSpritesheetName: name,
                     imgName: `${name}${config.sprite.imgExtension}`,
                     cssName: `_${name}${config.sprite.cssExtension}`,
