@@ -21,8 +21,8 @@ let webpackConfig = {
         ],
         loaders: [
             { test: /\.html$/, exclude:/node_modules/, loaders: ['html'] },
-            { test: /Spec\.js$/i, exclude:/node_modules/, loaders: ['webpack-espower','babel?presets[]=es2015'] },
-            { test: /\.jsx?$/, exclude:/node_modules/, loaders: ['babel?presets[]=es2015'] }
+            { test: /Spec\.js$/i, exclude:/node_modules/, loaders: ['webpack-espower','babel'] },
+            { test: /\.jsx?$/, exclude:/node_modules/, loaders: ['babel'] }
         ]
     },
     plugins: [
