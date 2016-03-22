@@ -54,7 +54,7 @@
     "test": "gulp test",
     "build": "gulp build && gulp test",
     "production": "gulp production && gulp test",
-    "changelog": "conventional-changelog -p eslint -i CHANGELOG.md -w -s -r 0"
+    "changelog": "conventional-changelog -p eslint -i CHANGELOG.md -s -r 1"
   },
   "repository": {
     "type": "git",
