@@ -35,10 +35,7 @@ module.exports = function(config) {
         // available reporters: https://npmjs.org/browse/keyword/karma-reporter
         reporters: ['progress','notify'],
         client: {
-            captureConsole: true,
-            mocha: {
-                reporter: 'html'
-            }
+            captureConsole: true
         },
 
         // web server port
