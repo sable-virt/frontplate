@@ -21,7 +21,7 @@ let webpackConfig = {
         ],
         loaders: [
             { test: /\.html$/, exclude:/node_modules/, loaders: ['html'] },
-            { test: /Spec\.ts$/i, exclude:/node_modules/, loaders: ['webpack-espower','ts'] },
+            { test: /Spec\.ts$/i, exclude:/node_modules/, loaders: ['ts'] },
             { test: /\.tsx?$/, exclude:/node_modules/, loaders: ['ts'] }
         ]
     },
