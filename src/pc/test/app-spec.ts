@@ -3,6 +3,7 @@ describe('app', () => {
 
     });
     it('init', () => {
-        assert('a' === 'a');
-    });
+        expect('a').toBe('a');
+        assert('a'==='a');
+   });
 });

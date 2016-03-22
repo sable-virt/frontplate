@@ -2,9 +2,11 @@
 
 フロントエンド開発の効率を上げるテンプレート
 
-** Version3.0 Released!! **
+** Version4.0 Released!! **
 
 ※ npm3でのみ動作確認しています
+※ BabelからTypeScriptになっています
+※ MochaからJasmineになっています(PowerAssertは引き続き使用可)
 
 [CHANGELOG](https://github.com/frontainer/frontplate/blob/master/CHANGELOG.md)
 
@@ -21,21 +23,22 @@ npm update -g npm
 - HTMLモジュール（EJS）
 - SASS
 - SASSLint
-- ES2015
+- TypeScript
 - スプライト画像の作成とSassファイルの出力
 - JS/CSSの圧縮と最適化
 - CSSのベンダープレフィックス付与自動化
 - 非対応CSSプロパティアラート
-- ユニットテスト（Mocha/PowerAssert）
+- ユニットテスト（Jasmine,PowerAssert）
 - LiveReload
-- ESLint
+- TSLint
 - HTMLHint
 - スタイルガイド生成
 - JS/CSSソースマップ
 
+
 ## Dependence
 
-* [NodeJS](https://nodejs.org/) 4.0以上
+* [NodeJS](https://nodejs.org/) 4.0以上 かつ npm 3.0以上
 * [Gulp](http://gulpjs.com/) 3.9以上
 
 ```
@@ -57,14 +60,15 @@ npm-shrinkwrap - npmパッケージのバージョン固定ファイル
   ┣ /pc
   ┃  ┣ /images - 画像を入れるフォルダ。public/pc/imagesに複製される
   ┃  ┣ /js - JSフォルダ。ES6で書ける。直下にあるJSは
-  ┃  ┃  ┣ app.js - public/pc/js/app.jsとして出力される
+  ┃  ┃  ┣ app.ts - public/pc/js/app.jsとして出力される
   ┃  ┃  ┗ /modules
-  ┃  ┃       ┗ hoge.js - ここファイルは出力されないが変更は監視される
+  ┃  ┃       ┗ hoge.ts - ここファイルは出力されないが変更は監視される
   ┃  ┣ /lib - ライブラリフォルダ。外部ライブラリ等を置く。public/pc/libに複製される
   ┃  ┣ /sass - sassフォルダ。ファイル名が_(アンダースコア)で始まっていないscssはpublic/pc/cssに出力される
   ┃  ┣ /sprites - スプライト生成フォルダ。ここに作ったフォルダがsass/sprites/_フォルダ名.scssとして出力される
   ┃  ┃  ┗ /icon - スプライト画像を入れるフォルダ。class="icon icon-ファイル名"で参照されるので英数字推奨
   ┃  ┣ /test - テストコードを置くフォルダ。ここにおいたファイルはテストコードとして実行される
+  ┃  ┃  ┗ app-spec.ts
   ┃  ┗ /view - ビューファイル(ejs)を置くフォルダ。ファイル名が_(アンダースコア)で始まっていないejsはpublic/pcに出力される
   ┃        ┣ index.ejs - public/pc/index.htmlとして出力される
   ┃        ┗ parts/
@@ -192,10 +196,11 @@ gulp test
 
 ### JavaScript
 
-- [Babel](https://babeljs.io/)
-- [ESLint](http://eslint.org/)
+- [TypeScript](http://www.typescriptlang.org/)
+- [typings](https://github.com/typings/typings)
+- [TSLint](http://palantir.github.io/tslint/)
 - [webpack](http://webpack.github.io/)
-- [Mocha](http://mochajs.org/)
+- [Jasmine](http://jasmine.github.io/)
 - [PowerAssert](https://github.com/power-assert-js/power-assert)
 - [Sinon](http://sinonjs.org/)
 

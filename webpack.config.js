@@ -17,12 +17,12 @@ let webpackConfig = {
     },
     module: {
         preLoaders: [
-            { test: /\.js$/, exclude:/Spec\.js$/i, loaders: ['eslint'] }
+            { test: /\.ts$/, exclude:/Spec\.ts$/i, loaders: ['tslint'] }
         ],
         loaders: [
             { test: /\.html$/, exclude:/node_modules/, loaders: ['html'] },
-            { test: /Spec\.js$/i, exclude:/node_modules/, loaders: ['webpack-espower','babel?presets[]=es2015'] },
-            { test: /\.jsx?$/, exclude:/node_modules/, loaders: ['babel?presets[]=es2015'] }
+            { test: /Spec\.ts$/i, exclude:/node_modules/, loaders: ['webpack-espower','ts'] },
+            { test: /\.tsx?$/, exclude:/node_modules/, loaders: ['ts'] }
         ]
     },
     plugins: [
@@ -37,9 +37,8 @@ let webpackConfig = {
         new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.optimize.DedupePlugin()
     ],
-    eslint: {
-        configFile: '.eslintrc',
-        failOnError: true
+    tslint: {
+        emitErrors: true
     }
 };
 

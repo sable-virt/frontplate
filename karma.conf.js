@@ -17,13 +17,13 @@ module.exports = function(config) {
         basePath: '',
         // frameworks to use
         // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-        frameworks: ['mocha'],
+        frameworks: ['jasmine'],
 
         // list of files / patterns to load in the browser
         files: conf.path.test.src,
         exclude: [],
         preprocessors: {
-            'src/**/test/**/*.js': ['webpack']
+            'src/**/test/**/*.ts': ['webpack']
         },
         webpack: webpackConfig,
         webpackMiddleware: {

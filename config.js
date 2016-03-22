@@ -96,7 +96,7 @@ module.exports = {
         },
         // スクリプト: script
         js: {
-            src: ['src/%type%/js/*.js','!src/%type%/js/_*.js'],
+            src: ['src/%type%/js/*.ts','!src/%type%/js/_*.ts'],
             dest: 'public/%type%/js'
         },
         // テスト: karma
@@ -105,7 +105,7 @@ module.exports = {
                 'public/%type%/js/*.js',
                 'node_modules/power-assert/build/power-assert.js',
                 'node_modules/sinon/pkg/sinon.js',
-                'src/%type%/test/**/*.js'
+                'src/%type%/test/**/*.ts'
             ]
         },
         // 複製: copy
