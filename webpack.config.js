@@ -9,6 +9,7 @@ let webpackConfig = {
     },
     devtool: '#source-map',
     resolve: {
+        extensions: ['','.ts','.tsx','.js','.jsx','.html'],
         modulesDirectories: [
             'bower_components',
             'node_modules',
