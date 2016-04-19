@@ -13,14 +13,10 @@ let cssMqpacker = require('css-mqpacker');
 
 gulp.task('style', () => {
     config.style = config.style || {};
-    let guideOptions = merge({
-        out: './guide/'
-    }, config.styleguide);
     let sourcemaps = config.style.sourcemaps || './maps';
 
     return gulp.src(config.path.style.src)
         .pipe($.plumber({errorHandler: $.notify.onError('<%= error.message %>')}))
-        .pipe($.frontnote(guideOptions))
         .pipe($.sassLint())
         .pipe($.sassLint.format())
         .pipe($.sassLint.failOnError())
