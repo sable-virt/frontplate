@@ -13,6 +13,6 @@
     "node_modules"
   ],
   "files": [
-    "typings/browser.d.ts"
+    "typings/index.d.ts"
   ]
 }

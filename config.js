@@ -105,7 +105,7 @@ module.exports = {
                 'public/%type%/js/*.js',
                 'node_modules/power-assert/build/power-assert.js',
                 'node_modules/sinon/pkg/sinon.js',
-                'src/%type%/test/**/*.ts'
+                'src/%type%/**/*spec.ts'
             ]
         },
         // 複製: copy

@@ -1,11 +1,11 @@
 {
   "name": "Frontplate",
-  "dependencies": {},
   "devDependencies": {},
-  "ambientDependencies": {
+  "globalDependencies": {
     "empower": "registry:dt/empower#0.0.0+20160317120654",
-    "jasmine": "registry:dt/jasmine#2.2.0+20160317120654",
+    "mocha": "registry:dt/mocha#2.2.5+20160619032855",
     "power-assert": "registry:dt/power-assert#0.0.0+20160316155526",
-    "sinon": "registry:dt/sinon#1.16.0+20160317120654"
+    "power-assert-formatter": "registry:dt/power-assert-formatter#0.0.0+20160317120654",
+    "sinon": "registry:dt/sinon#1.16.0+20160517064723"
   }
 }

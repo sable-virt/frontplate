@@ -11,19 +11,20 @@ module.exports = function(config) {
     delete webpackConfig.entry;
     // outputをdeleteしないとts-loader使った時などに、拡張子のない謎のファイルができることがある
     delete webpackConfig.output;
+    delete webpackConfig.plugins;
     config.set({
 
         // base path that will be used to resolve all patterns (eg. files, exclude)
         basePath: '',
         // frameworks to use
         // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-        frameworks: ['jasmine'],
+        frameworks: ['mocha'],
 
         // list of files / patterns to load in the browser
         files: conf.path.test.src,
         exclude: [],
         preprocessors: {
-            'src/**/test/**/*.ts': ['webpack']
+            'src/**/*spec.ts': ['webpack']
         },
         webpack: webpackConfig,
         webpackMiddleware: {

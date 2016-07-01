@@ -18,17 +18,17 @@ let webpackConfig = {
     },
     module: {
         preLoaders: [
-            { test: /\.ts$/, exclude:/Spec\.ts$/i, loaders: ['tslint'] }
+            { test: /\.ts$/, exclude:/spec\.ts$/i, loaders: ['tslint'] }
         ],
         loaders: [
             { test: /\.html$/, exclude:/node_modules/, loaders: ['html'] },
-            { test: /Spec\.ts$/i, exclude:/node_modules/, loaders: ['ts'] },
+            { test: /spec\.ts$/i, exclude:/node_modules/, loaders: ['webpack-espower','ts'] },
             { test: /\.tsx?$/, exclude:/node_modules/, loaders: ['ts'] }
         ]
     },
     plugins: [
         new webpack.optimize.UglifyJsPlugin({
-            exclude: /Spec\.js$/i,
+            exclude: /spec\.ts$/i,
             compress: {
                 warnings: false
             }
