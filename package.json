@@ -1,6 +1,6 @@
 {
   "name": "Frontplate",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "フロントエンド開発の効率をあげるフルスタックテンプレート",
   "main": "gulpfile.js",
   "dependencies": {},
@@ -54,7 +54,7 @@
     "start": "npm install && npm run build",
     "test": "gulp test",
     "build": "gulp build && gulp test",
-    "changelog": "conventional-changelog -p eslint -i CHANGELOG.md -w -s -r 0"
+    "changelog": "conventional-changelog -p eslint -i CHANGELOG.md -w -s -u"
   },
   "repository": {
     "type": "git",
