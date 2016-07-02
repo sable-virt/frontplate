@@ -2,7 +2,7 @@
 
 フロントエンド開発の効率を上げるテンプレート
 
-** Version3.0 Released!! **
+** Version3.1.0 Released!! **
 
 ※ npm3でのみ動作確認しています
 

@@ -1,3 +1,19 @@
+<a name="3.1.0"></a>
+# [3.1.0](https://github.com/frontainer/frontplate/compare/3.0.0...v3.1.0) (2016-07-02)
+
+
+### feat
+
+* スプライト生成サンプルを追加 ([b6802f6005a4adeeba7b16bb339fbaaf80ba5a18](https://github.com/frontainer/frontplate/commit/b6802f6005a4adeeba7b16bb339fbaaf80ba5a18))
+
+### fix
+
+* _つきのscssファイルだとスタイルガイドが生成されない不具合の修正 ([d959ec664ed7c653652e8d1ca28cea908f4ab39e](https://github.com/frontainer/frontplate/commit/d959ec664ed7c653652e8d1ca28cea908f4ab39e))
+* babelの設定をwebpack.config.jsから.babelrcに移動 ([197be976c992c055fc9b4cae400a68ed297f8b8f](https://github.com/frontainer/frontplate/commit/197be976c992c055fc9b4cae400a68ed297f8b8f))
+* sprite.scssが正しく出力されない不具合を修正 ([17ceed9ba74a9ec104c437547099ef23ebe4113c](https://github.com/frontainer/frontplate/commit/17ceed9ba74a9ec104c437547099ef23ebe4113c))
+
+
+
 <a name="3.0.0"></a>
 # [3.0.0](https://github.com/frontainer/frontplate/compare/2.0.2...v3.0.0) (2016-02-18)
 
