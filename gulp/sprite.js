@@ -26,7 +26,7 @@ gulp.task('sprite', () => {
     }
     return gulp.src(config.path.sprite.src)
         .pipe($.plumber({errorHandler: $.notify.onError('<%= error.message %>')}))
-        .pipe($.foreach(function(stream, file) {
+        .pipe($.flatmap(function(stream, file) {
             if (file.isDirectory()) {
                 let paths = file.path.split(path.sep);
                 let name = paths.pop();

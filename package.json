@@ -14,7 +14,7 @@
     "extend": "^3.0.0",
     "gulp": "^3.9.1",
     "gulp-ejs": "^2.1.1",
-    "gulp-foreach": "^0.1.0",
+    "gulp-flatmap": "^1.0.0",
     "gulp-frontnote": "^1.0.3",
     "gulp-htmlhint": "^0.3.1",
     "gulp-if": "^2.0.0",
