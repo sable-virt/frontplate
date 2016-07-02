@@ -49,8 +49,8 @@
     "webpack-espower-loader": "^1.0.1"
   },
   "scripts": {
-    "start": "npm install && typings install && npm run build",
-    "typings": "typings install",
+    "start": "npm install && npm run typings && npm run build",
+    "typings": "$(npm bin)/typings install",
     "test": "gulp test",
     "build": "gulp build && gulp test",
     "production": "gulp production && gulp test",
