@@ -1,5 +1,4 @@
-class Main {
+export class Main {
     constructor() {
     }
 }
-new Main();

@@ -96,7 +96,7 @@ module.exports = {
         },
         // スクリプト: script
         js: {
-            src: ['src/%type%/js/*.ts','!src/%type%/js/_*.ts'],
+            src: ['src/%type%/js/app.ts'],
             dest: 'public/%type%/js'
         },
         // テスト: karma

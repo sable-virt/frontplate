@@ -1,10 +1,9 @@
-import './app.ts';
+import {Main} from './app';
 describe('app', () => {
     beforeEach(() => {
 
     });
     it('init', () => {
-        assert('a' === 'a');
-        assert('a'==='b');
+        assert(Main);
    });
 });
