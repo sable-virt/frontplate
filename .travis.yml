@@ -4,7 +4,13 @@ node_js:
 - '6.0'
 - '5.0'
 script:
-  - npm run build
+  - ./node_modules/.bin/frp task clean
+  - ./node_modules/.bin/frp task sprite
+  - ./node_modules/.bin/frp task copy
+  - ./node_modules/.bin/frp task html
+  - ./node_modules/.bin/frp task script
+  - ./node_modules/.bin/frp task style
+  - ./node_modules/.bin/frp task image
 notifications:
   slack:
     secure: U1Ta+5fq1Np5Vig6D2qte0jvrnzHJc2DpKpgJSZOd8LGP3FWZ/t1vTT7sepY6WzMETuen0BGtO56wlCE2qFBAQUPIC5rkH71wy2hFE3WGjOuNSB6Sqpf9mfK6XvEQJRi9UDVlSDFuBHAftrnit855IyUEL7aZZWsvhdYUS+j4DQ=
