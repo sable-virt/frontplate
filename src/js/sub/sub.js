@@ -1,4 +1,3 @@
-import 'sub/sub';
 /**
  * @constructor
  */
