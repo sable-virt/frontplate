@@ -4,7 +4,7 @@
   "description": "フロントエンド開発の効率をあげるフルスタックテンプレート",
   "dependencies": {},
   "devDependencies": {
-    "frontplate-cli": "^0.1.4"
+    "frontplate-cli": "^0.1.5"
   },
   "scripts": {
     "start": "frp build && frp serve",
