@@ -2,14 +2,15 @@
 
 フロントエンド開発の効率を上げるテンプレート
 
-** Version4.0.0 beta-1 **
-
-- ※ Node.js 5.0以上が必要です
-- ※ npm3でのみ動作確認しています
+** Version4.0.0 **
 
 [CHANGELOG](https://github.com/frontainer/frontplate/blob/master/CHANGELOG.md)
 
 [過去バージョン](https://github.com/frontainer/frontplate/releases)
+
+## Dependence
+
+* [NodeJS](https://nodejs.org/) 5.0以上
 
 ## Feature
 
@@ -26,10 +27,6 @@
 - ESLint
 - HTMLHint
 - JS/CSSソースマップ
-
-## Dependence
-
-* [NodeJS](https://nodejs.org/) 5.0以上
 
 ## 構成
 
@@ -70,9 +67,24 @@ frp.config.js - テンプレートの全体の設定ファイル。出力先や�
 
 ### 準備
 
-frontplateを任意のディレクトリに展開し、展開したディレクトリで以下のコマンドを実行します。
+## Get Started
+
+frontplate-cliをインストールします。
 
 ```
+npm i frontplate-cli -g
+```
+
+次にプロジェクトを生成します。
+
+```
+frp create my-wp-app --preset wp
+```
+
+ダウンロードとインストールが完了したら、できたプロジェクトに移動し、`npm start` コマンドを実行します。
+
+```
+cd my-wp-app
 npm start
 ```
 
@@ -119,10 +131,10 @@ productionタスクではJSとCSSのソースマップが出力されなくな�
 npm run production
 ```
 
-## 設定(config.js)
+## 設定(frp.config.js)
 
-`config.js` にテンプレートの出力先やプラグインのオプション設定が記述されています。
-詳しくは`config.js` のコメントを参照してください。
+`frp.config.js` にテンプレートの出力先やプラグインのオプション設定が記述されています。
+詳しくは`frp.config.js` 及びconfigフォルダのファイルを参照してください。
 
 ## Library
 
@@ -132,6 +144,6 @@ npm run production
 
 このテンプレートは[frontplate-cli](https://github.com/frontainer/frontplate-cli)がベースになっています。
 
-詳細なビルドドキュメントはCLIのドキュメントを参照してください。
+詳細なドキュメントはCLIのドキュメントを参照してください。
 
 [frontplate-cli](https://github.com/frontainer/frontplate-cli)
