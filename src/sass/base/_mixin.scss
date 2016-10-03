@@ -1,0 +1,32 @@
+@mixin sprite-width($sprite,$scale:1) {
+  width: nth($sprite, 5) * $scale;
+}
+
+@mixin sprite-height($sprite,$scale:1) {
+  height: nth($sprite, 6) * $scale;
+}
+
+@mixin sprite-position($sprite,$scale:1) {
+  $sprite-offset-x: nth($sprite, 3) * $scale;
+  $sprite-offset-y: nth($sprite, 4) * $scale;
+  background-position: $sprite-offset-x $sprite-offset-y;
+}
+
+@mixin sprite-image($sprite) {
+  $sprite-image: nth($sprite, 9);
+  background-image: url(#{$sprite-image});
+  background-repeat: no-repeat;
+}
+
+@mixin sprite-size($sprite,$scale:1) {
+  background-size: nth($sprite, 7)*$scale nth($sprite, 8)*$scale;
+}
+
+@mixin sprite($sprite,$scale:1) {
+  display: inline-block;
+  @include sprite-image($sprite);
+  @include sprite-position($sprite, $scale);
+  @include sprite-width($sprite, $scale);
+  @include sprite-height($sprite, $scale);
+  @include sprite-size($sprite, $scale);
+}

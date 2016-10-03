@@ -26,7 +26,7 @@
     "no-var": 2,
     "camelcase": [2, {"properties": "always"}],
     "no-array-constructor": 1,
-    "quotes": [2, "single"],
+    "quotes": [0, "single"],
     "no-unused-vars": 1,
     "space-after-keywords": 0,
     "space-infix-ops": 0,
