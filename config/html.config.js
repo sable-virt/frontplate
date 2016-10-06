@@ -1,11 +1,10 @@
 module.exports = {
-    src: 'src/view/**/*.ejs',
-    dest: 'public',
-    // ejs params
-    params: {
+    src: 'src/view/**/*.ejs',   // 読み込むビューファイル
+    dest: 'public',             // 出力先
+    params: {                   // ビューで使うグローバル変数
         title: 'title'
     },
-    // htmlhint rules
+    // htmlhintルール(https://github.com/yaniswang/HTMLHint/wiki/Rules)
     rules: {
         "tagname-lowercase": true,
         "attr-lowercase": true,

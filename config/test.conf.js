@@ -1,25 +1,30 @@
 'use strict';
+/**
+ * karma conf
+ * @param config
+ * url: https://karma-runner.github.io/1.0/config/configuration-file.html
+ */
 module.exports = function (config) {
     config.set({
         // base path that will be used to resolve all patterns (eg. files, exclude)
         basePath: '',
         // frameworks to use
         // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-        frameworks: ['mocha'],
+        frameworks: ['jasmine'],
 
         // list of files / patterns to load in the browser
         files: [
-            require.resolve('power-assert/build/power-assert'),
             'src/js/**/*-spec.js'
         ],
         preprocessors: {
-            'src/js/**/*-spec.js': ['babel']
+            'src/js/**/*-spec.js': ['webpack','babel']
         },
-        babelPreprocessor: {
-            options: {
-                presets: ['es2015'],
-                sourceMap: 'inline'
-            }
+        webpack: {
+            resolve: { modules: [ './src/js'] },
+        },
+        webpackMiddleware: {
+            quiet: true,
+            stats: 'errors-only'
         },
         exclude: [],
         // test results reporter to use

@@ -1,3 +1,4 @@
 module.exports = {
-  "src/lib/**/*": "public/assets/lib"
+    // "path/from": "/path/to"
+    "src/lib/**/*": "public/assets/lib"
 };

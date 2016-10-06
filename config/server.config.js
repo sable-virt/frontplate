@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
-  "server": 'public',
-  "port": 3000,
+  "server": 'public',   // ドキュメントルート
+  "port": 3000,         // ポート
   "middleware": [
   ],
   "ghostMode": {

@@ -5,10 +5,10 @@ const SUPPORT_BROWSERS = [
     'Android >= 4.0'
 ];
 module.exports = {
-    src: 'src/sass/**/*.scss',
-    dest: 'public/assets/css',
-    plugins: [
-        require('autoprefixer')({
+    src: 'src/sass/**/*.scss',  // 読み込むscss
+    dest: 'public/assets/css',  // 出力先
+    plugins: [  // postcssプラグイン
+        require('autoprefixer')({   // autoprefixer(https://github.com/postcss/autoprefixer)
             browsers: SUPPORT_BROWSERS
         })
     ]

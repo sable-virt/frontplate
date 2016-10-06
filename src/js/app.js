@@ -2,12 +2,13 @@ import 'sub/sub';
 /**
  * @constructor
  */
-class Main {
+export class App {
   constructor(val) {
     this.val = val;
   }
 }
 
-let m = new Main('main');
-assert(m.val === 'main', `Init val match`);
-assert(m.val === 'sub', `Init val unmatch`);
+let m = new App('main');
+if (process.env.NODE_ENV === 'development') {
+  console.debug('main value:', m.val);
+}

@@ -1,5 +1,9 @@
 'use strict';
 const webpack = require("webpack");
+/**
+ * webpack config
+ * url: https://webpack.github.io/docs/configuration.html
+ */
 const webpackConfig = {
     entry: {
         app: './src/js/app.js'
@@ -11,20 +15,24 @@ const webpackConfig = {
         sourceMapFilename: 'maps/[name].map',
         jsonpFunction: 'fr'
     },
-    resolve: { root: [ './src/js'] },
+    resolve: { modules: [ './src/js'] },
     module: {
-        preLoaders: [
-            {test: /\.js$/, exclude: /node_modules/, loader: 'eslint'}
-        ],
         loaders: [
+            {test: /\.js$/, exclude: /node_modules/, loader: 'eslint', enforce: 'pre'},
             {test: /\.html$/, loader: 'html'},
             {test: /\.json$/, loader: 'json'},
         ],
         exprContextCritical: false
     },
-    eslint: {
-        configFile: __dirname + '/../.eslintrc',
-        failOnError: true
-    }
+    plugins: [
+        new webpack.LoaderOptionsPlugin({
+            options: {
+                eslint: {
+                    configFile: __dirname + '/../.eslintrc',
+                    failOnError: true
+                }
+            }
+        })
+    ]
 };
 module.exports = webpackConfig;

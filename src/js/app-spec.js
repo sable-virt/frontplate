@@ -1,8 +1,10 @@
+import {App} from './app';
 describe('app', () => {
   beforeEach(() => {
 
   });
   it('init', () => {
-    assert('a' === 'a');
+    let app = new App('myapp');
+    expect(app.val).toBe('myapp');
   });
 });
