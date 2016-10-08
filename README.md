@@ -28,41 +28,6 @@
 - HTMLHint
 - JS/CSSソースマップ
 
-## 構成
-
-```
-package.json - nomパッケージ設定ファイル
-frp.config.js - テンプレートの全体の設定ファイル。出力先や各タスクの設定を記述
-/public - コンパイルされたデータが入っている
-/config - 設定用フォルダ
-  ┣ copy.config.js
-  ┣ html.config.js
-  ┣ image.config.js
-  ┣ server.config.js
-  ┣ sprite.config.js
-  ┣ style.config.js
-  ┣ test.conf.js
-  ┣ webpack.config.js
-  ┣ webpack.config.production.js
-  ┣ webpack.core.js
-/src - 開発用フォルダ
-  ┣ /images - 画像を入れるフォルダ。public/pc/imagesに複製される
-  ┣ /js - JSフォルダ。ES6で書ける。直下にあるJSは
-  ┃  ┣ app.js - public/pc/js/app.jsとして出力される
-  ┃  ┗ /modules
-  ┃     ┗ hoge.js - ここファイルは出力されないが変更は監視される
-  ┣ /lib - ライブラリフォルダ。外部ライブラリ等を置く。public/pc/libに複製される
-  ┣ /sass - sassフォルダ。ファイル名が_(アンダースコア)で始まっていないscssはpublic/pc/cssに出力される
-  ┣ /sprites - スプライト生成フォルダ。ここに作ったフォルダがsass/sprites/_フォルダ名.scssとして出力される
-  ┃  ┗ /icon - スプライト画像を入れるフォルダ。class="icon icon-ファイル名"で参照されるので英数字推奨
-  ┣ /test - テストコードを置くフォルダ。ここにおいたファイルはテストコードとして実行される
-  ┗ /view - ビューファイル(ejs)を置くフォルダ。ファイル名が_(アンダースコア)で始まっていないejsはpublic/pcに出力される
-      ┣ index.ejs - public/pc/index.htmlとして出力される
-      ┗ parts/
-         ┣ _header.ejs - アンダースコアから始まるファイルは出力されない
-         ┗ sub.ejs - public/pc/parts/sub.htmlとして出力される
-```
-
 ## Get Started
 
 ### 準備
@@ -139,6 +104,41 @@ npm run production
 ## Library
 
 - JS:   [Modernizr](http://modernizr.com/)
+
+## 構成
+
+```
+package.json - nomパッケージ設定ファイル
+frp.config.js - テンプレートの全体の設定ファイル。出力先や各タスクの設定を記述
+/public - コンパイルされたデータが入っている
+/config - 設定用フォルダ
+  ┣ copy.config.js
+  ┣ html.config.js
+  ┣ image.config.js
+  ┣ server.config.js
+  ┣ sprite.config.js
+  ┣ style.config.js
+  ┣ test.conf.js
+  ┣ webpack.config.js
+  ┣ webpack.config.production.js
+  ┣ webpack.core.js
+/src - 開発用フォルダ
+  ┣ /images - 画像を入れるフォルダ。public/pc/imagesに複製される
+  ┣ /js - JSフォルダ。ES6で書ける。直下にあるJSは
+  ┃  ┣ app.js - public/pc/js/app.jsとして出力される
+  ┃  ┗ /modules
+  ┃     ┗ hoge.js - ここファイルは出力されないが変更は監視される
+  ┣ /lib - ライブラリフォルダ。外部ライブラリ等を置く。public/pc/libに複製される
+  ┣ /sass - sassフォルダ。ファイル名が_(アンダースコア)で始まっていないscssはpublic/pc/cssに出力される
+  ┣ /sprites - スプライト生成フォルダ。ここに作ったフォルダがsass/sprites/_フォルダ名.scssとして出力される
+  ┃  ┗ /icon - スプライト画像を入れるフォルダ。class="icon icon-ファイル名"で参照されるので英数字推奨
+  ┣ /test - テストコードを置くフォルダ。ここにおいたファイルはテストコードとして実行される
+  ┗ /view - ビューファイル(ejs)を置くフォルダ。ファイル名が_(アンダースコア)で始まっていないejsはpublic/pcに出力される
+      ┣ index.ejs - public/pc/index.htmlとして出力される
+      ┗ parts/
+         ┣ _header.ejs - アンダースコアから始まるファイルは出力されない
+         ┗ sub.ejs - public/pc/parts/sub.htmlとして出力される
+```
 
 ## Dependencies documentation
 
