@@ -3,14 +3,12 @@
   "version": "3.0.1",
   "description": "フロントエンド開発の効率をあげるフルスタックテンプレート",
   "dependencies": {},
-  "devDependencies": {
-    "frontplate-cli": "^0.2.3"
-  },
+  "devDependencies": {},
   "scripts": {
     "start": "frp build && frp serve -t",
     "test": "frp build",
     "build": "frp build",
-    "serve": "frp serve -t",
+    "serve": "frp serve",
     "production": "frp build -p",
     "changelog": "conventional-changelog -p eslint -i CHANGELOG.md -w -s -r 0"
   },

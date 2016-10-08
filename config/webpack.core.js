@@ -1,4 +1,5 @@
 'use strict';
+const core = require('./core.config');
 const webpack = require("webpack");
 /**
  * webpack config
@@ -9,7 +10,7 @@ const webpackConfig = {
         app: './src/js/app.js'
     },
     output: {
-        path: 'public/assets/js',
+        path: core.basePath + '/assets/js',
         publicPath: '/assets',
         filename: "[name].js",
         sourceMapFilename: 'maps/[name].map',
