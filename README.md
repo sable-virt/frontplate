@@ -2,8 +2,6 @@
 
 フロントエンド開発の効率を上げるテンプレート
 
-** Version4.0.0 **
-
 [CHANGELOG](https://github.com/frontainer/frontplate/blob/master/CHANGELOG.md)
 
 [過去バージョン](https://github.com/frontainer/frontplate/releases)
@@ -11,22 +9,7 @@
 ## Dependence
 
 * [NodeJS](https://nodejs.org/) 5.0以上
-
-## Feature
-
-- HTMLモジュール（EJS）
-- SASS
-- SASSLint
-- ES2015
-- スプライト画像の作成とSassファイルの出力
-- JS/CSSの圧縮と最適化
-- CSSのベンダープレフィックス付与自動化
-- 非対応CSSプロパティアラート
-- ユニットテスト（Mocha/PowerAssert）
-- LiveReload
-- ESLint
-- HTMLHint
-- JS/CSSソースマップ
+* [frontplate-cli](https://www.npmjs.com/package/frontplate-cli)
 
 ## Get Started
 
