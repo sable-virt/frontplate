@@ -52,25 +52,6 @@ npm run build
 # srcディレクトリを監視
 npm run serve
 ```
-
-### スプライト画像生成
-
-複数の画像をタイル上に１枚の画像にするスプライトを自動的に生成します。images/spites以下のディレクトリごとにスプライト画像とsassファイルを出力
-
-#### 例
-
-```
-sprites/icon/icon-twitter.png
-sprites/icon/icon-twitter.png
-```
-↓ `npm run build`
-```
-images/sprites/icon.png
-sass/sprites/_icon.scss
-```
-
-スプライト画像は`images/sprites/*.png`に、sassは`sass/sprites/_*.scss`に展開されるので、作られたsassを`@import`して使用します。
-
 ### リリースファイル作成
 
 ひと通りの開発が完了した時点で、リリース用のファイルを作成します。
@@ -99,25 +80,15 @@ frp init
 
 ```
 package.json - nomパッケージ設定ファイル
-frp.config.js - テンプレートの全体の設定ファイル。出力先や各タスクの設定を記述
 /public - コンパイルされたデータが入っている
-/config - 設定用フォルダ
-  ┣ copy.config.js
-  ┣ html.config.js
-  ┣ image.config.js
-  ┣ server.config.js
-  ┣ sprite.config.js
-  ┣ style.config.js
-  ┣ test.conf.js
-  ┣ webpack.config.js
-  ┣ webpack.config.production.js
-  ┣ webpack.core.js
 /src - 開発用フォルダ
   ┣ /images - 画像を入れるフォルダ。public/pc/imagesに複製される
   ┣ /js - JSフォルダ。ES6で書ける。直下にあるJSは
   ┃  ┣ app.js - public/pc/js/app.jsとして出力される
-  ┃  ┗ /modules
-  ┃     ┗ hoge.js - ここファイルは出力されないが変更は監視される
+  ┃  ┣ app-spec.js - -spec.jsは出力されない。テスト実行時に読み込まれる
+  ┃  ┣ xxx.js - public/pc/js/xxx.jsとして出力される
+  ┃  ┗ /sub
+  ┃     ┗ sub.js - ここファイルは出力されないが変更は監視される
   ┣ /lib - ライブラリフォルダ。外部ライブラリ等を置く。public/pc/libに複製される
   ┣ /sass - sassフォルダ。ファイル名が_(アンダースコア)で始まっていないscssはpublic/pc/cssに出力される
   ┣ /sprites - スプライト生成フォルダ。ここに作ったフォルダがsass/sprites/_フォルダ名.scssとして出力される
