@@ -6,7 +6,7 @@
   "devDependencies": {},
   "scripts": {
     "start": "frp build && frp serve -t",
-    "test": "frp build",
+    "test": "frp task test",
     "build": "frp build",
     "serve": "frp serve",
     "production": "frp build -p",
