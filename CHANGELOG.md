@@ -1,3 +1,13 @@
+<a name="4.0.0"></a>
+# [4.0.0](https://github.com/frontainer/frontplate/compare/v3.1.0...v4.0.0) (2016-10-10)
+
+
+### Breaking
+
+* すべてのビルドタスクをfrontplate-cliに置き換え ([dc7e8939f38e5cec8248dc92a130749928660279](https://github.com/frontainer/frontplate/commit/dc7e8939f38e5cec8248dc92a130749928660279))
+
+
+
 <a name="3.1.0"></a>
 # [3.1.0](https://github.com/frontainer/frontplate/compare/3.0.0...v3.1.0) (2016-07-02)
 
