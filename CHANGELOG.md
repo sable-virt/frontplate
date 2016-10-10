@@ -1,16 +1,32 @@
+<a name="4.0.1"></a>
+## [4.0.1](https://github.com/frontainer/frontplate/compare/v4.0.0...v4.0.1) (2016-10-10)
+
+
+### fix
+
+* テストのファイル名をangular2に合わせてspec.jsに ([f3bcb3ebe61f4063306007c8cae1f5b53cb41425](https://github.com/frontainer/frontplate/commit/f3bcb3ebe61f4063306007c8cae1f5b53cb41425))
+
+
+
 <a name="4.0.0"></a>
 # [4.0.0](https://github.com/frontainer/frontplate/compare/v3.1.0...v4.0.0) (2016-10-10)
 
 
 ### Breaking
 
+* lodashを依存パッケージから削除 ([6a833345279dc43ebdefefea25f06c6c75dcd963](https://github.com/frontainer/frontplate/commit/6a833345279dc43ebdefefea25f06c6c75dcd963))
+* npm2サポートを停止 ([11437eb3a7a0c13c49723967f5af734fab01f3d4](https://github.com/frontainer/frontplate/commit/11437eb3a7a0c13c49723967f5af734fab01f3d4))
 * すべてのビルドタスクをfrontplate-cliに置き換え ([dc7e8939f38e5cec8248dc92a130749928660279](https://github.com/frontainer/frontplate/commit/dc7e8939f38e5cec8248dc92a130749928660279))
 
+### Build
 
+* テスト環境を5.6/5.0/4.2に変更 ([5d8d0c1c38ef75282c7dbd68c359fc24d47082db](https://github.com/frontainer/frontplate/commit/5d8d0c1c38ef75282c7dbd68c359fc24d47082db))
 
-<a name="3.1.0"></a>
-# [3.1.0](https://github.com/frontainer/frontplate/compare/3.0.0...v3.1.0) (2016-07-02)
+### Docs
 
+* changelog出力コマンドを修正 ([e74ae7b4f2f91a1bedbe425dcfb9be9e23d121a3](https://github.com/frontainer/frontplate/commit/e74ae7b4f2f91a1bedbe425dcfb9be9e23d121a3))
+* sprite画像のパスが誤っていたのを修正 ([d74f31ef0fc51aad91f86d1a65c5a847bad4d5b0](https://github.com/frontainer/frontplate/commit/d74f31ef0fc51aad91f86d1a65c5a847bad4d5b0))
+* version3とnpmのアップデートについて追記 ([08639c1e9900b13605849e2ec35d8abdd16a1865](https://github.com/frontainer/frontplate/commit/08639c1e9900b13605849e2ec35d8abdd16a1865))
 
 ### feat
 
@@ -21,26 +37,6 @@
 * _つきのscssファイルだとスタイルガイドが生成されない不具合の修正 ([d959ec664ed7c653652e8d1ca28cea908f4ab39e](https://github.com/frontainer/frontplate/commit/d959ec664ed7c653652e8d1ca28cea908f4ab39e))
 * babelの設定をwebpack.config.jsから.babelrcに移動 ([197be976c992c055fc9b4cae400a68ed297f8b8f](https://github.com/frontainer/frontplate/commit/197be976c992c055fc9b4cae400a68ed297f8b8f))
 * sprite.scssが正しく出力されない不具合を修正 ([17ceed9ba74a9ec104c437547099ef23ebe4113c](https://github.com/frontainer/frontplate/commit/17ceed9ba74a9ec104c437547099ef23ebe4113c))
-
-
-
-<a name="3.0.0"></a>
-# [3.0.0](https://github.com/frontainer/frontplate/compare/2.0.2...v3.0.0) (2016-02-18)
-
-
-### Breaking
-
-* lodashを依存パッケージから削除 ([6a833345279dc43ebdefefea25f06c6c75dcd963](https://github.com/frontainer/frontplate/commit/6a833345279dc43ebdefefea25f06c6c75dcd963))
-* npm2サポートを停止 ([11437eb3a7a0c13c49723967f5af734fab01f3d4](https://github.com/frontainer/frontplate/commit/11437eb3a7a0c13c49723967f5af734fab01f3d4))
-
-### Build
-
-* テスト環境を5.6/5.0/4.2に変更 ([5d8d0c1c38ef75282c7dbd68c359fc24d47082db](https://github.com/frontainer/frontplate/commit/5d8d0c1c38ef75282c7dbd68c359fc24d47082db))
-
-### Docs
-
-* sprite画像のパスが誤っていたのを修正 ([d74f31ef0fc51aad91f86d1a65c5a847bad4d5b0](https://github.com/frontainer/frontplate/commit/d74f31ef0fc51aad91f86d1a65c5a847bad4d5b0))
-* version3とnpmのアップデートについて追記 ([08639c1e9900b13605849e2ec35d8abdd16a1865](https://github.com/frontainer/frontplate/commit/08639c1e9900b13605849e2ec35d8abdd16a1865))
 
 ### Fix
 
@@ -76,9 +72,9 @@
 
 ### Breaking
 
-* SCSSのコンパイル対象と監視対象を切り分け ([8b5d9fe2ad5076986760064ebb6f5398a6e6766f](https://github.com/frontainer/frontplate/commit/8b5d9fe2ad5076986760064ebb6f5398a6e6766f))
 * __IS_PRODUCTIONをデフォルトで提供するのを停止 ([6df832b228b44ade10e0f96099ff348e1088c955](https://github.com/frontainer/frontplate/commit/6df832b228b44ade10e0f96099ff348e1088c955))
 * cssnanoからcssoに変更 ([328c866dfa8757d0b4192c5de8c3ffdeb77efd96](https://github.com/frontainer/frontplate/commit/328c866dfa8757d0b4192c5de8c3ffdeb77efd96))
+* SCSSのコンパイル対象と監視対象を切り分け ([8b5d9fe2ad5076986760064ebb6f5398a6e6766f](https://github.com/frontainer/frontplate/commit/8b5d9fe2ad5076986760064ebb6f5398a6e6766f))
 
 ### Build
 
@@ -92,8 +88,8 @@
 ### Fix
 
 * BEM記法だとwarningになってしまっていたので'both'にして両対応 ([80c36de6bee7782222454cfd7286269ff6eb0ba5](https://github.com/frontainer/frontplate/commit/80c36de6bee7782222454cfd7286269ff6eb0ba5))
-* JavaScriptの監視範囲が必要以上に広くなっていたのを修正 ([35b1161560bbe65ae03374da49309d85f73cb5ab](https://github.com/frontainer/frontplate/commit/35b1161560bbe65ae03374da49309d85f73cb5ab))
 * callback待ちのためにctrl+cを2回 実行しないとdefaultタスクが抜けれない不具合の修正 ([2f04f2859884b829552cb1c584d4c837c26857b6](https://github.com/frontainer/frontplate/commit/2f04f2859884b829552cb1c584d4c837c26857b6))
+* JavaScriptの監視範囲が必要以上に広くなっていたのを修正 ([35b1161560bbe65ae03374da49309d85f73cb5ab](https://github.com/frontainer/frontplate/commit/35b1161560bbe65ae03374da49309d85f73cb5ab))
 * noParseオプションではコンパイルできない事象があったので、excludeに修正 ([6e834c09fc552f69563995996936468ee954b1d4](https://github.com/frontainer/frontplate/commit/6e834c09fc552f69563995996936468ee954b1d4))
 * sass-listでのクォートチェックをしないように変更 ([196dfe66354ed3b5878c2f50db737c892b657f50](https://github.com/frontainer/frontplate/commit/196dfe66354ed3b5878c2f50db737c892b657f50))
 * sprite画像が生成されていない不具合の修正 ([45b3a844bfed454d2b54dd1969b4b03b95d5725e](https://github.com/frontainer/frontplate/commit/45b3a844bfed454d2b54dd1969b4b03b95d5725e))
@@ -108,8 +104,8 @@
 
 ### Update
 
-* ESLintのno-var,no-protoを2(error)に設定 ([0fd78d7c03f9d40e53d1edf11b90ee581376eb8b](https://github.com/frontainer/frontplate/commit/0fd78d7c03f9d40e53d1edf11b90ee581376eb8b))
 * config.jsからBrowserSyncのproxyを設定できるよう修正 ([227432b53191fc6801022ba8e9b47929d9cbbfec](https://github.com/frontainer/frontplate/commit/227432b53191fc6801022ba8e9b47929d9cbbfec))
+* ESLintのno-var,no-protoを2(error)に設定 ([0fd78d7c03f9d40e53d1edf11b90ee581376eb8b](https://github.com/frontainer/frontplate/commit/0fd78d7c03f9d40e53d1edf11b90ee581376eb8b))
 * spritesmithの仕様変更に合わせて修正 ([002cb84b440a77671dc16c8c759e57c083d89572](https://github.com/frontainer/frontplate/commit/002cb84b440a77671dc16c8c759e57c083d89572))
 * webpack-streamを使わずWebPack単体で動作するように ([fc28ecbbb1ab38fe2d0b9c0f0a819fc605abce62](https://github.com/frontainer/frontplate/commit/fc28ecbbb1ab38fe2d0b9c0f0a819fc605abce62))
 * webpack.configのexcludeとnoParseの設定を修正 ([ee772c03cc3bc5128703c83c899282fa9de24587](https://github.com/frontainer/frontplate/commit/ee772c03cc3bc5128703c83c899282fa9de24587))
