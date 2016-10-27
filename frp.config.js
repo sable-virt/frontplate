@@ -9,7 +9,7 @@ module.exports = function(production) {
     script: production ? {} : {},
     server: {},
     copy: {},
-    sprite: {},
+    sprite: [],
     test: {}
   }
 };
