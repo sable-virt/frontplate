@@ -1,4 +1,4 @@
-import 'sub/sub';
+import {Sub} from 'sub/sub';
 /**
  * @constructor
  */
@@ -12,3 +12,5 @@ let m = new App('main');
 if (process.env.NODE_ENV === 'development') {
   console.debug('main value:', m.val);
 }
+
+console.log(new Sub('aaaa'));
