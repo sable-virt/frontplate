@@ -10,6 +10,7 @@ body {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
   -webkit-font-smoothing: $font-smoothing;
+  -moz-osx-font-smoothing: grayscale;
   font-smoothing: $font-smoothing;
   text-rendering: $text-rendering;
   font-size: $base-font-size;
