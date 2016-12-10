@@ -1,3 +1,27 @@
+<a name="5.0.0"></a>
+# [5.0.0](https://github.com/frontainer/frontplate/compare/v4.0.2...v5.0.0) (2016-12-10)
+
+
+### add
+
+* .eslintrcをデフォルトで追加して設定しやすく ([045083b5569f8544b70d4abbcd687799e7d5d460](https://github.com/frontainer/frontplate/commit/045083b5569f8544b70d4abbcd687799e7d5d460))
+* htmlにno-jsまたはjsを付与するための簡易スクリプトを追加 ([e1b2836bd33004b4b533fe0c391508a07128c2be](https://github.com/frontainer/frontplate/commit/e1b2836bd33004b4b533fe0c391508a07128c2be))
+
+### fix
+
+* jsの初期サンプルとテストをシンプルな形で修正してもエラーが出ないように ([954f99374a2f80455cbb541d2150ced8f5cd2a7a](https://github.com/frontainer/frontplate/commit/954f99374a2f80455cbb541d2150ced8f5cd2a7a))
+* starハックによるビルドエラーを回避 ([168536544a447138633fb9d1eb1f1790eda7a672](https://github.com/frontainer/frontplate/commit/168536544a447138633fb9d1eb1f1790eda7a672))
+* サンプルのスプライトscssをfrontplate-cli v3系のものに ([28601431fb2c540c099d83f0ed6f538b93ffc6f8](https://github.com/frontainer/frontplate/commit/28601431fb2c540c099d83f0ed6f538b93ffc6f8))
+* 初期のviewファイルの位置と内容をシンプルに ([978dbe936fe72b335c2875fd381d9c29f0db16b4](https://github.com/frontainer/frontplate/commit/978dbe936fe72b335c2875fd381d9c29f0db16b4))
+
+
+
+<a name="4.0.2"></a>
+## [4.0.2](https://github.com/frontainer/frontplate/compare/v4.0.1...v4.0.2) (2016-11-04)
+
+
+
+
 <a name="4.0.1"></a>
 ## [4.0.1](https://github.com/frontainer/frontplate/compare/v4.0.0...v4.0.1) (2016-10-10)
 
