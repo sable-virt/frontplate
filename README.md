@@ -9,7 +9,7 @@
 ## Dependence
 
 * [NodeJS](https://nodejs.org/) 5.0以上
-* [frontplate-cli](https://www.npmjs.com/package/frontplate-cli)
+* [frontplate-cli](https://www.npmjs.com/package/frontplate-cli) 3.0以上
 
 ## Usage
 
