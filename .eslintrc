@@ -7,6 +7,9 @@
   "parserOptions": {
     "sourceType": "module"
   },
+  "plugins": [
+    "filenames"
+  ],
   "rules": {
     "comma-dangle": [1, "never"],
     "no-console": 1,

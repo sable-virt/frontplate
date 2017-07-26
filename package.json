@@ -3,7 +3,9 @@
   "version": "5.0.0",
   "description": "フロントエンド開発の効率をあげるフルスタックテンプレート",
   "dependencies": {},
-  "devDependencies": {},
+  "devDependencies": {
+    "eslint-plugin-filenames": "^1.2.0"
+  },
   "scripts": {
     "start": "frp build && frp serve -t",
     "test": "frp task test",
