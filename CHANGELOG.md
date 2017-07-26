@@ -1,3 +1,14 @@
+<a name="5.0.1"></a>
+## [5.0.1](https://github.com/frontainer/frontplate/compare/v5.0.0...v5.0.1) (2017-07-26)
+
+
+### add
+
+* babel-plugin-transform-runtimeを導入 ([16de698eda3b831ba1d624c26a6561df56aaeeb6](https://github.com/frontainer/frontplate/commit/16de698eda3b831ba1d624c26a6561df56aaeeb6))
+* eslintにeslint-plugin-filenamesプラグインを追加 ([16f142446eb7ca3d6690a841071d4106fa86c134](https://github.com/frontainer/frontplate/commit/16f142446eb7ca3d6690a841071d4106fa86c134))
+
+
+
 <a name="5.0.0"></a>
 # [5.0.0](https://github.com/frontainer/frontplate/compare/v4.0.2...v5.0.0) (2016-12-10)
 
