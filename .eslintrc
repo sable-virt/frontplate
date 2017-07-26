@@ -39,7 +39,9 @@
     "comma-spacing": 0,
     "prefer-const": 0,
     "no-undef": 0,
-    "curly": 0
+    "curly": 0,
+    "filenames/match-regex": [2, "^[a-z\\-]+$"],
+    "filenames/match-exported": [2, "kebab"]
   },
   "ecmaFeatures": {
     "arrowFunctions": true,
