@@ -1,5 +1,5 @@
-<a name="5.0.1"></a>
-## [5.0.1](https://github.com/frontainer/frontplate/compare/v5.0.0...v5.0.1) (2017-07-26)
+<a name="5.0.2"></a>
+## [5.0.2](https://github.com/frontainer/frontplate/compare/v5.0.0...v5.0.2) (2017-08-16)
 
 
 ### add
