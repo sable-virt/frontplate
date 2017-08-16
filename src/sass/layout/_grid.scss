@@ -1,0 +1,38 @@
+.row {
+  box-sizing: border-box;
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+$col: 12;
+@for $i from 1 through $col {
+  $width: (100% / ($col/$i));
+  .col-lg-#{$i} {
+    box-sizing: border-box;
+    flex: 0 0 auto;
+    flex-basis: $width;
+    max-width: $width;
+    // word-wrap: break-word;
+  }
+
+  .col-md-#{$i} {
+    @include max-screen($breakpoint-tablet) {
+      box-sizing: border-box;
+      flex: 0 0 auto;
+      flex-basis: $width;
+      max-width: $width;
+    }
+  }
+
+  .col-sm-#{$i} {
+    @include max-screen($breakpoint-mobile) {
+      box-sizing: border-box;
+      flex: 0 0 auto;
+      flex-basis: $width;
+      max-width: $width;
+    }
+  }
+}
