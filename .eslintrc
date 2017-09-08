@@ -8,7 +8,7 @@
     "sourceType": "module"
   },
   "rules": {
-    "comma-dangle": ["error", "always-multiline"],
+    "comma-dangle": ["warn", "always-multiline"],
     "no-console": 1,
     "eol-last": 0,
     "block-scoped-var": 0,
