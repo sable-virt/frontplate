@@ -30,3 +30,32 @@
   @include sprite-height($sprite, $scale);
   @include sprite-size($sprite, $scale);
 }
+
+@mixin line-clamp($line-height, $font-size, $lines, $color){
+  line-height: $line-height;
+  height: $font-size * $line-height * $lines + px;
+  overflow: hidden;
+  position: relative;
+  word-break: break-all;
+  text-align: justify;
+  &:before,
+  &:after {
+    position: absolute;
+  }
+  &:before {
+    content: '...';
+    background: $color;
+    right: 0;
+    text-align: center;
+    width: 1em;
+    top: $font-size * $line-height * ($lines - 1) + px;
+  }
+  &:after {
+    content: '';
+    height: 100%;
+    width: 100%;
+    background: 0;
+    z-index: 2;
+    background: $color;
+  }
+}
