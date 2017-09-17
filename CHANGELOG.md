@@ -1,3 +1,17 @@
+<a name="5.0.3"></a>
+## [5.0.3](https://github.com/frontainer/frontplate/compare/v5.0.2...v5.0.3) (2017-09-17)
+
+
+### add
+
+* 複数行を3点リーダで省略するmixinを追加 ([cc21be7a168201f07cfa3918cc090dc4d2921cee](https://github.com/frontainer/frontplate/commit/cc21be7a168201f07cfa3918cc090dc4d2921cee))
+
+### fix
+
+* sass-lintの設定を少し厳しくした ([e9fe6eed87035e6ff624fae797c860c8523a4ab0](https://github.com/frontainer/frontplate/commit/e9fe6eed87035e6ff624fae797c860c8523a4ab0))
+
+
+
 <a name="5.0.2"></a>
 ## [5.0.2](https://github.com/frontainer/frontplate/compare/v5.0.0...v5.0.2) (2017-08-16)
 
