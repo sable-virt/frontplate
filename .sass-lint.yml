@@ -32,6 +32,10 @@ rules:
   brace-style:
     - 1
     - allow-single-line: true
+  class-name-format:
+    - 2
+    - allow-leading-underscore: true
+      convention: hyphenatedlowercase
   clean-import-paths:
     - 1
     - filename-extension: false
@@ -69,16 +73,16 @@ rules:
       convention: hyphenatedlowercase
   mixins-before-declarations: 0
   nesting-depth:
-    - 1
-    - max-depth: 3
+    - 2
+    - max-depth: 1
   no-color-literals: 0
   no-css-comments: 0
   no-debug: 1
   no-duplicate-properties: 1
   no-empty-rulesets: 1
   no-extends: 0
-  no-ids: 1
-  no-important: 0
+  no-ids: 2
+  no-important: 2
   no-invalid-hex: 1
   no-mergeable-selectors: 0
   no-misspelled-properties:
