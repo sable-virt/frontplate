@@ -1,32 +1,34 @@
-@mixin sprite-width($sprite,$scale:1) {
-  width: nth($sprite, 5) * $scale;
+@mixin sprite-width($variable,$scale:1) {
+  width: map_get($variable,width) * $scale;
 }
 
-@mixin sprite-height($sprite,$scale:1) {
-  height: nth($sprite, 6) * $scale;
+@mixin sprite-height($variable,$scale:1) {
+  height: map_get($variable,height) * $scale;
 }
 
-@mixin sprite-position($sprite,$scale:1) {
-  $sprite-offset-x: nth($sprite, 3) * $scale;
-  $sprite-offset-y: nth($sprite, 4) * $scale;
-  background-position: $sprite-offset-x $sprite-offset-y;
+@mixin sprite-position($variable,$scale:1) {
+  $sprite-offset-x: map_get($variable,offset_x) * $scale;
+  $sprite-offset-y: map_get($variable,offset_y) * $scale;
+  background-position: $sprite-offset-x  $sprite-offset-y;
 }
 
-@mixin sprite-image($sprite) {
-  $sprite-image: nth($sprite, 9);
-  background-image: url(#{$sprite-image});
+@mixin sprite-image($variable) {
+  $image: map_get($variable,image);
+  background-image: url(#{$image});
   background-repeat: no-repeat;
 }
 
-@mixin sprite-size($sprite,$scale:1) {
-  background-size: nth($sprite, 7)*$scale nth($sprite, 8)*$scale;
+@mixin sprite-size($variable,$scale:1) {
+  $total_width: map_get($variable,total_width) * $scale;
+  $total_height: map_get($variable,total_height) * $scale;
+  background-size: #{$total_width}px #{$total_height}px;
 }
 
-@mixin sprite($sprite,$scale:1) {
+@mixin sprite($variable,$scale:1) {
   display: inline-block;
-  @include sprite-image($sprite);
-  @include sprite-position($sprite, $scale);
-  @include sprite-width($sprite, $scale);
-  @include sprite-height($sprite, $scale);
-  @include sprite-size($sprite, $scale);
+  @include sprite-image($variable,image);
+  @include sprite-position($variable,$scale);
+  @include sprite-width($variable,$scale);
+  @include sprite-height($variable,$scale);
+  @include sprite-size($variable,$scale);
 }
