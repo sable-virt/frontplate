@@ -7,9 +7,9 @@
 }
 
 @mixin sprite-position($variable,$scale:1) {
-  $sprite-offset-x: map_get($variable,offset_x) * $scale;
-  $sprite-offset-y: map_get($variable,offset_y) * $scale;
-  background-position: $sprite-offset-x  $sprite-offset-y;
+  $offset-x: map_get($variable,offset_x) * $scale;
+  $offset-y: map_get($variable,offset_y) * $scale;
+  background-position: #{$offset_x}px #{$offset_y}px;
 }
 
 @mixin sprite-image($variable) {
