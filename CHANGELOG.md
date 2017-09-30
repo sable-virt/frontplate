@@ -1,3 +1,13 @@
+<a name="5.0.4"></a>
+## [5.0.4](https://github.com/frontainer/frontplate/compare/v5.0.3...v5.0.4) (2017-09-30)
+
+
+### update
+
+* autoprefixerの対象ブラウザがIE10 & Android4.4以降になるよう変更 ([12bfb254f38500e30a5b01b6b66d057701b425fe](https://github.com/frontainer/frontplate/commit/12bfb254f38500e30a5b01b6b66d057701b425fe))
+
+
+
 <a name="5.0.3"></a>
 ## [5.0.3](https://github.com/frontainer/frontplate/compare/v5.0.2...v5.0.3) (2017-09-17)
 
@@ -13,7 +23,13 @@
 
 
 <a name="5.0.2"></a>
-## [5.0.2](https://github.com/frontainer/frontplate/compare/v5.0.0...v5.0.2) (2017-08-16)
+## [5.0.2](https://github.com/frontainer/frontplate/compare/v5.0.1...v5.0.2) (2017-08-16)
+
+
+
+
+<a name="5.0.1"></a>
+## [5.0.1](https://github.com/frontainer/frontplate/compare/v5.0.0...v5.0.1) (2017-07-26)
 
 
 ### add
