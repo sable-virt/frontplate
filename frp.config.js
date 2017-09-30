@@ -6,7 +6,7 @@ module.exports = function(production) {
   return {
     clean: {},
     html: {},
-    style: production ? {} : {},
+    style: production ? require('./config/style.config.production') : require('./config/style.config'),
     script: production ? {} : {},
     server: {},
     copy: {},
