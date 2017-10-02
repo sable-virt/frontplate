@@ -36,8 +36,6 @@ The production build will compress the file
 $ frp build -p
 ```
 
-An alias command `$ npm run production` is prepared, you can build it for production
-
 ---
 
 ## Config File
@@ -74,7 +72,7 @@ module.exports = {
   dest: `${FRP_DEST}/assets/css`,
   outputStyle: 'compact',
   sourceMap: true,
-  plugins: [  // postcssプラグイン
+  plugins: [
     require('autoprefixer')({
       browsers: [ // Customized here
         'ie >= 10',
@@ -240,8 +238,8 @@ Execute the `$ frp build` command.
 
 ### Specify the file to be copied
 
-By default, I copy files in `lib` directory and `images` directory.  
-If you add files to the lib folder, you don't need to change the config.
+By default, The files located under lib and images directory will be automatically copied to the destination.  
+So, generally you don't have to modify the config, unless you need to copy the files outside of those directories.
 
 ```js
 module.exports = {
