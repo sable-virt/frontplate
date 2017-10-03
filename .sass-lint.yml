@@ -35,7 +35,7 @@ rules:
   class-name-format:
     - 2
     - allow-leading-underscore: true
-      convention: hyphenatedlowercase
+      convention: hyphenatedbem
   clean-import-paths:
     - 1
     - filename-extension: false
