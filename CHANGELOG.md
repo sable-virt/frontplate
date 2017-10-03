@@ -1,3 +1,13 @@
+<a name="5.0.5"></a>
+## [5.0.5](https://github.com/frontainer/frontplate/compare/v5.0.4...v5.0.5) (2017-10-03)
+
+
+### fix
+
+* BEM記法が許容されないlintの設定だったので修正 ([bc87238eb5ee4cd061085b46becd31bf6be236b7](https://github.com/frontainer/frontplate/commit/bc87238eb5ee4cd061085b46becd31bf6be236b7))
+
+
+
 <a name="5.0.4"></a>
 ## [5.0.4](https://github.com/frontainer/frontplate/compare/v5.0.3...v5.0.4) (2017-09-30)
 
