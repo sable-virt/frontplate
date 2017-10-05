@@ -137,6 +137,7 @@ Create a json file.
 module.exports = {
   name: '堀口 誠人',
   name_en: 'Seito Horiguchi',
+  thumbnailURL: 'https://cdn.liginc.co.jp/wp-content/uploads/2014/10/profile_detail711.jpg',
   job: 'フロントエンドエンジニア',
   profile: `最近フロントエンドエンジニアになりました。 
 第一回HTML5カルタ大会で優勝しました。
@@ -219,7 +220,7 @@ module.exports = function(production) {
         src: `${FRP_SRC}/sprites/ribbon/*.{png,gif,jpg}`,
         destImage: `${FRP_SRC}/images/ribbon.png`,
         destCSS: `${FRP_SRC}/sass/sprites/_ribbon.scss`,
-        imgPath: '../images/icon.png',
+        imgPath: '../images/ribbon.png',
         padding: 2,
         scale: 1.0,
         mixin: true,
