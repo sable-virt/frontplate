@@ -13,6 +13,8 @@
 
 ## Usage
 
+`$ frp create YOUR_PROJECT_NAME -g liginc/frontplate`
+
 詳しくは[wiki](https://github.com/frontainer/frontplate-cli/wiki)を参照ください
 
 https://github.com/frontainer/frontplate-cli/wiki
