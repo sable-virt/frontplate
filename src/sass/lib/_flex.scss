@@ -6,6 +6,9 @@
     content: none;
   }
 }
+.flex-wrap {
+  flex-wrap: wrap;
+}
 .flex-fill {
   width: 100%;
   height: 100%;
@@ -26,7 +29,7 @@
   box-pack: justify;
 }
 .flex-space-around {
-  justify-content: space-between;
+  justify-content: space-around;
   flex-pack: justify;
   box-pack: justify;
 }
