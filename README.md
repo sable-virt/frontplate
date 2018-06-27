@@ -30,7 +30,7 @@ js,cssの末尾に?ver=0.0.0 とリリースのタグのバージョンをつけ
   npm versionが起動されjs,cssの末尾に?ver=0.0.0が付与されます。  
   同時に同じ文字列のgitタグも付与されコミットされます。  
   
-3. バージョンの上げ方は以下のとおりになります。  
+3.バージョンの上げ方は以下のとおりになります。  
 npm run production patch … ?ver=0.0.1  
 npm run production minor … ?ver=0.1.0  
 npm run production major … ?ver=1.0.0  
