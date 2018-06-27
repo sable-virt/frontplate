@@ -1,18 +1,12 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>
-<html class="no-js lt-ie9 lt-ie8 lt-ie7" prefix="og: http://ogp.me/ns#"><![endif]-->
-<!--[if IE 7]>
-<html class="no-js lt-ie9 lt-ie8" prefix="og: http://ogp.me/ns#"><![endif]-->
-<!--[if IE 8]>
-<html class="no-js lt-ie9" prefix="og: http://ogp.me/ns#"><![endif]-->
-<!--[if gt IE 8]><!-->
-<html class="no-js" prefix="og: http://ogp.me/ns#"><!--<![endif]-->
+<html lang="ja" class="no-js">
 <head>
   <meta charset="UTF-8">
   <title>PAGE TITLE</title>
-  <% include view/_header %>
+  <% include view/_head %>
+  <%- patch %>
 </head>
 <body>
-<script src="assets/js/app.js" async></script>
+<script src="assets/js/app.js<%- patch %>" async></script>
 </body>
 </html>

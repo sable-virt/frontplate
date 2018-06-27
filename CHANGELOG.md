@@ -1,3 +1,54 @@
+<a name="5.0.5"></a>
+## [5.0.5](https://github.com/frontainer/frontplate/compare/v5.0.4...v5.0.5) (2017-10-03)
+
+
+### fix
+
+* BEM記法が許容されないlintの設定だったので修正 ([bc87238eb5ee4cd061085b46becd31bf6be236b7](https://github.com/frontainer/frontplate/commit/bc87238eb5ee4cd061085b46becd31bf6be236b7))
+
+
+
+<a name="5.0.4"></a>
+## [5.0.4](https://github.com/frontainer/frontplate/compare/v5.0.3...v5.0.4) (2017-09-30)
+
+
+### update
+
+* autoprefixerの対象ブラウザがIE10 & Android4.4以降になるよう変更 ([12bfb254f38500e30a5b01b6b66d057701b425fe](https://github.com/frontainer/frontplate/commit/12bfb254f38500e30a5b01b6b66d057701b425fe))
+
+
+
+<a name="5.0.3"></a>
+## [5.0.3](https://github.com/frontainer/frontplate/compare/v5.0.2...v5.0.3) (2017-09-17)
+
+
+### add
+
+* 複数行を3点リーダで省略するmixinを追加 ([cc21be7a168201f07cfa3918cc090dc4d2921cee](https://github.com/frontainer/frontplate/commit/cc21be7a168201f07cfa3918cc090dc4d2921cee))
+
+### fix
+
+* sass-lintの設定を少し厳しくした ([e9fe6eed87035e6ff624fae797c860c8523a4ab0](https://github.com/frontainer/frontplate/commit/e9fe6eed87035e6ff624fae797c860c8523a4ab0))
+
+
+
+<a name="5.0.2"></a>
+## [5.0.2](https://github.com/frontainer/frontplate/compare/v5.0.1...v5.0.2) (2017-08-16)
+
+
+
+
+<a name="5.0.1"></a>
+## [5.0.1](https://github.com/frontainer/frontplate/compare/v5.0.0...v5.0.1) (2017-07-26)
+
+
+### add
+
+* babel-plugin-transform-runtimeを導入 ([16de698eda3b831ba1d624c26a6561df56aaeeb6](https://github.com/frontainer/frontplate/commit/16de698eda3b831ba1d624c26a6561df56aaeeb6))
+* eslintにeslint-plugin-filenamesプラグインを追加 ([16f142446eb7ca3d6690a841071d4106fa86c134](https://github.com/frontainer/frontplate/commit/16f142446eb7ca3d6690a841071d4106fa86c134))
+
+
+
 <a name="5.0.0"></a>
 # [5.0.0](https://github.com/frontainer/frontplate/compare/v4.0.2...v5.0.0) (2016-12-10)
 

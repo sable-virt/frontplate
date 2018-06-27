@@ -1,5 +1,5 @@
-import './app';
-describe('app', () => {
+import HogeFoo from './hoge-foo';
+describe('hoge-foo', () => {
   beforeEach(() => {
 
   });

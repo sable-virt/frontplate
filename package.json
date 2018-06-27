@@ -1,15 +1,20 @@
 {
   "name": "Frontplate",
-  "version": "5.0.0",
+  "version": "5.0.5",
   "description": "フロントエンド開発の効率をあげるフルスタックテンプレート",
   "dependencies": {},
-  "devDependencies": {},
+  "devDependencies": {
+    "babel-eslint": "^7.2.3",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-stage-2": "^6.24.1",
+    "eslint-plugin-filenames": "^1.2.0"
+  },
   "scripts": {
     "start": "frp build && frp serve -t",
     "test": "frp task test",
     "build": "frp build",
     "serve": "frp serve",
-    "production": "frp build -p",
+    "production": "frp build -p && npm version ",
     "changelog": "conventional-changelog -p eslint -i CHANGELOG.md -w -s -r 0"
   },
   "repository": {
