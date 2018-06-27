@@ -1,4 +1,5 @@
 'use strict';
+const patch = require('./package.json');
 // https://github.com/frontainer/frontplate-cli/wiki/6.%E8%A8%AD%E5%AE%9A
 // https://github.com/frontainer/frontplate-cli/tree/master/config
 module.exports = function(production) {
@@ -6,7 +7,11 @@ module.exports = function(production) {
   global.FRP_DEST = 'public';
   return {
     clean: {},
-    html: {},
+    html: {
+      params: {
+        patch : '?ver=' + patch.version
+      }
+    },
     style: production ? require('./config/style.config.production') : require('./config/style.config'),
     script: production ? {} : {},
     server: {},

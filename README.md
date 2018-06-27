@@ -18,3 +18,15 @@
 詳しくは[wiki](https://github.com/frontainer/frontplate-cli/wiki)を参照ください
 
 https://github.com/frontainer/frontplate-cli/wiki
+
+## リリースについて
+
+js,cssの末尾に?ver=0.0.0 とリリースのタグのバージョンをつける仕様になってます。
+リリースの際に以下の手順でリリース対応お願いします。
+
+1.package.jsonのバージョンを "version": "0.0.0"に変えてください。
+
+2.npm run production で css,jsの末尾に?ver=0.0.0が付与されます。
+
+3.今後のリリースには
+

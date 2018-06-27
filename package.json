@@ -1,6 +1,6 @@
 {
   "name": "Frontplate",
-  "version": "5.0.5",
+  "version": "0.0.0",
   "description": "フロントエンド開発の効率をあげるフルスタックテンプレート",
   "dependencies": {},
   "devDependencies": {
@@ -14,7 +14,7 @@
     "test": "frp task test",
     "build": "frp build",
     "serve": "frp serve",
-    "production": "frp build -p",
+    "production": "frp build -p && npm version ",
     "changelog": "conventional-changelog -p eslint -i CHANGELOG.md -w -s -r 0"
   },
   "repository": {

@@ -5,7 +5,7 @@ module.exports = {
   outputStyle: 'compact',
   sourceMap: true,
   plugins: [  // postcssプラグイン
-    require('autoprefixer')({   // autoprefixer(https://github.com/postcss/autoprefixer)
+    require('autoprefixer')({   //autoprefixer(https://github.com/postcss/autoprefixer)
       browsers: [
         'ie >= 10',
         'Android >= 4.4'

@@ -4,8 +4,9 @@
   <meta charset="UTF-8">
   <title>PAGE TITLE</title>
   <% include view/_head %>
+  <%- patch %>
 </head>
 <body>
-<script src="assets/js/app.js" async></script>
+<script src="assets/js/app.js<%- patch %>" async></script>
 </body>
 </html>
