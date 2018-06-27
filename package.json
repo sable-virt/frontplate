@@ -1,6 +1,6 @@
 {
   "name": "Frontplate",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "description": "フロントエンド開発の効率をあげるフルスタックテンプレート",
   "dependencies": {},
   "devDependencies": {
